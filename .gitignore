@@ -1,0 +1,16 @@
+**/*__debug_bin
+.vscode/**/*
+!.vscode/extensions.json
+**/Client.exe
+**/Client
+.idea/**/*
+.vs/**/*
+/hodos.exe
+/Hodos
+**/*.pprof
+*.swp
+.*.swp
+tags
+heap.out
+heap.pdf
+.DS_Store
