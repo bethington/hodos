@@ -1,5 +1,5 @@
-// Package lexer contains the code for tokenizing calculation strings.
-package lexer
+// Package tokenizer contains the code for tokenizing calculation strings.
+package tokenizer
 
 import (
 	"errors"

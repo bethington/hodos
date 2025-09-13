@@ -6,7 +6,7 @@ import (
 	"strings"
 
 	"nostos/common/calculation"
-	"nostos/common/calculation/lexer"
+	lexer "nostos/common/calculation/tokenizer"
 )
 
 // Parser is a parser for calculations used for skill and missiles.
