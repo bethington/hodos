@@ -1,7 +1,7 @@
 package d2asset
 
 import (
-	"nostos/common/d2cache"
+	"nostos/common/cache"
 	"nostos/common/d2fileformats/d2tbl"
 	"nostos/common/d2loader"
 	"nostos/common/d2util"
@@ -28,14 +28,14 @@ func NewAssetManager(logLevel d2util.LogLevel) (*AssetManager, error) {
 		Logger:     logger,
 		Loader:     loader,
 		tables:     make([]d2tbl.TextDictionary, 0),
-		animations: d2cache.CreateCache(animationBudget),
-		fonts:      d2cache.CreateCache(fontBudget),
-		palettes:   d2cache.CreateCache(paletteBudget),
-		transforms: d2cache.CreateCache(paletteTransformBudget),
-		dt1s:       d2cache.CreateCache(dt1Budget),
-		ds1s:       d2cache.CreateCache(ds1Budget),
-		cofs:       d2cache.CreateCache(cofBudget),
-		dccs:       d2cache.CreateCache(dccBudget),
+		animations: cache.CreateCache(animationBudget),
+		fonts:      cache.CreateCache(fontBudget),
+		palettes:   cache.CreateCache(paletteBudget),
+		transforms: cache.CreateCache(paletteTransformBudget),
+		dt1s:       cache.CreateCache(dt1Budget),
+		ds1s:       cache.CreateCache(ds1Budget),
+		cofs:       cache.CreateCache(cofBudget),
+		dccs:       cache.CreateCache(dccBudget),
 		Records:    records,
 	}
 

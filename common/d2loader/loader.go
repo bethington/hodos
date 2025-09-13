@@ -10,7 +10,7 @@ import (
 
 	"nostos/common/d2loader/filesystem"
 
-	"nostos/common/d2cache"
+	"nostos/common/cache"
 	"nostos/common/d2interface"
 	"nostos/common/d2loader/asset"
 	"nostos/common/d2loader/asset/types"
@@ -41,7 +41,7 @@ func NewLoader(l d2util.LogLevel) (*Loader, error) {
 	loader.LoaderProviders[types.AssetSourceMPQ] = mpq.NewSource
 	loader.LoaderProviders[types.AssetSourceFileSystem] = filesystem.OnAddSource
 
-	loader.Cache = d2cache.CreateCache(defaultCacheBudget)
+	loader.Cache = cache.CreateCache(defaultCacheBudget)
 	loader.Logger = d2util.NewLogger()
 
 	loader.Logger.SetPrefix(logPrefix)
