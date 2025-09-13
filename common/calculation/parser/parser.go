@@ -6,12 +6,12 @@ import (
 	"strings"
 
 	"nostos/common/calculation"
-	lexer "nostos/common/calculation/tokenizer"
+	"nostos/common/calculation/tokenizer"
 )
 
 // Parser is a parser for calculations used for skill and missiles.
 type Parser struct {
-	lex *lexer.Lexer
+	lex *tokenizer.Tokenizer
 
 	binaryOperations  map[string]binaryOperation
 	unaryOperations   map[string]unaryOperation
@@ -51,16 +51,16 @@ func (parser *Parser) Parse(calc string) calculation.Calculation {
 		}
 	}()
 
-	parser.lex = lexer.New([]byte(calc))
+	parser.lex = tokenizer.New([]byte(calc))
 
 	return parser.parseLevel(0)
 }
 
-func (parser *Parser) peek() lexer.Token {
+func (parser *Parser) peek() tokenizer.Token {
 	return parser.lex.Peek()
 }
 
-func (parser *Parser) consume() lexer.Token {
+func (parser *Parser) consume() tokenizer.Token {
 	return parser.lex.NextToken()
 }
 
@@ -68,12 +68,12 @@ func (parser *Parser) parseLevel(level int) calculation.Calculation {
 	node := parser.parseProduction()
 
 	t := parser.peek()
-	if t.Type == lexer.EOF {
+	if t.Type == tokenizer.EOF {
 		return node
 	}
 
 	for {
-		if t.Type != lexer.Symbol {
+		if t.Type != tokenizer.Symbol {
 			break
 		}
 
@@ -102,7 +102,7 @@ func (parser *Parser) parseLevel(level int) calculation.Calculation {
 	}
 
 	for {
-		if t.Type != lexer.Symbol {
+		if t.Type != tokenizer.Symbol {
 			break
 		}
 
@@ -124,7 +124,7 @@ func (parser *Parser) parseLevel(level int) calculation.Calculation {
 		middleCalculation := parser.parseLevel(nextLevel)
 
 		t = parser.peek()
-		if t.Type != lexer.Symbol || t.Value != op.Marker {
+		if t.Type != tokenizer.Symbol || t.Value != op.Marker {
 			panic("Invalid ternary! " + t.Value + ", expected: " + op.Marker)
 		}
 
@@ -147,15 +147,15 @@ func (parser *Parser) parseProduction() calculation.Calculation {
 	t := parser.peek()
 
 	switch {
-	case t.Type == lexer.Symbol:
+	case t.Type == tokenizer.Symbol:
 		if t.Value == "(" {
 			parser.consume()
 			node := parser.parseLevel(0)
 
 			t = parser.peek()
-			if t.Type != lexer.Symbol ||
+			if t.Type != tokenizer.Symbol ||
 				t.Value != ")" {
-				if t.Type == lexer.EOF { // Ignore unclosed final parenthesis due to syntax error in original Fire Wall calculation.
+				if t.Type == tokenizer.EOF { // Ignore unclosed final parenthesis due to syntax error in original Fire Wall calculation.
 					return node
 				}
 
@@ -180,7 +180,7 @@ func (parser *Parser) parseProduction() calculation.Calculation {
 			Op:    op.Function,
 		}
 
-	case t.Type == lexer.Name || t.Type == lexer.Number:
+	case t.Type == tokenizer.Name || t.Type == tokenizer.Number:
 		return parser.parseLeafCalculation()
 	default:
 		panic("Expected parenthesis, unary operator, function or value!")
@@ -190,7 +190,7 @@ func (parser *Parser) parseProduction() calculation.Calculation {
 func (parser *Parser) parseLeafCalculation() calculation.Calculation {
 	t := parser.peek()
 
-	if t.Type == lexer.Number {
+	if t.Type == tokenizer.Number {
 		val, err := strconv.Atoi(t.Value)
 		if err != nil {
 			panic("Invalid number: " + t.Value)
@@ -211,7 +211,7 @@ func (parser *Parser) parseLeafCalculation() calculation.Calculation {
 		return parser.parseFunction(t.Value)
 	}
 
-	if t.Type == lexer.Name {
+	if t.Type == tokenizer.Name {
 		parser.consume()
 
 		return &calculation.PropertyReferenceCalculation{
@@ -238,7 +238,7 @@ func (parser *Parser) parseFunction(name string) calculation.Calculation {
 	firstParam := parser.parseLevel(0)
 
 	t = parser.peek()
-	if t.Type != lexer.Symbol || t.Value != "," {
+	if t.Type != tokenizer.Symbol || t.Value != "," {
 		panic("Invalid function!")
 	}
 
@@ -273,7 +273,7 @@ func (parser *Parser) parseProperty() calculation.Calculation {
 	parser.consume()
 
 	t = parser.peek()
-	if t.Type != lexer.String {
+	if t.Type != tokenizer.String {
 		panic("Property name must be in quotes: " + propType)
 	}
 
@@ -282,14 +282,14 @@ func (parser *Parser) parseProperty() calculation.Calculation {
 	parser.consume()
 
 	t = parser.peek()
-	if t.Type != lexer.Symbol || t.Value != "." {
+	if t.Type != tokenizer.Symbol || t.Value != "." {
 		panic("Property name must be followed by dot: " + propType)
 	}
 
 	parser.consume()
 
 	t = parser.peek()
-	if t.Type != lexer.Name {
+	if t.Type != tokenizer.Name {
 		panic("Invalid propery qualifier: " + propType)
 	}
 

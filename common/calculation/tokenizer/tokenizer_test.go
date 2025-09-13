@@ -5,7 +5,7 @@ import (
 )
 
 func TestName(t *testing.T) {
-	lexer := New([]byte("correct horse battery staple andromeda13142 n1n2n4"))
+	tokenizer := New([]byte("correct horse battery staple andromeda13142 n1n2n4"))
 
 	expected := []Token{
 		{Name, "correct"},
@@ -17,20 +17,20 @@ func TestName(t *testing.T) {
 	}
 
 	for _, want := range expected {
-		got := lexer.NextToken()
+		got := tokenizer.NextToken()
 		if got.Type != Name || got.Value != want.Value {
 			t.Errorf("Got: %v, want %v", got, want)
 		}
 	}
 
-	eof := lexer.NextToken()
+	eof := tokenizer.NextToken()
 	if eof.Type != EOF {
 		t.Errorf("Did not reach EOF")
 	}
 }
 
 func TestNumber(t *testing.T) {
-	lexer := New([]byte("12 2325 53252 312 3411"))
+	tokenizer := New([]byte("12 2325 53252 312 3411"))
 
 	expected := []Token{
 		{Number, "12"},
@@ -41,20 +41,20 @@ func TestNumber(t *testing.T) {
 	}
 
 	for _, want := range expected {
-		got := lexer.NextToken()
+		got := tokenizer.NextToken()
 		if got.Type != Number || got.Value != want.Value {
 			t.Errorf("Got: %v, want %v", got, want)
 		}
 	}
 
-	eof := lexer.NextToken()
+	eof := tokenizer.NextToken()
 	if eof.Type != EOF {
 		t.Errorf("Did not reach EOF")
 	}
 }
 
 func TestSymbol(t *testing.T) {
-	lexer := New([]byte("((+-==>>>=!=<=<=<*//*)?(::.,.:?"))
+	tokenizer := New([]byte("((+-==>>>=!=<=<=<*//*)?(::.,.:?"))
 
 	expected := []Token{
 		{Symbol, "("},
@@ -86,20 +86,20 @@ func TestSymbol(t *testing.T) {
 	}
 
 	for _, want := range expected {
-		got := lexer.NextToken()
+		got := tokenizer.NextToken()
 		if got.Type != Symbol || got.Value != want.Value {
 			t.Errorf("Got: %v, want %v", got, want)
 		}
 	}
 
-	eof := lexer.NextToken()
+	eof := tokenizer.NextToken()
 	if eof.Type != EOF {
 		t.Errorf("Did not reach EOF")
 	}
 }
 
 func TestString(t *testing.T) {
-	lexer := New([]byte(`correct 'horse' 'battery staple' 'andromeda13142 ' n1n2n4`))
+	tokenizer := New([]byte(`correct 'horse' 'battery staple' 'andromeda13142 ' n1n2n4`))
 
 	expected := []Token{
 		{Name, "correct"},
@@ -110,20 +110,20 @@ func TestString(t *testing.T) {
 	}
 
 	for _, want := range expected {
-		got := lexer.NextToken()
+		got := tokenizer.NextToken()
 		if got.Type != want.Type || got.Value != want.Value {
 			t.Errorf("Got: %v, want %v", got, want)
 		}
 	}
 
-	eof := lexer.NextToken()
+	eof := tokenizer.NextToken()
 	if eof.Type != EOF {
 		t.Errorf("Did not reach EOF")
 	}
 }
 
 func TestActualConstructions(t *testing.T) {
-	lexer := New([]byte("skill('Sacrifice'.blvl) > 3 ? min(50, lvl) : skill('Sacrifice'.lvl) * ln12"))
+	tokenizer := New([]byte("skill('Sacrifice'.blvl) > 3 ? min(50, lvl) : skill('Sacrifice'.lvl) * ln12"))
 
 	expected := []Token{
 		{Name, "skill"},
@@ -153,13 +153,13 @@ func TestActualConstructions(t *testing.T) {
 	}
 
 	for _, want := range expected {
-		got := lexer.NextToken()
+		got := tokenizer.NextToken()
 		if got.Type != want.Type || got.Value != want.Value {
 			t.Errorf("Got: %v, want %v", got, want)
 		}
 	}
 
-	eof := lexer.NextToken()
+	eof := tokenizer.NextToken()
 	if eof.Type != EOF {
 		t.Errorf("Did not reach EOF")
 	}

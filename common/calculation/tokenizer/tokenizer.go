@@ -47,8 +47,8 @@ func (t *Token) String() string {
 	return "(" + t.Type.String() + ", " + t.Value + ")\n"
 }
 
-// Lexer is the tokenizer for calculation strings.
-type Lexer struct {
+// Tokenizer is the tokenizer for calculation strings.
+type Tokenizer struct {
 	data         []byte
 	CurrentToken Token
 	index        int
@@ -56,14 +56,14 @@ type Lexer struct {
 	nextToken    Token
 }
 
-// New creates a new Lexer for tokenizing the given data.
-func New(input []byte) *Lexer {
-	return &Lexer{
+// New creates a new Tokenizer for tokenizing the given data.
+func New(input []byte) *Tokenizer {
+	return &Tokenizer{
 		data: input,
 	}
 }
 
-func (l *Lexer) peekNext() (byte, error) {
+func (l *Tokenizer) peekNext() (byte, error) {
 	if l.index+1 >= len(l.data) {
 		return 0, errors.New("cannot peek")
 	}
@@ -71,7 +71,7 @@ func (l *Lexer) peekNext() (byte, error) {
 	return l.data[l.index+1], nil
 }
 
-func (l *Lexer) extractOpToken() Token {
+func (l *Tokenizer) extractOpToken() Token {
 	c := l.data[l.index]
 	if c == '=' || c == '!' {
 		next, ok := l.peekNext()
@@ -98,7 +98,7 @@ func (l *Lexer) extractOpToken() Token {
 	return Token{Symbol, string(c)}
 }
 
-func (l *Lexer) extractNumber() Token {
+func (l *Tokenizer) extractNumber() Token {
 	var sb strings.Builder
 
 	for l.index < len(l.data) && unicode.IsDigit(rune(l.data[l.index])) {
@@ -109,7 +109,7 @@ func (l *Lexer) extractNumber() Token {
 	return Token{Number, sb.String()}
 }
 
-func (l *Lexer) extractString() Token {
+func (l *Tokenizer) extractString() Token {
 	var sb strings.Builder
 	l.index++
 
@@ -122,7 +122,7 @@ func (l *Lexer) extractString() Token {
 	return Token{String, sb.String()}
 }
 
-func (l *Lexer) extractName() Token {
+func (l *Tokenizer) extractName() Token {
 	var sb strings.Builder
 
 	for l.index < len(l.data) &&
@@ -137,7 +137,7 @@ func (l *Lexer) extractName() Token {
 
 // Peek returns the next token, but does not advance the tokenizer.
 // The peeked token is cached until the tokenizer advances.
-func (l *Lexer) Peek() Token {
+func (l *Tokenizer) Peek() Token {
 	if l.peeked {
 		return l.nextToken
 	}
@@ -175,7 +175,7 @@ func (l *Lexer) Peek() Token {
 }
 
 // NextToken returns the next token and advances the tokenizer.
-func (l *Lexer) NextToken() Token {
+func (l *Tokenizer) NextToken() Token {
 	if l.peeked {
 		l.CurrentToken = l.nextToken
 	} else {
