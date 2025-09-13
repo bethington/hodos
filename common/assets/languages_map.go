@@ -1,4 +1,4 @@
-package d2resource
+package assets
 
 func getLanguages() map[byte]string {
 	return map[byte]string{

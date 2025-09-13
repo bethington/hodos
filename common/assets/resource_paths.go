@@ -1,4 +1,4 @@
-package d2resource
+package assets
 
 // Paths of the resources inside the mpq files.
 const (

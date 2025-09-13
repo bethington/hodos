@@ -4,10 +4,10 @@ import (
 	"fmt"
 	"sort"
 
+	d2resource "nostos/common/assets"
+	"nostos/common/d2util"
 	d2geom "nostos/common/geom"
 	d2interface "nostos/common/interfaces"
-	"nostos/common/d2resource"
-	"nostos/common/d2util"
 	d2asset "nostos/core/asset"
 	"nostos/core/d2hero"
 	"nostos/core/d2map/d2mapentity"

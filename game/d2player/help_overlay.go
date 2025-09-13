@@ -5,7 +5,7 @@ import (
 	"image/color"
 
 	"nostos/common/enum"
-	"nostos/common/d2resource"
+	d2resource "nostos/common/assets"
 
 	d2interface "nostos/common/interfaces"
 	"nostos/common/d2util"

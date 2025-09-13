@@ -1,4 +1,4 @@
-package d2resource
+package assets
 
 import (
 	"nostos/common/enum"

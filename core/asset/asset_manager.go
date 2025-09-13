@@ -10,7 +10,7 @@ import (
 	d2interface "nostos/common/interfaces"
 	d2loader "nostos/common/loader"
 	"nostos/common/loader/asset/types"
-	"nostos/common/d2resource"
+	d2resource "nostos/common/assets"
 	"nostos/common/d2util"
 	"nostos/common/enum"
 	d2cof "nostos/common/fileformats/cof"

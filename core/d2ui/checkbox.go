@@ -3,7 +3,7 @@ package d2ui
 import (
 	"nostos/common/enum"
 	d2interface "nostos/common/interfaces"
-	"nostos/common/d2resource"
+	d2resource "nostos/common/assets"
 )
 
 // static check that Checkbox implements ClickableWidget

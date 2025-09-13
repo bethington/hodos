@@ -1,7 +1,7 @@
 package d2gui
 
 import (
-	"nostos/common/d2resource"
+	d2resource "nostos/common/assets"
 )
 
 // FontStyle is a representation of a font with a palette
