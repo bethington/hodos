@@ -4,7 +4,7 @@ import (
 	"os"
 	"testing"
 
-	"nostos/common/d2math/d2vector"
+	d2vector "nostos/common/math/vector"
 )
 
 const (

@@ -6,11 +6,11 @@ import (
 	"strings"
 	"time"
 
-	d2geom "nostos/common/geom"
 	"nostos/common/d2util"
+	d2geom "nostos/common/geom"
 
 	"nostos/common/enum"
-	"nostos/common/d2math/d2vector"
+	d2vector "nostos/common/math/vector"
 	"nostos/core/d2hero"
 
 	d2interface "nostos/common/interfaces"

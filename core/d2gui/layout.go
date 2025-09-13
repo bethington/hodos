@@ -4,10 +4,10 @@ import (
 	"errors"
 	"image/color"
 
-	d2interface "nostos/common/interfaces"
-	"nostos/common/d2math"
 	"nostos/common/d2util"
 	d2font "nostos/common/fileformats/font"
+	d2interface "nostos/common/interfaces"
+	d2math "nostos/common/math"
 	d2asset "nostos/core/asset"
 )
 

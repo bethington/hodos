@@ -1,6 +1,6 @@
 package d2path
 
-import "nostos/common/d2math/d2vector"
+import d2vector "nostos/common/math/vector"
 
 // Path represents a path
 type Path struct {

@@ -10,8 +10,8 @@ import (
 
 	"github.com/JoshVarga/blast"
 
-	"nostos/common/d2math"
 	"nostos/common/data/compression"
+	d2math "nostos/common/math"
 )
 
 // Stream represents a stream of data in an MPQ archive

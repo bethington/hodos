@@ -5,10 +5,10 @@ import (
 	"image/color"
 	"strings"
 
-	d2interface "nostos/common/interfaces"
-	"nostos/common/d2math"
 	"nostos/common/datautils"
 	"nostos/common/fileformats/font/fontglyph"
+	d2interface "nostos/common/interfaces"
+	d2math "nostos/common/math"
 )
 
 const (

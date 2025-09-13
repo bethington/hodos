@@ -1,6 +1,6 @@
 package d2maprenderer
 
-import "nostos/common/d2math/d2vector"
+import d2vector "nostos/common/math/vector"
 
 // Camera is the position of the Camera perspective in orthogonal world space. See viewport.go.
 type Camera struct {

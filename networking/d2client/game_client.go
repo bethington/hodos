@@ -10,11 +10,11 @@ import (
 
 	d2asset "nostos/core/asset"
 
-	"nostos/common/d2math"
+	d2math "nostos/common/math"
 
-	"nostos/common/enum"
-	"nostos/common/d2math/d2vector"
 	"nostos/common/d2util"
+	"nostos/common/enum"
+	d2vector "nostos/common/math/vector"
 	"nostos/core/d2map/d2mapengine"
 	"nostos/core/d2map/d2mapentity"
 	"nostos/core/d2records"

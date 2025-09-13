@@ -6,7 +6,7 @@ import (
 	"nostos/common/datautils"
 	d2geom "nostos/common/geom"
 
-	"nostos/common/d2math"
+	d2math "nostos/common/math"
 )
 
 const (

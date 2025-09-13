@@ -1,6 +1,6 @@
 package interfaces
 
-import "nostos/common/d2math/d2vector"
+import d2vector "nostos/common/math/vector"
 
 // MapEntity is something that can be positioned on and rendered on the game map
 type MapEntity interface {

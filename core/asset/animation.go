@@ -7,10 +7,10 @@ import (
 	"log"
 	"math"
 
-	d2interface "nostos/common/interfaces"
-	"nostos/common/d2math"
 	"nostos/common/enum"
 	d2dcc "nostos/common/fileformats/dcc"
+	d2interface "nostos/common/interfaces"
+	d2math "nostos/common/math"
 )
 
 type playMode int

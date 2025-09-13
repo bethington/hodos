@@ -3,11 +3,11 @@ package ds1
 import (
 	"fmt"
 
+	"nostos/common/d2path"
 	"nostos/common/datautils"
 	"nostos/common/enum"
-	"nostos/common/d2math"
-	"nostos/common/d2math/d2vector"
-	"nostos/common/d2path"
+	d2math "nostos/common/math"
+	d2vector "nostos/common/math/vector"
 )
 
 const (

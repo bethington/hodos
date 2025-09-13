@@ -2,7 +2,7 @@ package d2gui
 
 import (
 	d2interface "nostos/common/interfaces"
-	"nostos/common/d2math"
+	d2math "nostos/common/math"
 )
 
 func renderSegmented(animation d2interface.Animation, segmentsX, segmentsY, frameOffset int,

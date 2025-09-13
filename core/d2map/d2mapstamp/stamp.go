@@ -1,14 +1,14 @@
 package d2mapstamp
 
 import (
-	d2geom "nostos/common/geom"
-	d2interface "nostos/common/interfaces"
-	"nostos/common/d2math/d2vector"
 	"nostos/common/d2path"
 	"nostos/common/d2resource"
 	"nostos/common/enum"
 	d2ds1 "nostos/common/fileformats/ds1"
 	d2dt1 "nostos/common/fileformats/dt1"
+	d2geom "nostos/common/geom"
+	d2interface "nostos/common/interfaces"
+	d2vector "nostos/common/math/vector"
 	"nostos/core/d2map/d2mapentity"
 	"nostos/core/d2records"
 )

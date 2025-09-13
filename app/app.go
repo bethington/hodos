@@ -25,9 +25,9 @@ import (
 	"github.com/pkg/profile"
 	"golang.org/x/image/colornames"
 
-	d2interface "nostos/common/interfaces"
-	"nostos/common/d2math"
 	"nostos/common/d2util"
+	d2interface "nostos/common/interfaces"
+	d2math "nostos/common/math"
 	d2asset "nostos/core/asset"
 	ebiten2 "nostos/core/d2audio/ebiten"
 	"nostos/core/d2config"

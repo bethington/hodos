@@ -3,7 +3,7 @@ package d2mapentity
 import (
 	"github.com/google/uuid"
 
-	"nostos/common/d2math/d2vector"
+	d2vector "nostos/common/math/vector"
 )
 
 const (

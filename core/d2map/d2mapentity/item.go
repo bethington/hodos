@@ -2,7 +2,7 @@ package d2mapentity
 
 import (
 	d2interface "nostos/common/interfaces"
-	"nostos/common/d2math/d2vector"
+	d2vector "nostos/common/math/vector"
 	"nostos/core/d2item/diablo2item"
 )
 

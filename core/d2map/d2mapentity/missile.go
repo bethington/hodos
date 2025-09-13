@@ -3,7 +3,7 @@ package d2mapentity
 import (
 	"math"
 
-	"nostos/common/d2math/d2vector"
+	d2vector "nostos/common/math/vector"
 	"nostos/core/d2records"
 )
 

@@ -5,10 +5,10 @@ import (
 
 	"nostos/core/d2records"
 
+	"nostos/common/d2path"
 	"nostos/common/enum"
 	d2interface "nostos/common/interfaces"
-	"nostos/common/d2math/d2vector"
-	"nostos/common/d2path"
+	d2vector "nostos/common/math/vector"
 	d2asset "nostos/core/asset"
 )
 

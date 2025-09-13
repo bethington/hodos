@@ -8,10 +8,10 @@ import (
 	"math"
 	"strings"
 
+	"nostos/common/d2util"
 	"nostos/common/enum"
 	d2interface "nostos/common/interfaces"
-	"nostos/common/d2math"
-	"nostos/common/d2util"
+	d2math "nostos/common/math"
 )
 
 const (

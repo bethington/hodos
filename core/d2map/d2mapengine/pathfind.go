@@ -3,7 +3,7 @@ package d2mapengine
 import (
 	"math"
 
-	"nostos/common/d2math/d2vector"
+	d2vector "nostos/common/math/vector"
 )
 
 // PathFind finds a path between given start and dest positions and returns the positions of the path
