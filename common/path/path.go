@@ -1,4 +1,4 @@
-package d2path
+package path
 
 import d2vector "nostos/common/math/vector"
 

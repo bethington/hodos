@@ -1,7 +1,7 @@
 package d2mapstamp
 
 import (
-	"nostos/common/d2path"
+	d2path "nostos/common/path"
 	"nostos/common/d2resource"
 	"nostos/common/enum"
 	d2ds1 "nostos/common/fileformats/ds1"

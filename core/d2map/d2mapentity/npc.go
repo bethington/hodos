@@ -5,7 +5,7 @@ import (
 
 	"nostos/core/d2records"
 
-	"nostos/common/d2path"
+	d2path "nostos/common/path"
 	"nostos/common/enum"
 	d2interface "nostos/common/interfaces"
 	d2vector "nostos/common/math/vector"

@@ -4,7 +4,7 @@ import (
 	"testing"
 
 	"nostos/common/enum"
-	"nostos/common/d2path"
+	d2path "nostos/common/path"
 )
 
 func exampleData() *DS1 { //nolint:funlen // not a big deal if this is long func

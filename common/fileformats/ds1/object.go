@@ -1,7 +1,7 @@
 package ds1
 
 import (
-	"nostos/common/d2path"
+	d2path "nostos/common/path"
 )
 
 // Object is a game world object

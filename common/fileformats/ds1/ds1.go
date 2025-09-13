@@ -3,7 +3,7 @@ package ds1
 import (
 	"fmt"
 
-	"nostos/common/d2path"
+	d2path "nostos/common/path"
 	"nostos/common/datautils"
 	"nostos/common/enum"
 	d2math "nostos/common/math"
