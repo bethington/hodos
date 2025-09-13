@@ -3,7 +3,7 @@ package d2cof
 import (
 	"strings"
 
-	"nostos/common/d2datautils"
+	"nostos/common/datautils"
 	"nostos/common/d2enum"
 )
 
@@ -83,7 +83,7 @@ type COF struct {
 func (c *COF) Unmarshal(fileData []byte) error {
 	var err error
 
-	streamReader := d2datautils.CreateStreamReader(fileData)
+	streamReader := datautils.CreateStreamReader(fileData)
 
 	headerBytes, err := streamReader.ReadBytes(numHeaderBytes)
 	if err != nil {
@@ -133,7 +133,7 @@ func (c *COF) loadHeader(b []byte) {
 	c.Speed = int(b[headerSpeed])
 }
 
-func (c *COF) loadCOFLayers(streamReader *d2datautils.StreamReader) error {
+func (c *COF) loadCOFLayers(streamReader *datautils.StreamReader) error {
 	for i := 0; i < c.NumberOfLayers; i++ {
 		layer := CofLayer{}
 
@@ -183,7 +183,7 @@ func (c *COF) loadPriority(priorityBytes []byte) {
 
 // Marshal this COF to a byte slice
 func (c *COF) Marshal() []byte {
-	sw := d2datautils.CreateStreamWriter()
+	sw := datautils.CreateStreamWriter()
 
 	sw.PushBytes(byte(c.NumberOfLayers))
 	sw.PushBytes(byte(c.FramesPerDirection))

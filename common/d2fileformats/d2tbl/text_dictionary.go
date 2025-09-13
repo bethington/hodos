@@ -4,13 +4,13 @@ import (
 	"fmt"
 	"strconv"
 
-	"nostos/common/d2datautils"
+	"nostos/common/datautils"
 )
 
 // TextDictionary is a string map
 type TextDictionary map[string]string
 
-func (td TextDictionary) loadHashEntries(hashEntries []*textDictionaryHashEntry, br *d2datautils.StreamReader) error {
+func (td TextDictionary) loadHashEntries(hashEntries []*textDictionaryHashEntry, br *datautils.StreamReader) error {
 	for i := 0; i < len(hashEntries); i++ {
 		entry := textDictionaryHashEntry{}
 
@@ -62,7 +62,7 @@ func (td TextDictionary) loadHashEntries(hashEntries []*textDictionaryHashEntry,
 	return nil
 }
 
-func (td TextDictionary) loadHashEntry(idx int, hashEntry *textDictionaryHashEntry, br *d2datautils.StreamReader) error {
+func (td TextDictionary) loadHashEntry(idx int, hashEntry *textDictionaryHashEntry, br *datautils.StreamReader) error {
 	br.SetPosition(uint64(hashEntry.NameString))
 
 	nameVal, err := br.ReadBytes(int(hashEntry.NameLength - 1))
@@ -118,7 +118,7 @@ const (
 func LoadTextDictionary(dictionaryData []byte) (TextDictionary, error) {
 	lookupTable := make(TextDictionary)
 
-	br := d2datautils.CreateStreamReader(dictionaryData)
+	br := datautils.CreateStreamReader(dictionaryData)
 
 	// skip past the CRC
 	_, _ = br.ReadBytes(crcByteCount)
@@ -177,7 +177,7 @@ func LoadTextDictionary(dictionaryData []byte) (TextDictionary, error) {
 
 // Marshal encodes text dictionary back into byte slice
 func (td *TextDictionary) Marshal() []byte {
-	sw := d2datautils.CreateStreamWriter()
+	sw := datautils.CreateStreamWriter()
 
 	// https://github.com/bethington/Nostos/issues/1043
 	sw.PushBytes(0, 0)

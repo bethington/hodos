@@ -3,7 +3,7 @@ package d2ds1
 import (
 	"fmt"
 
-	"nostos/common/d2datautils"
+	"nostos/common/datautils"
 	"nostos/common/d2enum"
 	"nostos/common/d2math"
 	"nostos/common/d2math/d2vector"
@@ -54,7 +54,7 @@ func Unmarshal(fileData []byte) (*DS1, error) {
 func (ds1 *DS1) Unmarshal(fileData []byte) (*DS1, error) {
 	ds1.ds1Layers = &ds1Layers{}
 
-	stream := d2datautils.CreateStreamReader(fileData)
+	stream := datautils.CreateStreamReader(fileData)
 
 	if err := ds1.loadHeader(stream); err != nil {
 		return nil, fmt.Errorf("loading header: %w", err)
@@ -67,7 +67,7 @@ func (ds1 *DS1) Unmarshal(fileData []byte) (*DS1, error) {
 	return ds1, nil
 }
 
-func (ds1 *DS1) loadHeader(br *d2datautils.StreamReader) error {
+func (ds1 *DS1) loadHeader(br *datautils.StreamReader) error {
 	var err error
 
 	var width, height int32
@@ -123,7 +123,7 @@ func (ds1 *DS1) loadHeader(br *d2datautils.StreamReader) error {
 	return nil
 }
 
-func (ds1 *DS1) loadBody(stream *d2datautils.StreamReader) error {
+func (ds1 *DS1) loadBody(stream *datautils.StreamReader) error {
 	var numWalls, numFloors, numShadows, numSubstitutions int32
 
 	numFloors = defaultNumFloors
@@ -194,7 +194,7 @@ func (ds1 *DS1) loadBody(stream *d2datautils.StreamReader) error {
 	return nil
 }
 
-func (ds1 *DS1) loadFileList(br *d2datautils.StreamReader) error {
+func (ds1 *DS1) loadFileList(br *datautils.StreamReader) error {
 	if !ds1.version.hasFileList() {
 		return nil
 	}
@@ -227,7 +227,7 @@ func (ds1 *DS1) loadFileList(br *d2datautils.StreamReader) error {
 	return nil
 }
 
-func (ds1 *DS1) loadObjects(br *d2datautils.StreamReader) error {
+func (ds1 *DS1) loadObjects(br *datautils.StreamReader) error {
 	if !ds1.version.hasObjects() {
 		ds1.Objects = make([]Object, 0)
 		return nil
@@ -280,7 +280,7 @@ func (ds1 *DS1) loadObjects(br *d2datautils.StreamReader) error {
 	return nil
 }
 
-func (ds1 *DS1) loadSubstitutions(br *d2datautils.StreamReader) error {
+func (ds1 *DS1) loadSubstitutions(br *datautils.StreamReader) error {
 	var err error
 
 	hasSubstitutions := ds1.version.hasSubstitutions() &&
@@ -390,7 +390,7 @@ func (ds1 *DS1) getLayerSchema() []layerStreamType {
 	return layerStream
 }
 
-func (ds1 *DS1) loadNPCs(br *d2datautils.StreamReader) error {
+func (ds1 *DS1) loadNPCs(br *datautils.StreamReader) error {
 	var err error
 
 	if !ds1.version.specifiesNPCs() {
@@ -445,7 +445,7 @@ func (ds1 *DS1) loadNPCs(br *d2datautils.StreamReader) error {
 	return err
 }
 
-func (ds1 *DS1) loadNpcPaths(br *d2datautils.StreamReader, objIdx, numPaths int) error {
+func (ds1 *DS1) loadNpcPaths(br *datautils.StreamReader, objIdx, numPaths int) error {
 	if ds1.Objects[objIdx].Paths == nil {
 		ds1.Objects[objIdx].Paths = make([]d2path.Path, numPaths)
 	}
@@ -480,7 +480,7 @@ func (ds1 *DS1) loadNpcPaths(br *d2datautils.StreamReader, objIdx, numPaths int)
 	return nil
 }
 
-func (ds1 *DS1) loadLayerStreams(br *d2datautils.StreamReader) error {
+func (ds1 *DS1) loadLayerStreams(br *datautils.StreamReader) error {
 	dirLookup := []int32{
 		0x00, 0x01, 0x02, 0x01, 0x02, 0x03, 0x03, 0x05, 0x05, 0x06,
 		0x06, 0x07, 0x07, 0x08, 0x09, 0x0A, 0x0B, 0x0C, 0x0D, 0x0E,
@@ -538,7 +538,7 @@ func (ds1 *DS1) SetSize(w, h int) {
 // Marshal encodes ds1 back to byte slice
 func (ds1 *DS1) Marshal() []byte {
 	// create stream writer
-	sw := d2datautils.CreateStreamWriter()
+	sw := datautils.CreateStreamWriter()
 
 	// Step 1 - encode header
 	sw.PushInt32(int32(ds1.version))
@@ -616,7 +616,7 @@ func (ds1 *DS1) Marshal() []byte {
 	return sw.GetBytes()
 }
 
-func (ds1 *DS1) encodeLayers(sw *d2datautils.StreamWriter) {
+func (ds1 *DS1) encodeLayers(sw *datautils.StreamWriter) {
 	layerStreamTypes := ds1.getLayerSchema()
 
 	for _, layerStreamType := range layerStreamTypes {
@@ -648,7 +648,7 @@ func (ds1 *DS1) encodeLayers(sw *d2datautils.StreamWriter) {
 	}
 }
 
-func (ds1 *DS1) encodeNPCs(sw *d2datautils.StreamWriter) {
+func (ds1 *DS1) encodeNPCs(sw *datautils.StreamWriter) {
 	objectsWithPaths := make([]int, 0)
 
 	for n, obj := range ds1.Objects {

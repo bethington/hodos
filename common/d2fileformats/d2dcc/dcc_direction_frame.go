@@ -3,7 +3,7 @@ package d2dcc
 import (
 	"log"
 
-	"nostos/common/d2datautils"
+	"nostos/common/datautils"
 	"nostos/common/d2geom"
 )
 
@@ -25,7 +25,7 @@ type DCCDirectionFrame struct {
 }
 
 // CreateDCCDirectionFrame Creates a DCCDirectionFrame for a DCC.
-func CreateDCCDirectionFrame(bits *d2datautils.BitMuncher, direction *DCCDirection) *DCCDirectionFrame {
+func CreateDCCDirectionFrame(bits *datautils.BitMuncher, direction *DCCDirection) *DCCDirectionFrame {
 	result := &DCCDirectionFrame{}
 
 	bits.GetBits(direction.Variable0Bits) // Variable0

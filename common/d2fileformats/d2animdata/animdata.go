@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"strings"
 
-	"nostos/common/d2datautils"
+	"nostos/common/datautils"
 )
 
 const (
@@ -119,7 +119,7 @@ func (ad *AnimationData) DeleteEntry(name string) error {
 // Load loads the data into an AnimationData struct
 //nolint:gocognit,funlen // can't reduce
 func Load(data []byte) (*AnimationData, error) {
-	reader := d2datautils.CreateStreamReader(data)
+	reader := datautils.CreateStreamReader(data)
 	animdata := &AnimationData{}
 	hashIdx := 0
 
@@ -212,7 +212,7 @@ func Load(data []byte) (*AnimationData, error) {
 // Marshal encodes animation data back into byte slice
 // basing on AnimationData.records
 func (ad *AnimationData) Marshal() []byte {
-	sw := d2datautils.CreateStreamWriter()
+	sw := datautils.CreateStreamWriter()
 
 	// keys - all entries in animationData
 	keys := make([]string, len(ad.entries))

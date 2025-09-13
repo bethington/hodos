@@ -1,7 +1,7 @@
 package d2ds1
 
 import (
-	"nostos/common/d2datautils"
+	"nostos/common/datautils"
 	"nostos/common/d2enum"
 )
 
@@ -79,7 +79,7 @@ func (t *Tile) DecodeWall(dw uint32) {
 }
 
 // EncodeWall adds wall's record's bytes into stream writer given
-func (t *Tile) EncodeWall(sw *d2datautils.StreamWriter) {
+func (t *Tile) EncodeWall(sw *datautils.StreamWriter) {
 	sw.PushBits32(uint32(t.Prop1), prop1Length)
 	sw.PushBits32(uint32(t.Sequence), sequenceLength)
 	sw.PushBits32(uint32(t.Unknown1), unknown1Length)
@@ -97,7 +97,7 @@ func (t *Tile) decodeFloorShadow(dw uint32) {
 	t.HiddenBytes = byte((dw & hiddenBitmask) >> hiddenOffset)
 }
 
-func (t *Tile) encodeFloorShadow(sw *d2datautils.StreamWriter) {
+func (t *Tile) encodeFloorShadow(sw *datautils.StreamWriter) {
 	sw.PushBits32(uint32(t.Prop1), prop1Length)
 	sw.PushBits32(uint32(t.Sequence), sequenceLength)
 	sw.PushBits32(uint32(t.Unknown1), unknown1Length)
@@ -112,7 +112,7 @@ func (t *Tile) DecodeFloor(dw uint32) {
 }
 
 // EncodeFloor adds Floor's bits to stream writer given
-func (t *Tile) EncodeFloor(sw *d2datautils.StreamWriter) {
+func (t *Tile) EncodeFloor(sw *datautils.StreamWriter) {
 	t.encodeFloorShadow(sw)
 }
 
@@ -122,6 +122,6 @@ func (t *Tile) DecodeShadow(dw uint32) {
 }
 
 // EncodeShadow adds shadow's bits to stream writer given
-func (t *Tile) EncodeShadow(sw *d2datautils.StreamWriter) {
+func (t *Tile) EncodeShadow(sw *datautils.StreamWriter) {
 	t.encodeFloorShadow(sw)
 }

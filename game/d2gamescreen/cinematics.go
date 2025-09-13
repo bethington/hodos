@@ -1,11 +1,11 @@
 package d2gamescreen
 
 import (
-	"nostos/common/data/video"
 	"nostos/common/d2enum"
 	"nostos/common/d2interface"
 	"nostos/common/d2resource"
 	"nostos/common/d2util"
+	"nostos/common/data/video"
 	"nostos/core/d2asset"
 	"nostos/core/d2screen"
 	"nostos/core/d2ui"

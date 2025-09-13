@@ -5,7 +5,7 @@ import (
 	"image/color"
 	"strings"
 
-	"nostos/common/d2datautils"
+	"nostos/common/datautils"
 	"nostos/common/d2fileformats/d2font/d2fontglyph"
 	"nostos/common/d2interface"
 	"nostos/common/d2math"
@@ -35,7 +35,7 @@ type Font struct {
 
 // Load loads a new font from byte slice
 func Load(data []byte) (*Font, error) {
-	sr := d2datautils.CreateStreamReader(data)
+	sr := datautils.CreateStreamReader(data)
 
 	signature, err := sr.ReadBytes(signatureBytesCount)
 	if err != nil {
@@ -142,7 +142,7 @@ func (f *Font) RenderText(text string, target d2interface.Surface) error {
 	return nil
 }
 
-func (f *Font) initGlyphs(sr *d2datautils.StreamReader) error {
+func (f *Font) initGlyphs(sr *datautils.StreamReader) error {
 	glyphs := make(map[rune]*d2fontglyph.FontGlyph)
 
 	// for i := numHeaderBytes; i < len(f.table); i += bytesPerGlyph {
@@ -188,7 +188,7 @@ func (f *Font) initGlyphs(sr *d2datautils.StreamReader) error {
 
 // Marshal encodes font back into byte slice
 func (f *Font) Marshal() []byte {
-	sw := d2datautils.CreateStreamWriter()
+	sw := datautils.CreateStreamWriter()
 
 	sw.PushBytes([]byte("Woo!\x01")...)
 

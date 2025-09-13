@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"sort"
 
-	"nostos/common/d2datautils"
+	"nostos/common/datautils"
 )
 
 // BlockDataFormat represents the format of the block data
@@ -52,7 +52,7 @@ func New() *DT1 {
 //nolint:funlen,gocognit,gocyclo // Can't reduce
 func LoadDT1(fileData []byte) (*DT1, error) {
 	result := &DT1{}
-	br := d2datautils.CreateStreamReader(fileData)
+	br := datautils.CreateStreamReader(fileData)
 
 	var err error
 
@@ -245,7 +245,7 @@ func LoadDT1(fileData []byte) (*DT1, error) {
 
 // Marshal encodes dt1 data back to byte slice
 func (d *DT1) Marshal() []byte {
-	sw := d2datautils.CreateStreamWriter()
+	sw := datautils.CreateStreamWriter()
 
 	// header
 	sw.PushInt32(d.majorVersion)

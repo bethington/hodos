@@ -4,7 +4,7 @@ import (
 	"errors"
 	"log"
 
-	"nostos/common/d2datautils"
+	"nostos/common/datautils"
 )
 
 // BinkVideoMode is the video mode type
@@ -60,7 +60,7 @@ type BinkAudioTrack struct {
 type BinkDecoder struct {
 	AudioTracks           []BinkAudioTrack
 	FrameIndexTable       []uint32
-	streamReader          *d2datautils.StreamReader
+	streamReader          *datautils.StreamReader
 	fileSize              uint32
 	numberOfFrames        uint32
 	largestFrameSizeBytes uint32
@@ -81,7 +81,7 @@ type BinkDecoder struct {
 // CreateBinkDecoder returns a new instance of the bink decoder
 func CreateBinkDecoder(source []byte) (*BinkDecoder, error) {
 	result := &BinkDecoder{
-		streamReader: d2datautils.CreateStreamReader(source),
+		streamReader: datautils.CreateStreamReader(source),
 	}
 
 	err := result.loadHeaderInformation()

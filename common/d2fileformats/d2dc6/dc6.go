@@ -1,7 +1,7 @@
 package d2dc6
 
 import (
-	"nostos/common/d2datautils"
+	"nostos/common/datautils"
 )
 
 const (
@@ -64,7 +64,7 @@ func Load(data []byte) (*DC6, error) {
 func (d *DC6) Unmarshal(data []byte) error {
 	var err error
 
-	r := d2datautils.CreateStreamReader(data)
+	r := datautils.CreateStreamReader(data)
 
 	err = d.loadHeader(r)
 	if err != nil {
@@ -90,7 +90,7 @@ func (d *DC6) Unmarshal(data []byte) error {
 	return nil
 }
 
-func (d *DC6) loadHeader(r *d2datautils.StreamReader) error {
+func (d *DC6) loadHeader(r *datautils.StreamReader) error {
 	var err error
 
 	if d.Version, err = r.ReadInt32(); err != nil {
@@ -120,7 +120,7 @@ func (d *DC6) loadHeader(r *d2datautils.StreamReader) error {
 	return nil
 }
 
-func (d *DC6) loadFrames(r *d2datautils.StreamReader) error {
+func (d *DC6) loadFrames(r *datautils.StreamReader) error {
 	var err error
 
 	for i := 0; i < len(d.FramePointers); i++ {
@@ -174,7 +174,7 @@ func (d *DC6) loadFrames(r *d2datautils.StreamReader) error {
 
 // Marshal encodes dc6 animation back into byte slice
 func (d *DC6) Marshal() []byte {
-	sw := d2datautils.CreateStreamWriter()
+	sw := datautils.CreateStreamWriter()
 
 	// Encode header
 	sw.PushInt32(d.Version)

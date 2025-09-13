@@ -33,7 +33,7 @@ package compression
 import (
 	"log"
 
-	"nostos/common/d2datautils"
+	"nostos/common/datautils"
 )
 
 // linkedNode is a node which is both hierachcical (parent/child) and doubly linked (next/prev)
@@ -199,7 +199,7 @@ func getPrimes() [][]byte {
 	}
 }
 
-func decode(input *d2datautils.BitStream, head *linkedNode) *linkedNode {
+func decode(input *datautils.BitStream, head *linkedNode) *linkedNode {
 	node := head
 
 	for node.child0 != nil {
@@ -386,8 +386,8 @@ func HuffmanDecompress(data []byte) []byte {
 	tail := buildList(primes[comptype])
 	head := buildTree(tail)
 
-	outputstream := d2datautils.CreateStreamWriter()
-	bitstream := d2datautils.CreateBitStream(data[1:])
+	outputstream := datautils.CreateStreamWriter()
+	bitstream := datautils.CreateBitStream(data[1:])
 
 	var decoded int
 

@@ -1,7 +1,7 @@
 package compression
 
 import (
-	"nostos/common/d2datautils"
+	"nostos/common/datautils"
 )
 
 // WavDecompress decompresses wav files
@@ -32,8 +32,8 @@ func WavDecompress(data []byte, channelCount int) ([]byte, error) { //nolint:fun
 		-1, 2, -1, 4, -1, 6, -1, 8,
 	}
 
-	input := d2datautils.CreateStreamReader(data)
-	output := d2datautils.CreateStreamWriter()
+	input := datautils.CreateStreamReader(data)
+	output := datautils.CreateStreamWriter()
 
 	_, err := input.ReadByte()
 	if err != nil {
