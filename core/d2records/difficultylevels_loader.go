@@ -2,7 +2,7 @@ package d2records
 
 import (
 	"nostos/common/enum"
-	"nostos/common/d2fileformats/d2txt"
+	d2txt "nostos/common/fileformats/txt"
 )
 
 func difficultyLevelsLoader(r *RecordManager, d *d2txt.DataDictionary) error {

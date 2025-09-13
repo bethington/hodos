@@ -3,7 +3,7 @@ package d2records
 import (
 	"strings"
 
-	"nostos/common/d2fileformats/d2txt"
+	d2txt "nostos/common/fileformats/txt"
 
 	"nostos/common/calculation"
 )

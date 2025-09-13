@@ -2,8 +2,8 @@ package d2mapstamp
 
 import (
 	"nostos/common/enum"
-	"nostos/common/d2fileformats/d2ds1"
-	"nostos/common/d2fileformats/d2dt1"
+	d2ds1 "nostos/common/fileformats/ds1"
+	d2dt1 "nostos/common/fileformats/dt1"
 	"nostos/common/d2geom"
 	"nostos/common/d2interface"
 	"nostos/common/d2math/d2vector"

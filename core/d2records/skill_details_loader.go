@@ -5,7 +5,7 @@ import (
 
 	"nostos/common/calculation/parser"
 	"nostos/common/enum"
-	"nostos/common/d2fileformats/d2txt"
+	d2txt "nostos/common/fileformats/txt"
 )
 
 // LoadSkills loads skills.txt file contents into a skill record map

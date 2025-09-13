@@ -4,7 +4,7 @@ import (
 	"path/filepath"
 	"strings"
 
-	"nostos/common/d2fileformats/d2mpq"
+	d2mpq "nostos/common/fileformats/mpq"
 )
 
 // SourceType represents the type of the asset source

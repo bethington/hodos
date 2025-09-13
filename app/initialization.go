@@ -6,7 +6,7 @@ import (
 
 	"nostos/common/d2loader/asset/types"
 
-	"nostos/common/d2fileformats/d2animdata"
+	d2animdata "nostos/common/fileformats/animdata"
 	"nostos/common/d2resource"
 	"nostos/common/d2util"
 	"nostos/core/d2config"

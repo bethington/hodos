@@ -8,7 +8,7 @@ import (
 	"strconv"
 
 	"nostos/common/enum"
-	"nostos/common/d2fileformats/d2ds1"
+	d2ds1 "nostos/common/fileformats/ds1"
 	"nostos/common/d2interface"
 	"nostos/common/d2math/d2vector"
 	"nostos/common/d2resource"

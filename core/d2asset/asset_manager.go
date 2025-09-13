@@ -7,26 +7,20 @@ import (
 	"path/filepath"
 	"strconv"
 
-	"nostos/common/d2fileformats/d2cof"
-
-	"nostos/common/d2fileformats/d2ds1"
-
-	"nostos/common/d2fileformats/d2dt1"
-
+	d2cof "nostos/common/fileformats/cof"
+	d2ds1 "nostos/common/fileformats/ds1"
+	d2dt1 "nostos/common/fileformats/dt1"
 	"nostos/common/d2resource"
 	"nostos/common/d2util"
-
 	"nostos/core/d2records"
-
-	"nostos/common/d2fileformats/d2font"
-	"nostos/common/d2fileformats/d2txt"
-
+	d2font "nostos/common/fileformats/font"
+	d2txt "nostos/common/fileformats/txt"
 	"nostos/common/enum"
-	"nostos/common/d2fileformats/d2dat"
-	"nostos/common/d2fileformats/d2dc6"
-	"nostos/common/d2fileformats/d2dcc"
-	"nostos/common/d2fileformats/d2pl2"
-	"nostos/common/d2fileformats/d2tbl"
+	d2dat "nostos/common/fileformats/dat"
+	d2dc6 "nostos/common/fileformats/dc6"
+	d2dcc "nostos/common/fileformats/dcc"
+	d2pl2 "nostos/common/fileformats/pl2"
+	d2tbl "nostos/common/fileformats/tbl"
 	"nostos/common/d2interface"
 	"nostos/common/d2loader"
 	"nostos/common/d2loader/asset/types"

@@ -7,7 +7,7 @@ import (
 
 	"nostos/common/enum"
 
-	"nostos/common/d2fileformats/d2dcc"
+	d2dcc "nostos/common/fileformats/dcc"
 	"nostos/common/d2interface"
 )
 

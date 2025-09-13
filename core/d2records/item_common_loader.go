@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"strconv"
 
-	"nostos/common/d2fileformats/d2txt"
+	d2txt "nostos/common/fileformats/txt"
 
 	"nostos/common/calculation"
 	"nostos/common/enum"

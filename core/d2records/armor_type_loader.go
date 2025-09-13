@@ -1,7 +1,7 @@
 package d2records
 
 import (
-	"nostos/common/d2fileformats/d2txt"
+	d2txt "nostos/common/fileformats/txt"
 )
 
 func armorTypesLoader(r *RecordManager, d *d2txt.DataDictionary) error {

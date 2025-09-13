@@ -4,7 +4,7 @@ import (
 	"fmt"
 
 	"nostos/common/enum"
-	"nostos/common/d2fileformats/d2txt"
+	d2txt "nostos/common/fileformats/txt"
 )
 
 // LoadMonStats2 loads MonStat2Records from monstats2.txt

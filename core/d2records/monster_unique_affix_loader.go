@@ -5,7 +5,7 @@ import (
 
 	"github.com/gravestench/akara"
 
-	"nostos/common/d2fileformats/d2txt"
+	d2txt "nostos/common/fileformats/txt"
 )
 
 //	Name

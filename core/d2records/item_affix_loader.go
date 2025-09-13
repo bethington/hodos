@@ -4,7 +4,7 @@ import (
 	"fmt"
 
 	"nostos/common/enum"
-	"nostos/common/d2fileformats/d2txt"
+	d2txt "nostos/common/fileformats/txt"
 )
 
 // LoadMagicPrefix loads MagicPrefix.txt

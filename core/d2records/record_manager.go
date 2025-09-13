@@ -6,8 +6,8 @@ import (
 	"nostos/common/d2util"
 
 	"nostos/common/enum"
-	"nostos/common/d2fileformats/d2animdata"
-	"nostos/common/d2fileformats/d2txt"
+	d2animdata "nostos/common/fileformats/animdata"
+	d2txt "nostos/common/fileformats/txt"
 	"nostos/common/d2resource"
 )
 

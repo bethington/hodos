@@ -4,7 +4,7 @@ import (
 	"nostos/common/enum"
 	"nostos/core/d2map/d2mapstamp"
 
-	"nostos/common/d2fileformats/d2dt1"
+	d2dt1 "nostos/common/fileformats/dt1"
 )
 
 // MapTile is a tile placed on the map

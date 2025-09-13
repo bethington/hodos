@@ -1,7 +1,7 @@
 package d2records
 
 import (
-	"nostos/common/d2fileformats/d2txt"
+	d2txt "nostos/common/fileformats/txt"
 )
 
 // LoadMonPresets loads monster presets from monpresets.txt

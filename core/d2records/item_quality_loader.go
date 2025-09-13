@@ -3,7 +3,7 @@ package d2records
 import (
 	"strconv"
 
-	"nostos/common/d2fileformats/d2txt"
+	d2txt "nostos/common/fileformats/txt"
 )
 
 func itemQualityLoader(r *RecordManager, d *d2txt.DataDictionary) error {

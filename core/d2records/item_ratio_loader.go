@@ -3,7 +3,7 @@ package d2records
 import (
 	"strconv"
 
-	"nostos/common/d2fileformats/d2txt"
+	d2txt "nostos/common/fileformats/txt"
 )
 
 // LoadItemRatios loads all of the ItemRatioRecords from ItemRatio.txt

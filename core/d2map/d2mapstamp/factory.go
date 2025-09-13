@@ -7,7 +7,7 @@ import (
 	"nostos/core/d2map/d2mapentity"
 
 	"nostos/common/enum"
-	"nostos/common/d2fileformats/d2ds1"
+	d2ds1 "nostos/common/fileformats/ds1"
 	"nostos/common/d2util"
 	"nostos/core/d2asset"
 )

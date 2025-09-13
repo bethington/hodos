@@ -4,7 +4,7 @@ import (
 	"errors"
 	"image/color"
 
-	"nostos/common/d2fileformats/d2font"
+	d2font "nostos/common/fileformats/font"
 	"nostos/common/d2interface"
 	"nostos/common/d2math"
 	"nostos/common/d2util"

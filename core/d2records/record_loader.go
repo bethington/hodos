@@ -1,6 +1,6 @@
 package d2records
 
-import "nostos/common/d2fileformats/d2txt"
+import d2txt "nostos/common/fileformats/txt"
 
 // recordLoader represents something that can load a data dictionary and
 // handles placing it in the record manager exports

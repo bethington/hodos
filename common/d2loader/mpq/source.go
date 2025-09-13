@@ -4,7 +4,7 @@ import (
 	"io"
 	"strings"
 
-	"nostos/common/d2fileformats/d2mpq"
+	d2mpq "nostos/common/fileformats/mpq"
 	"nostos/common/d2interface"
 	"nostos/common/d2loader/asset"
 )

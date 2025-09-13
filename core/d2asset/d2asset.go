@@ -2,7 +2,7 @@ package d2asset
 
 import (
 	"nostos/common/cache"
-	"nostos/common/d2fileformats/d2tbl"
+	d2tbl "nostos/common/fileformats/tbl"
 	"nostos/common/d2loader"
 	"nostos/common/d2util"
 	"nostos/core/d2records"

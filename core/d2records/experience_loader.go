@@ -2,7 +2,7 @@ package d2records
 
 import (
 	"nostos/common/enum"
-	"nostos/common/d2fileformats/d2txt"
+	d2txt "nostos/common/fileformats/txt"
 )
 
 /*	first column of experience.txt

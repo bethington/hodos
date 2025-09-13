@@ -8,7 +8,7 @@ import (
 	"strings"
 
 	"nostos/common/enum"
-	"nostos/common/d2fileformats/d2ds1"
+	d2ds1 "nostos/common/fileformats/ds1"
 	"nostos/common/d2geom"
 	"nostos/core/d2map/d2mapgen/d2wilderness"
 	"nostos/core/d2map/d2mapstamp"

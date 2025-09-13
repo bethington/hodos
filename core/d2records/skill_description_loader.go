@@ -2,7 +2,7 @@ package d2records
 
 import (
 	"nostos/common/calculation/parser"
-	"nostos/common/d2fileformats/d2txt"
+	d2txt "nostos/common/fileformats/txt"
 )
 
 // Loadrecords loads skill description records from skilldesc.txt

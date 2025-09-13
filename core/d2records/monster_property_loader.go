@@ -3,7 +3,7 @@ package d2records
 import (
 	"fmt"
 
-	"nostos/common/d2fileformats/d2txt"
+	d2txt "nostos/common/fileformats/txt"
 )
 
 func monsterPropertiesLoader(r *RecordManager, d *d2txt.DataDictionary) error {

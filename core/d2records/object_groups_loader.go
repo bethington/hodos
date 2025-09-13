@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"strconv"
 
-	"nostos/common/d2fileformats/d2txt"
+	d2txt "nostos/common/fileformats/txt"
 )
 
 // LoadObjectGroups loads the ObjectGroupRecords into ObjectGroups.
