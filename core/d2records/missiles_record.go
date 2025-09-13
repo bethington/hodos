@@ -1,6 +1,6 @@
 package d2records
 
-import "nostos/common/d2calculation"
+import "nostos/common/calculation"
 
 // Missiles stores all of the MissileRecords
 type Missiles map[int]*MissileRecord
@@ -15,7 +15,7 @@ type MissileCalcParam struct {
 
 // MissileCalc is a calculation for a missile
 type MissileCalc struct {
-	Calc   d2calculation.CalcString
+	Calc   calculation.CalcString
 	Desc   string
 	Params []MissileCalcParam
 }
@@ -66,7 +66,7 @@ type MissileDamage struct {
 	MinLevelDamage [5]int // additional damage per missile level
 	// [0]: lvs 2-8, [1]: lvs 9-16, [2]: lvs 17-22, [3]: lvs 23-28, [4]: lv 29+
 	MaxLevelDamage       [5]int                   // see above
-	DamageSynergyPerCalc d2calculation.CalcString // works like synergy in skills.txt, not clear
+	DamageSynergyPerCalc calculation.CalcString // works like synergy in skills.txt, not clear
 }
 
 // MissileElementalDamage parameters for calculating missile elemental damage

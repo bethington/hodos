@@ -5,7 +5,7 @@ import (
 
 	"nostos/common/d2fileformats/d2txt"
 
-	"nostos/common/d2calculation"
+	"nostos/common/calculation"
 )
 
 // nolint:funlen // cant reduce
@@ -230,7 +230,7 @@ func missilesLoader(r *RecordManager, d *d2txt.DataDictionary) error {
 					d.Number("MaxLevDam4"),
 					d.Number("MaxLevDam5"),
 				},
-				DamageSynergyPerCalc: d2calculation.CalcString(d.String("DmgSymPerCalc")),
+				DamageSynergyPerCalc: calculation.CalcString(d.String("DmgSymPerCalc")),
 			},
 			ElementalDamage: MissileElementalDamage{
 				ElementType: d.String("EType"),
@@ -251,7 +251,7 @@ func missilesLoader(r *RecordManager, d *d2txt.DataDictionary) error {
 						d.Number("MaxELevDam4"),
 						d.Number("MaxELevDam5"),
 					},
-					DamageSynergyPerCalc: d2calculation.CalcString(d.String("EDmgSymPerCalc")),
+					DamageSynergyPerCalc: calculation.CalcString(d.String("EDmgSymPerCalc")),
 				},
 				Duration: d.Number("ELen"),
 				LevelDuration: [3]int{

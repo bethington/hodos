@@ -1,7 +1,7 @@
 package d2records
 
 import (
-	"nostos/common/d2calculation"
+	"nostos/common/calculation"
 	"nostos/common/d2enum"
 )
 
@@ -15,9 +15,9 @@ type SkillRecord struct {
 	Skill             string
 	Charclass         string
 	Skilldesc         string
-	Prgcalc1          d2calculation.Calculation
-	Prgcalc2          d2calculation.Calculation
-	Prgcalc3          d2calculation.Calculation
+	Prgcalc1          calculation.Calculation
+	Prgcalc2          calculation.Calculation
+	Prgcalc3          calculation.Calculation
 	Srvmissile        string
 	Srvmissilea       string
 	Srvmissileb       string
@@ -25,20 +25,20 @@ type SkillRecord struct {
 	Srvoverlay        string
 	Aurastate         string
 	Auratargetstate   string
-	Auralencalc       d2calculation.Calculation
-	Aurarangecalc     d2calculation.Calculation
+	Auralencalc       calculation.Calculation
+	Aurarangecalc     calculation.Calculation
 	Aurastat1         string
-	Aurastatcalc1     d2calculation.Calculation
+	Aurastatcalc1     calculation.Calculation
 	Aurastat2         string
-	Aurastatcalc2     d2calculation.Calculation
+	Aurastatcalc2     calculation.Calculation
 	Aurastat3         string
-	Aurastatcalc3     d2calculation.Calculation
+	Aurastatcalc3     calculation.Calculation
 	Aurastat4         string
-	Aurastatcalc4     d2calculation.Calculation
+	Aurastatcalc4     calculation.Calculation
 	Aurastat5         string
-	Aurastatcalc5     d2calculation.Calculation
+	Aurastatcalc5     calculation.Calculation
 	Aurastat6         string
-	Aurastatcalc6     d2calculation.Calculation
+	Aurastatcalc6     calculation.Calculation
 	Auraevent1        string
 	Auraevent2        string
 	Auraevent3        string
@@ -47,31 +47,31 @@ type SkillRecord struct {
 	Passivestate      string
 	Passiveitype      string
 	Passivestat1      string
-	Passivecalc1      d2calculation.Calculation
+	Passivecalc1      calculation.Calculation
 	Passivestat2      string
-	Passivecalc2      d2calculation.Calculation
+	Passivecalc2      calculation.Calculation
 	Passivestat3      string
-	Passivecalc3      d2calculation.Calculation
+	Passivecalc3      calculation.Calculation
 	Passivestat4      string
-	Passivecalc4      d2calculation.Calculation
+	Passivecalc4      calculation.Calculation
 	Passivestat5      string
-	Passivecalc5      d2calculation.Calculation
+	Passivecalc5      calculation.Calculation
 	Passiveevent      string
 	Passiveeventfunc  string
 	Summon            string
 	Pettype           string
-	Petmax            d2calculation.Calculation
+	Petmax            calculation.Calculation
 	Summode           string
 	Sumskill1         string
-	Sumsk1calc        d2calculation.Calculation
+	Sumsk1calc        calculation.Calculation
 	Sumskill2         string
-	Sumsk2calc        d2calculation.Calculation
+	Sumsk2calc        calculation.Calculation
 	Sumskill3         string
-	Sumsk3calc        d2calculation.Calculation
+	Sumsk3calc        calculation.Calculation
 	Sumskill4         string
-	Sumsk4calc        d2calculation.Calculation
+	Sumsk4calc        calculation.Calculation
 	Sumskill5         string
-	Sumsk5calc        d2calculation.Calculation
+	Sumsk5calc        calculation.Calculation
 	Sumoverlay        string
 	Stsound           string
 	Stsoundclass      string
@@ -90,9 +90,9 @@ type SkillRecord struct {
 	Cltmissileb       string
 	Cltmissilec       string
 	Cltmissiled       string
-	Cltcalc1          d2calculation.Calculation
-	Cltcalc2          d2calculation.Calculation
-	Cltcalc3          d2calculation.Calculation
+	Cltcalc1          calculation.Calculation
+	Cltcalc2          calculation.Calculation
+	Cltcalc3          calculation.Calculation
 	Range             string
 	Itypea1           string
 	Itypea2           string
@@ -109,23 +109,23 @@ type SkillRecord struct {
 	Monanim           string
 	ItemCastSound     string
 	ItemCastOverlay   string
-	Skpoints          d2calculation.Calculation
+	Skpoints          calculation.Calculation
 	Reqskill1         string
 	Reqskill2         string
 	Reqskill3         string
 	State1            string
 	State2            string
 	State3            string
-	Perdelay          d2calculation.Calculation
-	Calc1             d2calculation.Calculation
-	Calc2             d2calculation.Calculation
-	Calc3             d2calculation.Calculation
-	Calc4             d2calculation.Calculation
-	ToHitCalc         d2calculation.Calculation
-	DmgSymPerCalc     d2calculation.Calculation
+	Perdelay          calculation.Calculation
+	Calc1             calculation.Calculation
+	Calc2             calculation.Calculation
+	Calc3             calculation.Calculation
+	Calc4             calculation.Calculation
+	ToHitCalc         calculation.Calculation
+	DmgSymPerCalc     calculation.Calculation
 	EType             string
-	EDmgSymPerCalc    d2calculation.Calculation
-	ELenSymPerCalc    d2calculation.Calculation
+	EDmgSymPerCalc    calculation.Calculation
+	ELenSymPerCalc    calculation.Calculation
 	ID                int
 	Srvstfunc         int
 	Srvdofunc         int

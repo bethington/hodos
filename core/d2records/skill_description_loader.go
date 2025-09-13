@@ -1,7 +1,7 @@
 package d2records
 
 import (
-	"nostos/common/d2calculation/d2parser"
+	"nostos/common/calculation/parser"
 	"nostos/common/d2fileformats/d2txt"
 )
 
@@ -10,7 +10,7 @@ import (
 func skillDescriptionLoader(r *RecordManager, d *d2txt.DataDictionary) error {
 	records := make(map[string]*SkillDescriptionRecord)
 
-	parser := d2parser.New()
+	parser := parser.New()
 	parser.SetCurrentReference("skill", "TODO: connect skill with description!")
 
 	for d.Next() {

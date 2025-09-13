@@ -6,7 +6,7 @@ import (
 
 	"nostos/common/d2fileformats/d2txt"
 
-	"nostos/common/d2calculation"
+	"nostos/common/calculation"
 	"nostos/common/d2enum"
 )
 
@@ -165,7 +165,7 @@ func loadCommonItems(d *d2txt.DataDictionary, source d2enum.InventoryItemType) (
 			SpellDescriptionType: d.Number("spelldesc"),
 			// 0 = none, 1 = use desc string, 2 = use desc string + calc value
 			SpellDescriptionString: d.String("spelldescstr"),
-			SpellDescriptionCalc:   d2calculation.CalcString(d.String("spelldesccalc")),
+			SpellDescriptionCalc:   calculation.CalcString(d.String("spelldesccalc")),
 
 			BetterGem: d.String("BetterGem"),
 
@@ -223,7 +223,7 @@ func createItemUsageStats(d *d2txt.DataDictionary) [3]ItemUsageStat {
 	result := [3]ItemUsageStat{}
 	for i := 0; i < 3; i++ {
 		result[i].Stat = d.String("stat" + strconv.Itoa(i))
-		result[i].Calc = d2calculation.CalcString(d.String("calc" + strconv.Itoa(i)))
+		result[i].Calc = calculation.CalcString(d.String("calc" + strconv.Itoa(i)))
 	}
 
 	return result

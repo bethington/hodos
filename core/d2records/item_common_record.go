@@ -1,7 +1,7 @@
 package d2records
 
 import (
-	"nostos/common/d2calculation"
+	"nostos/common/calculation"
 	"nostos/common/d2enum"
 )
 
@@ -15,7 +15,7 @@ type ItemCommonRecord struct {
 	OverlayState           string                   // name of the overlay state to be applied upon use of this item
 	SpellDescriptionString string                   // points to a string containing the description
 	BetterGem              string                   // 3 char code pointing to the gem this upgrades to (non if not applicable)
-	SpellDescriptionCalc   d2calculation.CalcString // a calc string what value to display
+	SpellDescriptionCalc   calculation.CalcString // a calc string what value to display
 	WeaponClass            string                   // what kind of attack does this weapon have (i.e. determines attack animations)
 	WeaponClass2Hand       string                   // what kind of attack when wielded with two hands
 	HitClass               string                   // determines sounds/graphic effects when attacking
@@ -141,7 +141,7 @@ type ItemCommonRecord struct {
 // ItemUsageStat the stat that gets applied when the item is used
 type ItemUsageStat struct {
 	Stat string                   // name of the stat to add to
-	Calc d2calculation.CalcString // calc string representing the amount to add
+	Calc calculation.CalcString // calc string representing the amount to add
 }
 
 // ItemVendorParams are parameters that vendors use

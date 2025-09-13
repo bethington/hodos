@@ -3,7 +3,7 @@ package d2records
 import (
 	"fmt"
 
-	"nostos/common/d2calculation/d2parser"
+	"nostos/common/calculation/parser"
 	"nostos/common/d2enum"
 	"nostos/common/d2fileformats/d2txt"
 )
@@ -13,7 +13,7 @@ import (
 func skillDetailsLoader(r *RecordManager, d *d2txt.DataDictionary) error {
 	records := make(map[int]*SkillRecord)
 
-	parser := d2parser.New()
+	parser := parser.New()
 
 	for d.Next() {
 		name := d.String("skill")
