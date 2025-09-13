@@ -4,7 +4,7 @@ import (
 	"image"
 	"image/color"
 
-	"nostos/common/d2enum"
+	"nostos/common/enum"
 )
 
 // Animation is an animation
@@ -38,6 +38,6 @@ type Animation interface {
 	SetColorMod(colorMod color.Color)
 	GetPlayedCount() int
 	ResetPlayedCount()
-	SetEffect(effect d2enum.DrawEffect)
+	SetEffect(effect enum.DrawEffect)
 	SetShadow(shadow bool)
 }

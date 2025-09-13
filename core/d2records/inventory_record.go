@@ -1,6 +1,6 @@
 package d2records
 
-import "nostos/common/d2enum"
+import "nostos/common/enum"
 
 // Inventory holds all of the inventory records from inventory.txt
 type Inventory map[string]*InventoryRecord //nolint:gochecknoglobals // Currently global by design
@@ -11,7 +11,7 @@ type InventoryRecord struct {
 	Name  string
 	Panel *box
 	Grid  *grid
-	Slots map[d2enum.EquippedSlot]*box
+	Slots map[enum.EquippedSlot]*box
 }
 
 type box struct {

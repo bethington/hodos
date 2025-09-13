@@ -3,7 +3,7 @@ package d2inventory
 import (
 	"fmt"
 
-	"nostos/common/d2enum"
+	"nostos/common/enum"
 	"nostos/core/d2asset"
 )
 
@@ -28,7 +28,7 @@ type InventoryItemFactory struct {
 // LoadHeroObjects loads the equipment objects of the hero
 func (f *InventoryItemFactory) loadHeroObjects() error {
 	// https://github.com/bethington/Nostos/issues/795
-	//Mode:  d2enum.AnimationModePlayerNeutral.String(),
+	//Mode:  enum.AnimationModePlayerNeutral.String(),
 	//Base:  "/data/global/chars",
 	shield, err := f.GetArmorItemByCode("buc")
 	if err != nil {
@@ -70,31 +70,31 @@ func (f *InventoryItemFactory) loadHeroObjects() error {
 		return err
 	}
 
-	f.DefaultHeroItems = map[d2enum.Hero]CharacterEquipment{
-		d2enum.HeroBarbarian: {
+	f.DefaultHeroItems = map[enum.Hero]CharacterEquipment{
+		enum.HeroBarbarian: {
 			RightHand: rhhex,
 			Shield:    shield,
 		},
-		d2enum.HeroNecromancer: {
+		enum.HeroNecromancer: {
 			RightHand: rhwnd,
 		},
-		d2enum.HeroPaladin: {
+		enum.HeroPaladin: {
 			RightHand: rhssd,
 			Shield:    shield,
 		},
-		d2enum.HeroAssassin: {
+		enum.HeroAssassin: {
 			RightHand: rhktr,
 			Shield:    shield,
 		},
-		d2enum.HeroSorceress: {
+		enum.HeroSorceress: {
 			RightHand: rhsst,
 			LeftHand:  rhsst,
 		},
-		d2enum.HeroAmazon: {
+		enum.HeroAmazon: {
 			RightHand: rhjav,
 			Shield:    shield,
 		},
-		d2enum.HeroDruid: {
+		enum.HeroDruid: {
 			RightHand: rhclb,
 			Shield:    shield,
 		},
@@ -115,7 +115,7 @@ func (f *InventoryItemFactory) GetArmorItemByCode(code string) (*InventoryItemAr
 		InventorySizeY: result.InventoryHeight,
 		ItemName:       result.Name,
 		ItemCode:       result.Code,
-		ArmorClass:     d2enum.ArmorClassLite, // comes from ArmType.txt
+		ArmorClass:     enum.ArmorClassLite, // comes from ArmType.txt
 	}, nil
 }
 

@@ -1,7 +1,7 @@
 package d2records
 
 import (
-	"nostos/common/d2enum"
+	"nostos/common/enum"
 )
 
 // IndexedObjects is a slice of object records for quick lookups.
@@ -13,7 +13,7 @@ type IndexedObjects [][][]*ObjectLookupRecord
 // ObjectLookupRecord is a representation of a row from objectLookups.txt
 type ObjectLookupRecord struct {
 	Act           int
-	Type          d2enum.ObjectType
+	Type          enum.ObjectType
 	Id            int //nolint:golint,stylecheck // ID is the right key
 	Name          string
 	Description   string

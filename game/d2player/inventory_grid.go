@@ -6,7 +6,7 @@ import (
 
 	"nostos/core/d2records"
 
-	"nostos/common/d2enum"
+	"nostos/common/enum"
 	"nostos/common/d2interface"
 
 	"nostos/core/d2asset"
@@ -68,7 +68,7 @@ type ItemGrid struct {
 	asset          *d2asset.AssetManager
 	uiManager      *d2ui.UIManager
 	items          []InventoryItem
-	equipmentSlots map[d2enum.EquippedSlot]EquipmentSlot
+	equipmentSlots map[enum.EquippedSlot]EquipmentSlot
 	width          int
 	height         int
 	originX        int
@@ -110,7 +110,7 @@ func (g *ItemGrid) GetSlot(x, y int) InventoryItem {
 }
 
 // ChangeEquippedSlot sets the item for an equipment slot
-func (g *ItemGrid) ChangeEquippedSlot(slot d2enum.EquippedSlot, item InventoryItem) {
+func (g *ItemGrid) ChangeEquippedSlot(slot enum.EquippedSlot, item InventoryItem) {
 	var curItem = g.equipmentSlots[slot]
 	curItem.item = item
 	g.equipmentSlots[slot] = curItem

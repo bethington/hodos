@@ -1,6 +1,6 @@
 package d2records
 
-import "nostos/common/d2enum"
+import "nostos/common/enum"
 
 // MagicPrefix stores all of the magic prefix records
 type MagicPrefix map[string]*ItemAffixCommonRecord
@@ -35,7 +35,7 @@ type ItemAffixCommonRecord struct {
 	TransformColor string
 
 	Version int
-	Type    d2enum.ItemAffixSubType
+	Type    enum.ItemAffixSubType
 
 	Level    int
 	MaxLevel int

@@ -1,7 +1,7 @@
 package d2records
 
 import (
-	"nostos/common/d2enum"
+	"nostos/common/enum"
 	"nostos/common/d2fileformats/d2txt"
 )
 
@@ -38,26 +38,26 @@ func experienceLoader(r *RecordManager, d *d2txt.DataDictionary) error {
 
 	// parse the max level data
 	maxLevels := ExperienceMaxLevels{
-		d2enum.HeroAmazon:      d.Number("Amazon"),
-		d2enum.HeroBarbarian:   d.Number("Barbarian"),
-		d2enum.HeroDruid:       d.Number("Druid"),
-		d2enum.HeroAssassin:    d.Number("Assassin"),
-		d2enum.HeroNecromancer: d.Number("Necromancer"),
-		d2enum.HeroPaladin:     d.Number("Paladin"),
-		d2enum.HeroSorceress:   d.Number("Sorceress"),
+		enum.HeroAmazon:      d.Number("Amazon"),
+		enum.HeroBarbarian:   d.Number("Barbarian"),
+		enum.HeroDruid:       d.Number("Druid"),
+		enum.HeroAssassin:    d.Number("Assassin"),
+		enum.HeroNecromancer: d.Number("Necromancer"),
+		enum.HeroPaladin:     d.Number("Paladin"),
+		enum.HeroSorceress:   d.Number("Sorceress"),
 	}
 
 	for d.Next() {
 		record := &ExperienceBreakpointRecord{
 			Level: d.Number("Level"),
-			HeroBreakpoints: map[d2enum.Hero]int{
-				d2enum.HeroAmazon:      d.Number("Amazon"),
-				d2enum.HeroBarbarian:   d.Number("Barbarian"),
-				d2enum.HeroDruid:       d.Number("Druid"),
-				d2enum.HeroAssassin:    d.Number("Assassin"),
-				d2enum.HeroNecromancer: d.Number("Necromancer"),
-				d2enum.HeroPaladin:     d.Number("Paladin"),
-				d2enum.HeroSorceress:   d.Number("Sorceress"),
+			HeroBreakpoints: map[enum.Hero]int{
+				enum.HeroAmazon:      d.Number("Amazon"),
+				enum.HeroBarbarian:   d.Number("Barbarian"),
+				enum.HeroDruid:       d.Number("Druid"),
+				enum.HeroAssassin:    d.Number("Assassin"),
+				enum.HeroNecromancer: d.Number("Necromancer"),
+				enum.HeroPaladin:     d.Number("Paladin"),
+				enum.HeroSorceress:   d.Number("Sorceress"),
 			},
 			Ratio: d.Number("ExpRatio"),
 		}

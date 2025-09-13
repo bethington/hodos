@@ -1,13 +1,13 @@
 package d2cof
 
-import "nostos/common/d2enum"
+import "nostos/common/enum"
 
 // CofLayer is a structure that represents a single layer in a COF file.
 type CofLayer struct {
-	Type        d2enum.CompositeType
+	Type        enum.CompositeType
 	Shadow      byte
 	Selectable  bool
 	Transparent bool
-	DrawEffect  d2enum.DrawEffect
-	WeaponClass d2enum.WeaponClass
+	DrawEffect  enum.DrawEffect
+	WeaponClass enum.WeaponClass
 }

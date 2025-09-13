@@ -3,7 +3,7 @@ package d2netpacket
 import (
 	"encoding/json"
 
-	"nostos/common/d2enum"
+	"nostos/common/enum"
 	"nostos/core/d2hero"
 	"nostos/core/d2inventory"
 	"nostos/networking/d2netpacket/d2netpackettype"
@@ -17,7 +17,7 @@ type AddPlayerPacket struct {
 	Name       string                         `json:"name"`
 	X          int                            `json:"x"`
 	Y          int                            `json:"y"`
-	HeroType   d2enum.Hero                    `json:"hero"`
+	HeroType   enum.Hero                    `json:"hero"`
 	Equipment  d2inventory.CharacterEquipment `json:"equipment"`
 	Stats      *d2hero.HeroStatsState         `json:"heroStats"`
 	Skills     map[int]*d2hero.HeroSkill      `json:"heroSkills"`
@@ -31,7 +31,7 @@ type AddPlayerPacket struct {
 func CreateAddPlayerPacket(
 	id, name string,
 	x, y int,
-	heroType d2enum.Hero,
+	heroType enum.Hero,
 	stats *d2hero.HeroStatsState,
 	skills map[int]*d2hero.HeroSkill,
 	equipment d2inventory.CharacterEquipment,

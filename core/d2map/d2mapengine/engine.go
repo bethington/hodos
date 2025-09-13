@@ -7,7 +7,7 @@ import (
 
 	"nostos/core/d2map/d2mapentity"
 
-	"nostos/common/d2enum"
+	"nostos/common/enum"
 	"nostos/common/d2fileformats/d2dt1"
 	"nostos/common/d2geom"
 	"nostos/common/d2interface"
@@ -71,7 +71,7 @@ func (m *MapEngine) GetStartingPosition() (x, y int) {
 }
 
 // ResetMap clears all map and entity data and reloads it from the cached files.
-func (m *MapEngine) ResetMap(levelType d2enum.RegionIdType, width, height int) {
+func (m *MapEngine) ResetMap(levelType enum.RegionIdType, width, height int) {
 	m.entities = make(map[string]d2interface.MapEntity)
 	m.levelType = *m.asset.Records.Level.Types[levelType]
 	m.size = d2geom.Size{Width: width, Height: height}
@@ -243,7 +243,7 @@ func (m *MapEngine) RemoveEntity(entity d2interface.MapEntity) {
 
 // GetTiles returns a slice of all tiles matching the given style,
 // sequence and tileType.
-func (m *MapEngine) GetTiles(style, sequence int, tileType d2enum.TileType) []d2dt1.Tile {
+func (m *MapEngine) GetTiles(style, sequence int, tileType enum.TileType) []d2dt1.Tile {
 	tiles := make([]d2dt1.Tile, 0)
 
 	for idx := range m.dt1TileData {
@@ -317,7 +317,7 @@ func (m *MapEngine) TileExists(tileX, tileY int) bool {
 }
 
 // GenerateMap clears the map and places the specified stamp.
-func (m *MapEngine) GenerateMap(regionType d2enum.RegionIdType, levelPreset, fileIndex int) {
+func (m *MapEngine) GenerateMap(regionType enum.RegionIdType, levelPreset, fileIndex int) {
 	region := m.LoadStamp(regionType, levelPreset, fileIndex)
 	regionSize := region.Size()
 	m.ResetMap(regionType, regionSize.Width, regionSize.Height)
@@ -325,7 +325,7 @@ func (m *MapEngine) GenerateMap(regionType d2enum.RegionIdType, levelPreset, fil
 }
 
 // GetTileData returns the tile with the given style, sequence, tileType and index.
-func (m *MapEngine) GetTileData(style, sequence int, tileType d2enum.TileType, index byte) *d2dt1.Tile {
+func (m *MapEngine) GetTileData(style, sequence int, tileType enum.TileType, index byte) *d2dt1.Tile {
 	for idx := range m.dt1TileData {
 		if m.dt1TileData[idx].Style == int32(style) && m.dt1TileData[idx].Sequence == int32(sequence) &&
 			m.dt1TileData[idx].Type == int32(tileType) && m.dt1TileData[idx].RarityFrameIndex == int32(index) {

@@ -4,7 +4,7 @@ import (
 	"fmt"
 
 	"nostos/common/datautils"
-	"nostos/common/d2enum"
+	"nostos/common/enum"
 	"nostos/common/d2math"
 	"nostos/common/d2math/d2vector"
 	"nostos/common/d2path"
@@ -100,7 +100,7 @@ func (ds1 *DS1) loadHeader(br *datautils.StreamReader) error {
 			return fmt.Errorf("reading Act: %w", err)
 		}
 
-		ds1.Act = d2math.MinInt32(d2enum.ActsNumber, ds1.Act+1)
+		ds1.Act = d2math.MinInt32(enum.ActsNumber, ds1.Act+1)
 	}
 
 	if ds1.version.specifiesSubstitutionType() {
@@ -513,7 +513,7 @@ func (ds1 *DS1) loadLayerStreams(br *datautils.StreamReader) error {
 					}
 
 					tile := ds1.Walls[wallIndex].Tile(x, y)
-					tile.Type = d2enum.TileType(c)
+					tile.Type = enum.TileType(c)
 					tile.Zero = byte((dw & wallZeroBitmask) >> wallZeroOffset)
 				case layerStreamFloor1, layerStreamFloor2:
 					floorIndex := int(layerStreamType) - int(layerStreamFloor1)

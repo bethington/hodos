@@ -9,7 +9,7 @@ import (
 
 	"nostos/core/d2asset"
 
-	"nostos/common/d2enum"
+	"nostos/common/enum"
 	"nostos/core/d2records"
 )
 
@@ -277,9 +277,9 @@ var itemStatCosts = map[string]*d2records.ItemStatCostRecord{
 }
 
 // nolint:gochecknoglobals // just a test
-var charStats = map[d2enum.Hero]*d2records.CharStatRecord{
-	d2enum.HeroPaladin: {
-		Class:             d2enum.HeroPaladin,
+var charStats = map[enum.Hero]*d2records.CharStatRecord{
+	enum.HeroPaladin: {
+		Class:             enum.HeroPaladin,
 		SkillStrAll:       "to Paladin Skill Levels",
 		SkillStrClassOnly: "(Paladin Only)",
 		SkillStrTab: [3]string{

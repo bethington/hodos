@@ -5,7 +5,7 @@ import (
 	"strconv"
 	"strings"
 
-	"nostos/common/d2enum"
+	"nostos/common/enum"
 	"nostos/common/d2fileformats/d2txt"
 )
 
@@ -159,9 +159,9 @@ func newCubeRecipeItem(f string) (CubeRecipeItem, error) {
 }
 
 // classFieldToEnum converts class tokens to s2enum.Hero.
-func classFieldToEnum(f string) ([]d2enum.Hero, error) {
+func classFieldToEnum(f string) ([]enum.Hero, error) {
 	split := splitFieldValue(f)
-	enums := make([]d2enum.Hero, len(split))
+	enums := make([]enum.Hero, len(split))
 
 	for idx, class := range split {
 		if class == "" {
@@ -170,19 +170,19 @@ func classFieldToEnum(f string) ([]d2enum.Hero, error) {
 
 		switch class {
 		case "bar":
-			enums[idx] = d2enum.HeroBarbarian
+			enums[idx] = enum.HeroBarbarian
 		case "nec":
-			enums[idx] = d2enum.HeroNecromancer
+			enums[idx] = enum.HeroNecromancer
 		case "pal":
-			enums[idx] = d2enum.HeroPaladin
+			enums[idx] = enum.HeroPaladin
 		case "ass":
-			enums[idx] = d2enum.HeroAssassin
+			enums[idx] = enum.HeroAssassin
 		case "sor":
-			enums[idx] = d2enum.HeroSorceress
+			enums[idx] = enum.HeroSorceress
 		case "ama":
-			enums[idx] = d2enum.HeroAmazon
+			enums[idx] = enum.HeroAmazon
 		case "dru":
-			enums[idx] = d2enum.HeroDruid
+			enums[idx] = enum.HeroDruid
 		default:
 			return nil, fmt.Errorf("unknown hero token: '%s'", class)
 		}

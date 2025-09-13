@@ -23,7 +23,7 @@ type MonsterSequenceFrame struct {
 	// The frame of the animation mode used for this frame of the sequence
 	Frame int
 
-	// Direction of the frame, enumerated by d2enum.AnimationFrameDirection
+	// Direction of the frame, enumerated by enum.AnimationFrameDirection
 	Direction int
 
 	// Event triggered by this frame

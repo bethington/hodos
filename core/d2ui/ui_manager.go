@@ -5,7 +5,7 @@ import (
 
 	"nostos/core/d2asset"
 
-	"nostos/common/d2enum"
+	"nostos/common/enum"
 	"nostos/common/d2interface"
 	"nostos/common/d2resource"
 	"nostos/common/d2util"
@@ -93,7 +93,7 @@ func (ui *UIManager) addTooltip(t *Tooltip) {
 // OnMouseButtonUp is an event handler for input
 func (ui *UIManager) OnMouseButtonUp(event d2interface.MouseEvent) bool {
 	ui.CursorX, ui.CursorY = event.X(), event.Y()
-	if event.Button() == d2enum.MouseButtonLeft {
+	if event.Button() == enum.MouseButtonLeft {
 		ui.cursorButtons |= CursorButtonLeft
 		// activate previously pressed widget if cursor is still hovering
 		w := ui.pressedWidget
@@ -131,7 +131,7 @@ func (ui *UIManager) OnMouseMove(event d2interface.MouseMoveEvent) bool {
 // OnMouseButtonDown is the mouse button down event handler
 func (ui *UIManager) OnMouseButtonDown(event d2interface.MouseEvent) bool {
 	ui.CursorX, ui.CursorY = event.X(), event.Y()
-	if event.Button() == d2enum.MouseButtonLeft {
+	if event.Button() == enum.MouseButtonLeft {
 		// find and press a widget on screen
 		ui.pressedWidget = nil
 		for _, w := range ui.clickableWidgets {
@@ -145,7 +145,7 @@ func (ui *UIManager) OnMouseButtonDown(event d2interface.MouseEvent) bool {
 		}
 	}
 
-	if event.Button() == d2enum.MouseButtonRight {
+	if event.Button() == enum.MouseButtonRight {
 		ui.cursorButtons |= CursorButtonRight
 	}
 

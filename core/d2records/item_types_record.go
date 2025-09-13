@@ -1,7 +1,7 @@
 package d2records
 
 import (
-	"nostos/common/d2enum"
+	"nostos/common/enum"
 )
 
 // ItemTypes stores all of the ItemTypeRecords
@@ -109,7 +109,7 @@ type ItemTypeRecord struct {
 	// this only works if the item is not low quality, set or unique. Note,
 	// that this uses the vanilla min/max skill IDs for each class as the range for the skill pool,
 	// so if you add new class skills to the end of the file, you should use automagic.txt instead
-	StaffMods d2enum.Hero
+	StaffMods enum.Hero
 
 	// CostFormula
 	// Does the game generate the sell/repair/buy prices of this iType based on its modifiers or does
@@ -123,7 +123,7 @@ type ItemTypeRecord struct {
 	// Class
 	// Contains the class code for the class that should be able to use this iType (
 	// for class specific items).
-	Class d2enum.Hero
+	Class enum.Hero
 
 	// VarInvGfx
 	// This column contains the sum of randomly picked inventory graphics this iType can have.

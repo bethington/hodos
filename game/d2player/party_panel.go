@@ -4,7 +4,7 @@ import (
 	"log"
 	"strconv"
 
-	"nostos/common/d2enum"
+	"nostos/common/enum"
 	"nostos/common/d2geom"
 	"nostos/common/d2interface"
 	"nostos/common/d2resource"
@@ -87,11 +87,11 @@ func NewPartyPanel(asset *d2asset.AssetManager,
 		me:        me,
 	}
 
-	var partyIndexes [d2enum.MaxPlayersInGame]*partyIndex
+	var partyIndexes [enum.MaxPlayersInGame]*partyIndex
 
-	var indexes [d2enum.MaxPlayersInGame]*d2ui.WidgetGroup
+	var indexes [enum.MaxPlayersInGame]*d2ui.WidgetGroup
 
-	for i := 0; i < d2enum.MaxPlayersInGame; i++ {
+	for i := 0; i < enum.MaxPlayersInGame; i++ {
 		partyIndexes[i] = pp.newPartyIndex()
 		indexes[i] = pp.uiManager.NewWidgetGroup(d2ui.RenderPriorityHeroStatsPanel)
 	}
@@ -118,8 +118,8 @@ type PartyPanel struct {
 	onCloseCb  func()
 	panelGroup *d2ui.WidgetGroup
 
-	partyIndexes [d2enum.MaxPlayersInGame]*partyIndex
-	indexes      [d2enum.MaxPlayersInGame]*d2ui.WidgetGroup
+	partyIndexes [enum.MaxPlayersInGame]*partyIndex
+	indexes      [enum.MaxPlayersInGame]*d2ui.WidgetGroup
 
 	players map[string]*d2mapentity.Player
 	me      *d2mapentity.Player
@@ -153,7 +153,7 @@ func (s *PartyPanel) newPartyIndex() *partyIndex {
 	levelLabel.Alignment = d2ui.HorizontalAlignRight
 	result.level = levelLabel
 
-	relationships := s.createSwitcher(d2enum.PartyButtonRelationshipsFrame)
+	relationships := s.createSwitcher(enum.PartyButtonRelationshipsFrame)
 	relationships.SetDisabledColor(lightRed)
 
 	result.relationshipsActiveTooltip = s.uiManager.NewTooltip(d2resource.Font16, d2resource.PaletteSky, d2ui.TooltipXCenter, d2ui.TooltipYTop)
@@ -167,7 +167,7 @@ func (s *PartyPanel) newPartyIndex() *partyIndex {
 
 	result.relationshipSwitcher = relationships
 
-	seeing := s.createSwitcher(d2enum.PartyButtonSeeingFrame)
+	seeing := s.createSwitcher(enum.PartyButtonSeeingFrame)
 
 	result.seeingActiveTooltip = s.uiManager.NewTooltip(d2resource.Font16, d2resource.PaletteSky, d2ui.TooltipXCenter, d2ui.TooltipYTop)
 	result.seeingActiveTooltip.SetText(s.asset.TranslateString("strParty19"))
@@ -179,7 +179,7 @@ func (s *PartyPanel) newPartyIndex() *partyIndex {
 
 	result.seeingSwitcher = seeing
 
-	listening := s.createSwitcher(d2enum.PartyButtonListeningFrame)
+	listening := s.createSwitcher(enum.PartyButtonListeningFrame)
 
 	result.listeningActiveTooltip = s.uiManager.NewTooltip(d2resource.Font16, d2resource.PaletteSky, d2ui.TooltipXCenter, d2ui.TooltipYTop)
 	result.listeningActiveTooltip.SetText(s.asset.TranslateString("strParty17") + "\n" + s.asset.TranslateString("strParty18"))
@@ -218,30 +218,30 @@ type partyIndex struct {
 	listeningActiveTooltip       *d2ui.Tooltip
 	listeningInactiveTooltip     *d2ui.Tooltip
 	inviteAcceptButton           *d2ui.Button
-	relationships                d2enum.PlayersRelationships
+	relationships                enum.PlayersRelationships
 }
 
 func (pi *partyIndex) setNameTooltipText() {
 	switch pi.relationships {
-	case d2enum.PlayerRelationNeutral, d2enum.PlayerRelationFriend:
+	case enum.PlayerRelationNeutral, enum.PlayerRelationFriend:
 		pi.nameTooltip.SetText(pi.asset.TranslateString("Party17"))
-	case d2enum.PlayerRelationEnemy:
+	case enum.PlayerRelationEnemy:
 		pi.nameTooltip.SetText(pi.asset.TranslateString("Party12"))
 	}
 }
 
 // setColor sets appropriate labels' colors
-func (pi *partyIndex) setColor(relations d2enum.PlayersRelationships) {
+func (pi *partyIndex) setColor(relations enum.PlayersRelationships) {
 	color := d2util.Color(white)
 
 	switch relations {
-	case d2enum.PlayerRelationEnemy:
+	case enum.PlayerRelationEnemy:
 		color = d2util.Color(red)
 
 		pi.relationshipSwitcher.SetState(false)
-	case d2enum.PlayerRelationFriend:
+	case enum.PlayerRelationFriend:
 		color = d2util.Color(lightGreen)
-	case d2enum.PlayerRelationNeutral:
+	case enum.PlayerRelationNeutral:
 		if pi.CanGoHostile() {
 			color = d2util.Color(white)
 		} else {
@@ -297,7 +297,7 @@ func (pi *partyIndex) setPositions(idx int) {
 }
 
 func (pi *partyIndex) CanGoHostile() bool {
-	return pi.hero.Stats.Level >= d2enum.PlayersHostileLevel && pi.me.Stats.Level >= d2enum.PlayersHostileLevel
+	return pi.hero.Stats.Level >= enum.PlayersHostileLevel && pi.me.Stats.Level >= enum.PlayersHostileLevel
 }
 
 // Load the data for the hero status panel
@@ -308,7 +308,7 @@ func (s *PartyPanel) Load() {
 
 	// create widgetGroups
 	s.panelGroup = s.uiManager.NewWidgetGroup(d2ui.RenderPriorityHeroStatsPanel)
-	for i := 0; i < d2enum.MaxPlayersInGame; i++ {
+	for i := 0; i < enum.MaxPlayersInGame; i++ {
 		s.indexes[i] = s.uiManager.NewWidgetGroup(d2ui.RenderPriorityHeroStatsPanel)
 	}
 
@@ -369,7 +369,7 @@ func (s *PartyPanel) Load() {
 // createSwitcher creates party-panel switcher using frame given
 func (s *PartyPanel) createSwitcher(frame int) *d2ui.SwitchableButton {
 	active := s.uiManager.NewDefaultButton(d2resource.PartyBoxes, frame)
-	inactive := s.uiManager.NewDefaultButton(d2resource.PartyBoxes, frame+d2enum.PartyButtonNextButtonFrame)
+	inactive := s.uiManager.NewDefaultButton(d2resource.PartyBoxes, frame+enum.PartyButtonNextButtonFrame)
 	switcher := s.uiManager.NewSwitchableButton(active, inactive, true)
 	switcher.SetVisible(false)
 
@@ -418,7 +418,7 @@ func (s *PartyPanel) SetOnCloseCb(cb func()) {
 }
 
 // AddPlayer adds a new player to the party panel
-func (s *PartyPanel) AddPlayer(player *d2mapentity.Player, relations d2enum.PlayersRelationships) {
+func (s *PartyPanel) AddPlayer(player *d2mapentity.Player, relations enum.PlayersRelationships) {
 	idx := 0
 
 	// search for free index
@@ -494,7 +494,7 @@ func (s *PartyPanel) Sort() {
 	}
 
 	// sorts widget groups
-	var sortedWG [d2enum.MaxPlayersInGame]*d2ui.WidgetGroup
+	var sortedWG [enum.MaxPlayersInGame]*d2ui.WidgetGroup
 	// first add non empty WG's
 	for n, i := range fullSlotsNumbers {
 		sortedWG[n] = s.indexes[i]
@@ -548,7 +548,7 @@ func (s *PartyPanel) setBarPosition() {
 func (s *PartyPanel) UpdatePanel() {
 	for _, i := range s.players {
 		if !s.IsInPanel(i) && !s.IsMe(i) {
-			s.AddPlayer(i, d2enum.PlayerRelationNeutral)
+			s.AddPlayer(i, enum.PlayerRelationNeutral)
 
 			// we need to switch all hidden widgets to be visible
 			// s.Open contains appropriate code to do that.

@@ -1,0 +1,14 @@
+package enum
+
+// NPCActionType determines composite mode animations for NPC's as they move around
+type NPCActionType int
+
+// NPCAction types
+// https://github.com/bethington/Nostos/issues/811
+const (
+	NPCActionInvalid NPCActionType = iota
+	NPCAction1
+	NPCAction2
+	NPCAction3
+	NPCActionSkill1
+)

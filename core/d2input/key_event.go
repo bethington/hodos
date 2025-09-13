@@ -1,17 +1,17 @@
 package d2input
 
-import "nostos/common/d2enum"
+import "nostos/common/enum"
 
 // KeyEvent represents key events
 type KeyEvent struct {
 	HandlerEvent
-	key d2enum.Key
+	key enum.Key
 	// Duration represents the number of frames this key has been pressed for
 	duration int
 }
 
 // Key returns the key
-func (e *KeyEvent) Key() d2enum.Key {
+func (e *KeyEvent) Key() enum.Key {
 	return e.key
 }
 

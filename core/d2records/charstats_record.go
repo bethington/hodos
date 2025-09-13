@@ -1,13 +1,13 @@
 package d2records
 
-import "nostos/common/d2enum"
+import "nostos/common/enum"
 
 // CharStats holds all of the CharStatRecords
-type CharStats map[d2enum.Hero]*CharStatRecord
+type CharStats map[enum.Hero]*CharStatRecord
 
 // CharStatRecord is a struct that represents a single row from charstats.txt
 type CharStatRecord struct {
-	Class d2enum.Hero
+	Class enum.Hero
 
 	// the initial stats at character level 1
 	InitStr     int // initial strength
@@ -48,7 +48,7 @@ type CharStatRecord struct {
 	SkillStrTab       [3]string // string for bonus per skill tabs
 	SkillStrClassOnly string    // string for class-exclusive skills
 
-	BaseWeaponClass d2enum.WeaponClass // controls animation when unarmed
+	BaseWeaponClass enum.WeaponClass // controls animation when unarmed
 
 	StartItem         [10]string // tokens for the starting items
 	StartItemLocation [10]string // locations of the starting items

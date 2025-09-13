@@ -7,11 +7,11 @@ import (
 	"nostos/common/d2fileformats/d2txt"
 
 	"nostos/common/calculation"
-	"nostos/common/d2enum"
+	"nostos/common/enum"
 )
 
 // nolint:funlen // cant reduce
-func loadCommonItems(d *d2txt.DataDictionary, source d2enum.InventoryItemType) (CommonItems, error) {
+func loadCommonItems(d *d2txt.DataDictionary, source enum.InventoryItemType) (CommonItems, error) {
 	records := make(CommonItems)
 
 	for d.Next() {

@@ -3,7 +3,7 @@ package d2records
 import (
 	"log"
 
-	"nostos/common/d2enum"
+	"nostos/common/enum"
 	"nostos/common/d2fileformats/d2txt"
 )
 
@@ -11,14 +11,14 @@ import (
 func itemTypesLoader(r *RecordManager, d *d2txt.DataDictionary) error {
 	records := make(ItemTypes)
 
-	charCodeMap := map[string]d2enum.Hero{
-		"ama": d2enum.HeroAmazon,
-		"ass": d2enum.HeroAssassin,
-		"bar": d2enum.HeroBarbarian,
-		"dru": d2enum.HeroDruid,
-		"nec": d2enum.HeroNecromancer,
-		"pal": d2enum.HeroPaladin,
-		"sor": d2enum.HeroSorceress,
+	charCodeMap := map[string]enum.Hero{
+		"ama": enum.HeroAmazon,
+		"ass": enum.HeroAssassin,
+		"bar": enum.HeroBarbarian,
+		"dru": enum.HeroDruid,
+		"nec": enum.HeroNecromancer,
+		"pal": enum.HeroPaladin,
+		"sor": enum.HeroSorceress,
 	}
 
 	for d.Next() {

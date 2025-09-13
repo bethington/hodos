@@ -1,20 +1,20 @@
 package d2input
 
-import "nostos/common/d2enum"
+import "nostos/common/enum"
 
 // MouseEvent represents a mouse event
 type MouseEvent struct {
 	HandlerEvent
-	mouseButton d2enum.MouseButton
+	mouseButton enum.MouseButton
 }
 
 // KeyMod returns the key mod
-func (e *MouseEvent) KeyMod() d2enum.KeyMod {
+func (e *MouseEvent) KeyMod() enum.KeyMod {
 	return e.HandlerEvent.keyMod
 }
 
 // ButtonMod represents a button mod
-func (e *MouseEvent) ButtonMod() d2enum.MouseButtonMod {
+func (e *MouseEvent) ButtonMod() enum.MouseButtonMod {
 	return e.HandlerEvent.buttonMod
 }
 
@@ -29,6 +29,6 @@ func (e *MouseEvent) Y() int {
 }
 
 // Button returns the mouse button
-func (e *MouseEvent) Button() d2enum.MouseButton {
+func (e *MouseEvent) Button() enum.MouseButton {
 	return e.mouseButton
 }

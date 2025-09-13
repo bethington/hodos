@@ -1,9 +1,9 @@
 package d2records
 
-import "nostos/common/d2enum"
+import "nostos/common/enum"
 
 // DifficultyLevels contain the difficulty records for each difficulty
-type DifficultyLevels map[d2enum.DifficultyType]*DifficultyLevelRecord
+type DifficultyLevels map[enum.DifficultyType]*DifficultyLevelRecord
 
 // DifficultyLevelRecord contain the parameters that change for different difficulties
 type DifficultyLevelRecord struct {

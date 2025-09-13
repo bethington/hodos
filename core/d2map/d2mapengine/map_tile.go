@@ -1,7 +1,7 @@
 package d2mapengine
 
 import (
-	"nostos/common/d2enum"
+	"nostos/common/enum"
 	"nostos/core/d2map/d2mapstamp"
 
 	"nostos/common/d2fileformats/d2dt1"
@@ -10,7 +10,7 @@ import (
 // MapTile is a tile placed on the map
 type MapTile struct {
 	Components d2mapstamp.Tile
-	RegionType d2enum.RegionIdType
+	RegionType enum.RegionIdType
 	SubTiles   [25]d2dt1.SubTileFlags
 }
 

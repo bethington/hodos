@@ -7,7 +7,7 @@ import (
 
 	"nostos/core/d2records"
 
-	"nostos/common/d2enum"
+	"nostos/common/enum"
 	"nostos/common/d2interface"
 	"nostos/common/d2math/d2vector"
 	"nostos/core/d2asset"
@@ -27,7 +27,7 @@ type Object struct {
 
 // setMode changes the graphical mode of this animated entity
 // nolint:unparam // direction may not always be passed 0 in the future
-func (ob *Object) setMode(animationMode d2enum.ObjectAnimationMode, direction int, randomFrame bool) error {
+func (ob *Object) setMode(animationMode enum.ObjectAnimationMode, direction int, randomFrame bool) error {
 	err := ob.composite.SetMode(animationMode, "HTH")
 	if err != nil {
 		return err
@@ -35,7 +35,7 @@ func (ob *Object) setMode(animationMode d2enum.ObjectAnimationMode, direction in
 
 	ob.composite.SetDirection(direction)
 
-	ob.drawLayer = ob.objectRecord.OrderFlag[d2enum.ObjectAnimationModeNeutral]
+	ob.drawLayer = ob.objectRecord.OrderFlag[enum.ObjectAnimationModeNeutral]
 
 	// For objects their txt record entry overrides animationdata
 	speed := ob.objectRecord.FrameDelta[animationMode]

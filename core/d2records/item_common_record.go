@@ -2,7 +2,7 @@ package d2records
 
 import (
 	"nostos/common/calculation"
-	"nostos/common/d2enum"
+	"nostos/common/enum"
 )
 
 // CommonItems stores all ItemCommonRecords
@@ -43,7 +43,7 @@ type ItemCommonRecord struct {
 	UberCode               string
 	UltraCode              string
 	Name                   string
-	Source                 d2enum.InventoryItemType
+	Source                 enum.InventoryItemType
 
 	Version          int // 0 = classic, 100 = expansion
 	Rarity           int // higher, the rarer

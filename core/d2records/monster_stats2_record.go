@@ -1,6 +1,6 @@
 package d2records
 
-import "nostos/common/d2enum"
+import "nostos/common/enum"
 
 // MonStats2 stores all of the MonStat2Records
 type MonStats2 map[string]*MonStat2Record
@@ -79,7 +79,7 @@ type MonStat2Record struct {
 	InfernoAnim     int
 	InfernoRollback int
 	// Which mode is used after resurrection
-	ResurrectMode d2enum.MonsterAnimationMode
+	ResurrectMode enum.MonsterAnimationMode
 
 	// This specifies if the size values get used for collision detection
 	NoGfxHitTest bool

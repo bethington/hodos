@@ -7,7 +7,7 @@ import (
 	"math/rand"
 	"strings"
 
-	"nostos/common/d2enum"
+	"nostos/common/enum"
 	"nostos/common/d2fileformats/d2ds1"
 	"nostos/common/d2geom"
 	"nostos/core/d2map/d2mapgen/d2wilderness"
@@ -40,11 +40,11 @@ func (g *MapGenerator) GenerateAct1Overworld() {
 
 	wilderness1Details := g.asset.Records.GetLevelDetails(wildernessDetailsRecordID)
 
-	g.engine.ResetMap(d2enum.RegionAct1Town, mapWidth, mapHeight)
+	g.engine.ResetMap(enum.RegionAct1Town, mapWidth, mapHeight)
 	mapWidth := g.engine.Size().Width
 	mapHeight := g.engine.Size().Height
 
-	townStamp := g.engine.LoadStamp(d2enum.RegionAct1Town, presetB, autoFileIndex)
+	townStamp := g.engine.LoadStamp(enum.RegionAct1Town, presetB, autoFileIndex)
 	townStamp.RegionPath()
 	townSize := townStamp.Size()
 
@@ -283,7 +283,7 @@ func (g *MapGenerator) generateWilderness1Contents(rect d2geom.Rectangle) {
 	for y := 0; y < rect.Height; y++ {
 		for x := 0; x < rect.Width; x++ {
 			tile := g.engine.Tile(rect.Left+x, rect.Top+y)
-			tile.RegionType = d2enum.RegionIdType(levelDetails.LevelType)
+			tile.RegionType = enum.RegionIdType(levelDetails.LevelType)
 			floorTile := d2ds1.Tile{}
 			floorTile.Prop1 = 1
 			tile.Components.Floors = []d2ds1.Tile{floorTile} // wildernessGrass

@@ -1,7 +1,7 @@
 package d2term
 
 import (
-	"nostos/common/d2enum"
+	"nostos/common/enum"
 	"nostos/common/d2interface"
 )
 
@@ -12,7 +12,7 @@ func New(inputManager d2interface.InputManager) (*Terminal, error) {
 		return nil, err
 	}
 
-	if err := inputManager.BindHandlerWithPriority(term, d2enum.PriorityHigh); err != nil {
+	if err := inputManager.BindHandlerWithPriority(term, enum.PriorityHigh); err != nil {
 		return nil, err
 	}
 

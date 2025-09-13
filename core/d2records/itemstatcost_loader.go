@@ -1,7 +1,7 @@
 package d2records
 
 import (
-	"nostos/common/d2enum"
+	"nostos/common/enum"
 	"nostos/common/d2fileformats/d2txt"
 )
 
@@ -33,7 +33,7 @@ func itemStatCostLoader(r *RecordManager, d *d2txt.DataDictionary) error {
 			SaveAdd:       d.Number("Save Add"),
 			SaveParamBits: d.Number("Save Param Bits"),
 
-			Encode: d2enum.EncodingType(d.Number("Encode")),
+			Encode: enum.EncodingType(d.Number("Encode")),
 
 			CallbackEnabled: d.Number("fCallback") > 0,
 
@@ -41,7 +41,7 @@ func itemStatCostLoader(r *RecordManager, d *d2txt.DataDictionary) error {
 			CostMultiply: d.Number("Multiply"),
 			ValShift:     d.Number("ValShift"),
 
-			OperatorType: d2enum.OperatorType(d.Number("op")),
+			OperatorType: enum.OperatorType(d.Number("op")),
 			OpParam:      d.Number("op param"),
 			OpBase:       d.String("op base"),
 			OpStat1:      d.String("op stat1"),
@@ -54,10 +54,10 @@ func itemStatCostLoader(r *RecordManager, d *d2txt.DataDictionary) error {
 			ItemSpecific:  d.Number("itemspecific") > 0,
 			DamageRelated: d.Number("damagerelated") > 0,
 
-			EventID1:     d2enum.GetItemEventType(d.String("itemevent1")),
-			EventID2:     d2enum.GetItemEventType(d.String("itemevent2")),
-			EventFuncID1: d2enum.ItemEventFuncID(d.Number("itemeventfunc1")),
-			EventFuncID2: d2enum.ItemEventFuncID(d.Number("itemeventfunc2")),
+			EventID1:     enum.GetItemEventType(d.String("itemevent1")),
+			EventID2:     enum.GetItemEventType(d.String("itemevent2")),
+			EventFuncID1: enum.ItemEventFuncID(d.Number("itemeventfunc1")),
+			EventFuncID2: enum.ItemEventFuncID(d.Number("itemeventfunc2")),
 
 			DescPriority: d.Number("descpriority"),
 			DescFnID:     d.Number("descfunc"),

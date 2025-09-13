@@ -1,6 +1,6 @@
 package d2records
 
-import "nostos/common/d2enum"
+import "nostos/common/enum"
 
 // LevelDetails has all of the LevelDetailRecords
 type LevelDetails map[int]*LevelDetailRecord
@@ -144,13 +144,13 @@ type LevelDetailRecord struct {
 	// 1 = Teleport allowed
 	// 2 = Teleport allowed, but not able to use teleport throu walls/objects
 	// (maybe for objects this is controlled by IsDoor column in objects.txt)
-	TeleportFlag d2enum.TeleportFlag // Teleport
+	TeleportFlag enum.TeleportFlag // Teleport
 
 	// Setting for Level Generation: You have 3 possibilities here:
 	// 1 Random Maze
 	// 2 Preset Area
 	// 3 Wilderness level
-	LevelGenerationType d2enum.LevelGenerationType // DrlgType
+	LevelGenerationType enum.LevelGenerationType // DrlgType
 
 	// NOTE
 	// IDs from LvlSub.txt, which is used to randomize outdoor areas, such as

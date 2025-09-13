@@ -3,7 +3,7 @@ package d2mapentity
 import (
 	"fmt"
 
-	"nostos/common/d2enum"
+	"nostos/common/enum"
 	"nostos/common/d2interface"
 	"nostos/common/d2math/d2vector"
 	"nostos/core/d2asset"
@@ -22,7 +22,7 @@ type Player struct {
 	Skills            map[int]*d2hero.HeroSkill
 	LeftSkill         *d2hero.HeroSkill
 	RightSkill        *d2hero.HeroSkill
-	Class             d2enum.Hero
+	Class             enum.Hero
 	Gold              int
 	lastPathSize      int
 	isInTown          bool
@@ -162,32 +162,32 @@ func (p *Player) Render(target d2interface.Surface) {
 }
 
 // GetAnimationMode returns the current animation mode based on what the player is doing and where they are.
-func (p *Player) GetAnimationMode() d2enum.PlayerAnimationMode {
+func (p *Player) GetAnimationMode() enum.PlayerAnimationMode {
 	if p.IsRunning() && !p.atTarget() {
-		return d2enum.PlayerAnimationModeRun
+		return enum.PlayerAnimationModeRun
 	}
 
 	if p.IsInTown() {
 		if !p.atTarget() {
-			return d2enum.PlayerAnimationModeTownWalk
+			return enum.PlayerAnimationModeTownWalk
 		}
 
-		return d2enum.PlayerAnimationModeTownNeutral
+		return enum.PlayerAnimationModeTownNeutral
 	}
 
 	if !p.atTarget() {
-		return d2enum.PlayerAnimationModeWalk
+		return enum.PlayerAnimationModeWalk
 	}
 
 	if p.IsCasting() {
-		return d2enum.PlayerAnimationModeCast
+		return enum.PlayerAnimationModeCast
 	}
 
-	return d2enum.PlayerAnimationModeNeutral
+	return enum.PlayerAnimationModeNeutral
 }
 
 // SetAnimationMode sets the Composite's animation mode weapon class and direction.
-func (p *Player) SetAnimationMode(animationMode d2enum.PlayerAnimationMode) error {
+func (p *Player) SetAnimationMode(animationMode enum.PlayerAnimationMode) error {
 	return p.composite.SetMode(animationMode, p.composite.GetWeaponClass())
 }
 
@@ -225,9 +225,9 @@ func (p *Player) IsCasting() bool {
 // sets the animation mode to the casting animation.
 // This handles all types of skills - melee, ranged, kick, summon, etc.
 // NB: onFinishedCasting is called when the casting animation is >50% complete
-func (p *Player) StartCasting(animMode d2enum.PlayerAnimationMode, onFinishedCasting func()) {
+func (p *Player) StartCasting(animMode enum.PlayerAnimationMode, onFinishedCasting func()) {
 	// passive skills, auras, etc.
-	if animMode == d2enum.PlayerAnimationModeNone {
+	if animMode == enum.PlayerAnimationModeNone {
 		return
 	}
 

@@ -1,6 +1,6 @@
 package d2interface
 
-import "nostos/common/d2enum"
+import "nostos/common/enum"
 
 // Terminal is a drop-down terminal and shell
 // It is used throughout the codebase, most parts of the engine will
@@ -13,7 +13,7 @@ type Terminal interface {
 	OnKeyChars(event KeyCharsEvent) bool
 	Render(surface Surface) error
 	Execute(command string) error
-	Rawf(category d2enum.TermCategory, format string, params ...interface{})
+	Rawf(category enum.TermCategory, format string, params ...interface{})
 	Printf(format string, params ...interface{})
 	Infof(format string, params ...interface{})
 	Warningf(format string, params ...interface{})

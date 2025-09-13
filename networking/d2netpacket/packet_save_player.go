@@ -3,7 +3,7 @@ package d2netpacket
 import (
 	"encoding/json"
 
-	"nostos/common/d2enum"
+	"nostos/common/enum"
 
 	"nostos/core/d2map/d2mapentity"
 	"nostos/networking/d2netpacket/d2netpackettype"
@@ -13,11 +13,11 @@ import (
 // the Server has to check if these skills are actually allowed for the Player
 type SavePlayerPacket struct {
 	Player     *d2mapentity.Player   `json:"Player"`
-	Difficulty d2enum.DifficultyType `json:"Difficulty"`
+	Difficulty enum.DifficultyType `json:"Difficulty"`
 }
 
 // CreateSavePlayerPacket sends a packet which instructs the server to save the Player
-func CreateSavePlayerPacket(playerState *d2mapentity.Player, difficulty d2enum.DifficultyType) (NetPacket, error) {
+func CreateSavePlayerPacket(playerState *d2mapentity.Player, difficulty enum.DifficultyType) (NetPacket, error) {
 	savePlayerData := SavePlayerPacket{
 		Player:     playerState,
 		Difficulty: difficulty,

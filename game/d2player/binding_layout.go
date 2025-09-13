@@ -3,7 +3,7 @@ package d2player
 import (
 	"image/color"
 
-	"nostos/common/d2enum"
+	"nostos/common/enum"
 	"nostos/core/d2gui"
 )
 
@@ -17,7 +17,7 @@ type bindingLayout struct {
 	secondaryLabel  *d2gui.Label
 
 	binding   *KeyBinding
-	gameEvent d2enum.GameEvent
+	gameEvent enum.GameEvent
 }
 
 func (l *bindingLayout) setTextAndColor(layout *d2gui.Label, text string, col color.RGBA) error {
@@ -70,7 +70,7 @@ func (l *bindingLayout) isInLayoutRect(x, y int, targetLayout *d2gui.Layout) boo
 	return false
 }
 
-func (l *bindingLayout) GetPointedLayoutAndLabel(x, y int) (d2enum.GameEvent, KeyBindingType) {
+func (l *bindingLayout) GetPointedLayoutAndLabel(x, y int) (enum.GameEvent, KeyBindingType) {
 	if l.isInLayoutRect(x, y, l.descLayout) {
 		return l.gameEvent, KeyBindingTypePrimary
 	}

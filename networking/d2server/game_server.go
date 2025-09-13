@@ -11,7 +11,7 @@ import (
 
 	"github.com/robertkrimen/otto"
 
-	"nostos/common/d2enum"
+	"nostos/common/enum"
 	"nostos/common/d2util"
 	"nostos/core/d2asset"
 	"nostos/core/d2hero"
@@ -106,7 +106,7 @@ func NewGameServer(asset *d2asset.AssetManager,
 
 	mapEngine := d2mapengine.CreateMapEngine(l, asset)
 	mapEngine.SetSeed(gameServer.seed)
-	mapEngine.ResetMap(d2enum.RegionAct1Town, 100, 100)
+	mapEngine.ResetMap(enum.RegionAct1Town, 100, 100)
 
 	mapGen, err := d2mapgen.NewMapGenerator(asset, l, mapEngine)
 	if err != nil {
@@ -349,7 +349,7 @@ func (g *GameServer) handleClientConnection(client ClientConnection, x, y float6
 		g.Errorf("GameServer: error sending UpdateServerInfoPacket to client %s: %s", client.GetUniqueID(), err)
 	}
 
-	gmp, err := d2netpacket.CreateGenerateMapPacket(d2enum.RegionAct1Town)
+	gmp, err := d2netpacket.CreateGenerateMapPacket(enum.RegionAct1Town)
 	if err != nil {
 		g.Errorf("GenerateMapPacket: %v", err)
 	}

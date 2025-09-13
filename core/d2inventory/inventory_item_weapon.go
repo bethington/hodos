@@ -1,7 +1,7 @@
 package d2inventory
 
 import (
-	"nostos/common/d2enum"
+	"nostos/common/enum"
 )
 
 // InventoryItemWeapon stores the info of an weapon item in the inventory
@@ -44,8 +44,8 @@ func (v *InventoryItemWeapon) InventoryItemName() string {
 }
 
 // InventoryItemType returns the item type of the weapon
-func (v *InventoryItemWeapon) InventoryItemType() d2enum.InventoryItemType {
-	return d2enum.InventoryItemTypeWeapon
+func (v *InventoryItemWeapon) InventoryItemType() enum.InventoryItemType {
+	return enum.InventoryItemTypeWeapon
 }
 
 // InventoryGridSize returns the grid size of the weapon

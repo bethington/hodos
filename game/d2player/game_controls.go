@@ -9,7 +9,7 @@ import (
 	"nostos/common/d2geom"
 	"nostos/common/d2util"
 
-	"nostos/common/d2enum"
+	"nostos/common/enum"
 	"nostos/common/d2math/d2vector"
 	"nostos/core/d2hero"
 
@@ -114,19 +114,19 @@ func NewGameControls(
 	var inventoryRecordKey string
 
 	switch hero.Class {
-	case d2enum.HeroAssassin:
+	case enum.HeroAssassin:
 		inventoryRecordKey = "Assassin2"
-	case d2enum.HeroAmazon:
+	case enum.HeroAmazon:
 		inventoryRecordKey = "Amazon2"
-	case d2enum.HeroBarbarian:
+	case enum.HeroBarbarian:
 		inventoryRecordKey = "Barbarian2"
-	case d2enum.HeroDruid:
+	case enum.HeroDruid:
 		inventoryRecordKey = "Druid2"
-	case d2enum.HeroNecromancer:
+	case enum.HeroNecromancer:
 		inventoryRecordKey = "Necromancer2"
-	case d2enum.HeroPaladin:
+	case enum.HeroPaladin:
 		inventoryRecordKey = "Paladin2"
-	case d2enum.HeroSorceress:
+	case enum.HeroSorceress:
 		inventoryRecordKey = "Sorceress2"
 	default:
 		return nil, fmt.Errorf("unknown hero class: %d", hero.Class)
@@ -316,32 +316,32 @@ type SkillResource struct {
 func (g *GameControls) OnKeyRepeat(event d2interface.KeyEvent) bool {
 	if g.FreeCam {
 		var moveSpeed float64 = 8
-		if event.KeyMod() == d2enum.KeyModShift {
+		if event.KeyMod() == enum.KeyModShift {
 			moveSpeed *= 2
 		}
 
-		if event.Key() == d2enum.KeyDown {
+		if event.Key() == enum.KeyDown {
 			v := d2vector.NewVector(0, moveSpeed)
 			g.mapRenderer.MoveCameraTargetBy(v)
 
 			return true
 		}
 
-		if event.Key() == d2enum.KeyUp {
+		if event.Key() == enum.KeyUp {
 			v := d2vector.NewVector(0, -moveSpeed)
 			g.mapRenderer.MoveCameraTargetBy(v)
 
 			return true
 		}
 
-		if event.Key() == d2enum.KeyRight {
+		if event.Key() == enum.KeyRight {
 			v := d2vector.NewVector(moveSpeed, 0)
 			g.mapRenderer.MoveCameraTargetBy(v)
 
 			return true
 		}
 
-		if event.Key() == d2enum.KeyLeft {
+		if event.Key() == enum.KeyLeft {
 			v := d2vector.NewVector(-moveSpeed, 0)
 			g.mapRenderer.MoveCameraTargetBy(v)
 
@@ -354,7 +354,7 @@ func (g *GameControls) OnKeyRepeat(event d2interface.KeyEvent) bool {
 
 // OnKeyDown handles key presses
 func (g *GameControls) OnKeyDown(event d2interface.KeyEvent) bool {
-	if event.Key() == d2enum.KeyEscape {
+	if event.Key() == enum.KeyEscape {
 		g.onEscKey()
 		return true
 	}
@@ -362,26 +362,26 @@ func (g *GameControls) OnKeyDown(event d2interface.KeyEvent) bool {
 	gameEvent := g.keyMap.getGameEvent(event.Key())
 
 	switch gameEvent {
-	case d2enum.ClearScreen:
+	case enum.ClearScreen:
 		g.clearScreen()
 		g.updateLayout()
-	case d2enum.ToggleInventoryPanel:
+	case enum.ToggleInventoryPanel:
 		g.toggleInventoryPanel()
-	case d2enum.TogglePartyPanel:
+	case enum.TogglePartyPanel:
 		if !g.isSinglePlayer {
 			g.togglePartyPanel()
 		}
-	case d2enum.ToggleSkillTreePanel:
+	case enum.ToggleSkillTreePanel:
 		g.toggleSkilltreePanel()
-	case d2enum.ToggleCharacterPanel:
+	case enum.ToggleCharacterPanel:
 		g.toggleHeroStatsPanel()
-	case d2enum.ToggleQuestLog:
+	case enum.ToggleQuestLog:
 		g.toggleQuestLog()
-	case d2enum.ToggleRunWalk:
+	case enum.ToggleRunWalk:
 		g.hud.onToggleRunButton(false)
-	case d2enum.HoldRun:
+	case enum.HoldRun:
 		g.hud.onToggleRunButton(true)
-	case d2enum.ToggleHelpScreen:
+	case enum.ToggleHelpScreen:
 		g.toggleHelpOverlay()
 	default:
 		return false
@@ -394,7 +394,7 @@ func (g *GameControls) OnKeyDown(event d2interface.KeyEvent) bool {
 func (g *GameControls) OnKeyUp(event d2interface.KeyEvent) bool {
 	gameEvent := g.keyMap.getGameEvent(event.Key())
 
-	if gameEvent == d2enum.HoldRun {
+	if gameEvent == enum.HoldRun {
 		g.hud.onToggleRunButton(true)
 	}
 
@@ -442,8 +442,8 @@ func (g *GameControls) OnMouseButtonRepeat(event d2interface.MouseEvent) bool {
 
 	now := d2util.Now()
 	button := event.Button()
-	isLeft := button == d2enum.MouseButtonLeft
-	isRight := button == d2enum.MouseButtonRight
+	isLeft := button == enum.MouseButtonLeft
+	isRight := button == enum.MouseButtonRight
 	lastLeft := now - g.lastLeftBtnActionTime
 	lastRight := now - g.lastRightBtnActionTime
 	inRect := !g.isInActiveMenusRect(event.X(), event.Y())
@@ -453,14 +453,14 @@ func (g *GameControls) OnMouseButtonRepeat(event d2interface.MouseEvent) bool {
 	if isLeft && shouldDoLeft && inRect && !g.hero.IsCasting() {
 		g.lastLeftBtnActionTime = now
 
-		if event.KeyMod() == d2enum.KeyModShift {
+		if event.KeyMod() == enum.KeyModShift {
 			g.inputListener.OnPlayerCast(g.hero.LeftSkill.ID, px, py)
 		} else {
 			g.inputListener.OnPlayerMove(px, py)
 		}
 
 		if g.FreeCam {
-			if event.Button() == d2enum.MouseButtonLeft {
+			if event.Button() == enum.MouseButtonLeft {
 				camVect := g.mapRenderer.Camera.GetPosition().Vector
 
 				x := float64(halfScreenWidth) / subtilesPerTile
@@ -530,7 +530,7 @@ func (g *GameControls) OnMouseButtonDown(event d2interface.MouseEvent) bool {
 		}
 	}
 
-	if g.hud.skillSelectMenu.IsOpen() && event.Button() == d2enum.MouseButtonLeft {
+	if g.hud.skillSelectMenu.IsOpen() && event.Button() == enum.MouseButtonLeft {
 		g.lastLeftBtnActionTime = d2util.Now()
 		g.hud.skillSelectMenu.HandleClick(mx, my)
 		g.hud.skillSelectMenu.ClosePanels()
@@ -542,10 +542,10 @@ func (g *GameControls) OnMouseButtonDown(event d2interface.MouseEvent) bool {
 	px = truncateFloat64(px)
 	py = truncateFloat64(py)
 
-	if event.Button() == d2enum.MouseButtonLeft && !g.isInActiveMenusRect(mx, my) && !g.hero.IsCasting() {
+	if event.Button() == enum.MouseButtonLeft && !g.isInActiveMenusRect(mx, my) && !g.hero.IsCasting() {
 		g.lastLeftBtnActionTime = d2util.Now()
 
-		if event.KeyMod() == d2enum.KeyModShift {
+		if event.KeyMod() == enum.KeyModShift {
 			g.inputListener.OnPlayerCast(g.hero.LeftSkill.ID, px, py)
 		} else {
 			g.inputListener.OnPlayerMove(px, py)
@@ -554,7 +554,7 @@ func (g *GameControls) OnMouseButtonDown(event d2interface.MouseEvent) bool {
 		return true
 	}
 
-	if event.Button() == d2enum.MouseButtonRight && !g.isInActiveMenusRect(mx, my) && !g.hero.IsCasting() {
+	if event.Button() == enum.MouseButtonRight && !g.isInActiveMenusRect(mx, my) && !g.hero.IsCasting() {
 		g.lastRightBtnActionTime = d2util.Now()
 
 		g.inputListener.OnPlayerCast(g.hero.RightSkill.ID, px, py)

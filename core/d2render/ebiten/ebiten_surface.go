@@ -9,7 +9,7 @@ import (
 	"github.com/hajimehoshi/ebiten/v2"
 	"github.com/hajimehoshi/ebiten/v2/ebitenutil"
 
-	"nostos/common/d2enum"
+	"nostos/common/enum"
 	"nostos/common/d2interface"
 	"nostos/core/d2ui"
 )
@@ -43,7 +43,7 @@ type ebitenSurface struct {
 
 func createEbitenSurface(r *Renderer, img *ebiten.Image, currentState ...surfaceState) *ebitenSurface {
 	state := surfaceState{
-		effect:     d2enum.DrawEffectNone,
+		effect:     enum.DrawEffectNone,
 		saturation: defaultSaturation,
 		brightness: defaultBrightness,
 		skewX:      defaultSkewX,
@@ -90,13 +90,13 @@ func (s *ebitenSurface) PushScale(scaleX, scaleY float64) {
 }
 
 // PushEffect pushes an effect to the state stack
-func (s *ebitenSurface) PushEffect(effect d2enum.DrawEffect) {
+func (s *ebitenSurface) PushEffect(effect enum.DrawEffect) {
 	s.stateStack = append(s.stateStack, s.stateCurrent)
 	s.stateCurrent.effect = effect
 }
 
 // PushFilter pushes a filter to the state stack
-func (s *ebitenSurface) PushFilter(filter d2enum.Filter) {
+func (s *ebitenSurface) PushFilter(filter enum.Filter) {
 	s.stateStack = append(s.stateStack, s.stateCurrent)
 	s.stateCurrent.filter = d2ToEbitenFilter(filter)
 }
@@ -199,20 +199,20 @@ func (s *ebitenSurface) createDrawImageOptions() *ebiten.DrawImageOptions {
 
 func (s *ebitenSurface) handleStateEffect(opts *ebiten.DrawImageOptions) {
 	switch s.stateCurrent.effect {
-	case d2enum.DrawEffectPctTransparency25:
+	case enum.DrawEffectPctTransparency25:
 		opts.ColorM.Translate(0, 0, 0, -transparency25)
-	case d2enum.DrawEffectPctTransparency50:
+	case enum.DrawEffectPctTransparency50:
 		opts.ColorM.Translate(0, 0, 0, -transparency50)
-	case d2enum.DrawEffectPctTransparency75:
+	case enum.DrawEffectPctTransparency75:
 		opts.ColorM.Translate(0, 0, 0, -transparency75)
-	case d2enum.DrawEffectModulate:
+	case enum.DrawEffectModulate:
 		opts.CompositeMode = ebiten.CompositeModeLighter
 	// https://github.com/bethington/Nostos/issues/822
-	case d2enum.DrawEffectBurn:
-	case d2enum.DrawEffectNormal:
-	case d2enum.DrawEffectMod2XTrans:
-	case d2enum.DrawEffectMod2X:
-	case d2enum.DrawEffectNone:
+	case enum.DrawEffectBurn:
+	case enum.DrawEffectNormal:
+	case enum.DrawEffectMod2XTrans:
+	case enum.DrawEffectMod2X:
+	case enum.DrawEffectNone:
 		opts.CompositeMode = ebiten.CompositeModeSourceOver
 	}
 }

@@ -4,7 +4,7 @@ import (
 	"fmt"
 
 	"nostos/common/calculation/parser"
-	"nostos/common/d2enum"
+	"nostos/common/enum"
 	"nostos/common/d2fileformats/d2txt"
 )
 
@@ -282,42 +282,42 @@ func skillDetailsLoader(r *RecordManager, d *d2txt.DataDictionary) error {
 	return nil
 }
 
-func animToEnum(anim string) (d2enum.PlayerAnimationMode, error) {
+func animToEnum(anim string) (enum.PlayerAnimationMode, error) {
 	switch anim {
 	case "SC":
-		return d2enum.PlayerAnimationModeCast, nil
+		return enum.PlayerAnimationModeCast, nil
 
 	case "TH":
-		return d2enum.PlayerAnimationModeThrow, nil
+		return enum.PlayerAnimationModeThrow, nil
 
 	case "KK":
-		return d2enum.PlayerAnimationModeKick, nil
+		return enum.PlayerAnimationModeKick, nil
 
 	case "SQ":
-		return d2enum.PlayerAnimationModeSequence, nil
+		return enum.PlayerAnimationModeSequence, nil
 
 	case "S1":
-		return d2enum.PlayerAnimationModeSkill1, nil
+		return enum.PlayerAnimationModeSkill1, nil
 
 	case "S2":
-		return d2enum.PlayerAnimationModeSkill2, nil
+		return enum.PlayerAnimationModeSkill2, nil
 
 	case "S3":
-		return d2enum.PlayerAnimationModeSkill3, nil
+		return enum.PlayerAnimationModeSkill3, nil
 
 	case "S4":
-		return d2enum.PlayerAnimationModeSkill4, nil
+		return enum.PlayerAnimationModeSkill4, nil
 
 	case "A1":
-		return d2enum.PlayerAnimationModeAttack1, nil
+		return enum.PlayerAnimationModeAttack1, nil
 
 	case "A2":
-		return d2enum.PlayerAnimationModeAttack2, nil
+		return enum.PlayerAnimationModeAttack2, nil
 
 	case "":
-		return d2enum.PlayerAnimationModeNone, nil
+		return enum.PlayerAnimationModeNone, nil
 	}
 
 	// should not be reached
-	return d2enum.PlayerAnimationModeNone, fmt.Errorf("unknown skill anim value [%s]", anim)
+	return enum.PlayerAnimationModeNone, fmt.Errorf("unknown skill anim value [%s]", anim)
 }

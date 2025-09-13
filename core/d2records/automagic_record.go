@@ -1,6 +1,6 @@
 package d2records
 
-import "nostos/common/d2enum"
+import "nostos/common/enum"
 
 // AutoMagic has all of the AutoMagicRecords, used for generating magic properties for spawned items
 type AutoMagic []*AutoMagicRecord
@@ -64,7 +64,7 @@ type AutoMagicRecord struct {
 
 	// Class
 	// the class type
-	Class d2enum.Hero
+	Class enum.Hero
 
 	// ClassLevelRequirement
 	// If class is set, this should allow a separate level requirement for this class.

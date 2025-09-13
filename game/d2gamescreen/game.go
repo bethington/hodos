@@ -13,7 +13,7 @@ import (
 	"nostos/common/d2util"
 	"nostos/core/d2ui"
 
-	"nostos/common/d2enum"
+	"nostos/common/enum"
 	"nostos/common/d2interface"
 	"nostos/core/d2audio"
 	"nostos/core/d2map/d2mapentity"
@@ -71,7 +71,7 @@ func CreateGame(
 		gameClient:           gameClient,
 		gameControls:         nil,
 		localPlayer:          nil,
-		lastRegionType:       d2enum.RegionNone,
+		lastRegionType:       enum.RegionNone,
 		ticksSinceLevelCheck: 0,
 		mapRenderer: d2maprenderer.CreateMapRenderer(asset, renderer,
 			gameClient.MapEngine, term, l, startX, startY),
@@ -110,7 +110,7 @@ type Game struct {
 	uiManager            *d2ui.UIManager
 	gameControls         *d2player.GameControls
 	localPlayer          *d2mapentity.Player
-	lastRegionType       d2enum.RegionIdType
+	lastRegionType       enum.RegionIdType
 	ticksSinceLevelCheck float64
 	escapeMenu           *d2player.EscapeMenu
 	soundEngine          *d2audio.SoundEngine
@@ -249,7 +249,7 @@ func (v *Game) Advance(elapsed float64) error {
 				v.soundEnv.SetEnv(levelDetails.SoundEnvironmentID)
 
 				// skip showing zone change text the first time we enter the world
-				if v.lastRegionType != d2enum.RegionNone && v.lastRegionType != tile.RegionType {
+				if v.lastRegionType != enum.RegionNone && v.lastRegionType != tile.RegionType {
 					areaName := levelDetails.LevelDisplayName
 					areaChgStr := fmt.Sprintf("Entering The %s", areaName)
 					v.gameControls.SetZoneChangeText(areaChgStr)
@@ -339,7 +339,7 @@ func (v *Game) OnPlayerMove(targetX, targetY float64) {
 func (v *Game) OnPlayerSave() error {
 	playerState := v.gameClient.Players[v.gameClient.PlayerID]
 
-	sp, err := d2netpacket.CreateSavePlayerPacket(playerState, d2enum.DifficultyNormal)
+	sp, err := d2netpacket.CreateSavePlayerPacket(playerState, enum.DifficultyNormal)
 	if err != nil {
 		return fmt.Errorf("SavePlayerPacket: %v", err)
 	}

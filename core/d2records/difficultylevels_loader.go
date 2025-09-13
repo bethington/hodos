@@ -1,7 +1,7 @@
 package d2records
 
 import (
-	"nostos/common/d2enum"
+	"nostos/common/enum"
 	"nostos/common/d2fileformats/d2txt"
 )
 
@@ -30,11 +30,11 @@ func difficultyLevelsLoader(r *RecordManager, d *d2txt.DataDictionary) error {
 		}
 		switch record.Name {
 		case "Normal":
-			records[d2enum.DifficultyNormal] = record
+			records[enum.DifficultyNormal] = record
 		case "Nightmare":
-			records[d2enum.DifficultyNightmare] = record
+			records[enum.DifficultyNightmare] = record
 		case "Hell":
-			records[d2enum.DifficultyHell] = record
+			records[enum.DifficultyHell] = record
 		}
 	}
 

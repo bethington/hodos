@@ -3,7 +3,7 @@ package d2mapgen
 import (
 	"nostos/core/d2asset"
 
-	"nostos/common/d2enum"
+	"nostos/common/enum"
 	"nostos/common/d2geom"
 	"nostos/common/d2util"
 	"nostos/core/d2map/d2mapengine"
@@ -41,7 +41,7 @@ func (g *MapGenerator) loadPreset(id, index int) *d2mapstamp.Stamp {
 		g.engine.AddDS1(file)
 	}
 
-	return g.engine.LoadStamp(d2enum.RegionAct1Wilderness, id, index)
+	return g.engine.LoadStamp(enum.RegionAct1Wilderness, id, index)
 }
 
 func areaEmpty(mapEngine *d2mapengine.MapEngine, rect d2geom.Rectangle) bool {

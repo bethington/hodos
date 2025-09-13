@@ -1,7 +1,7 @@
 package d2hero
 
 import (
-	"nostos/common/d2enum"
+	"nostos/common/enum"
 	"nostos/core/d2records"
 )
 
@@ -30,7 +30,7 @@ type HeroStatsState struct {
 }
 
 // CreateHeroStatsState generates a running state from a hero stats.
-func (f *HeroStateFactory) CreateHeroStatsState(heroClass d2enum.Hero, classStats *d2records.CharStatRecord) *HeroStatsState {
+func (f *HeroStateFactory) CreateHeroStatsState(heroClass enum.Hero, classStats *d2records.CharStatRecord) *HeroStatsState {
 	result := HeroStatsState{
 		Level:        1,
 		Experience:   0,

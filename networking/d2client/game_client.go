@@ -12,7 +12,7 @@ import (
 
 	"nostos/common/d2math"
 
-	"nostos/common/d2enum"
+	"nostos/common/enum"
 	"nostos/common/d2math/d2vector"
 	"nostos/common/d2util"
 	"nostos/core/d2map/d2mapengine"
@@ -189,7 +189,7 @@ func (g *GameClient) handleGenerateMapPacket(packet d2netpacket.NetPacket) error
 		return err
 	}
 
-	if mapData.RegionType == d2enum.RegionAct1Town {
+	if mapData.RegionType == enum.RegionAct1Town {
 		g.mapGen.GenerateAct1Overworld()
 	}
 
@@ -264,7 +264,7 @@ func (g *GameClient) handleMovePlayerPacket(packet d2netpacket.NetPacket) error 
 				return
 			}
 
-			player.SetIsInTown(tile.RegionType == d2enum.RegionAct1Town)
+			player.SetIsInTown(tile.RegionType == enum.RegionAct1Town)
 
 			err := player.SetAnimationMode(player.GetAnimationMode())
 

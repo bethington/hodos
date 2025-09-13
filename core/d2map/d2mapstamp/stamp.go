@@ -1,7 +1,7 @@
 package d2mapstamp
 
 import (
-	"nostos/common/d2enum"
+	"nostos/common/enum"
 	"nostos/common/d2fileformats/d2ds1"
 	"nostos/common/d2fileformats/d2dt1"
 	"nostos/common/d2geom"
@@ -22,7 +22,7 @@ type Stamp struct {
 	factory     *StampFactory
 	entity      *d2mapentity.MapEntityFactory
 	regionPath  string // The file path of the region
-	regionID    d2enum.RegionIdType
+	regionID    enum.RegionIdType
 	levelType   d2records.LevelTypeRecord   // The level type id for this stamp
 	levelPreset d2records.LevelPresetRecord // The level preset id for this stamp
 	tiles       []d2dt1.Tile                // The tiles contained on this stamp
@@ -45,7 +45,7 @@ func (mr *Stamp) LevelType() d2records.LevelTypeRecord {
 }
 
 // RegionID returns the regionID
-func (mr *Stamp) RegionID() d2enum.RegionIdType {
+func (mr *Stamp) RegionID() enum.RegionIdType {
 	return mr.regionID
 }
 
@@ -93,7 +93,7 @@ func (mr *Stamp) Tile(x, y int) *Tile {
 }
 
 // TileData returns the tile data for the tile with given style, sequence and type.
-func (mr *Stamp) TileData(style, sequence int32, tileType d2enum.TileType) *d2dt1.Tile {
+func (mr *Stamp) TileData(style, sequence int32, tileType enum.TileType) *d2dt1.Tile {
 	for idx := range mr.tiles {
 		tile := &mr.tiles[idx]
 		if tile.Style == style && tile.Sequence == sequence && tile.Type == int32(tileType) {
@@ -109,7 +109,7 @@ func (mr *Stamp) Entities(tileOffsetX, tileOffsetY int) []d2interface.MapEntity 
 	entities := make([]d2interface.MapEntity, 0)
 
 	for _, object := range mr.ds1.Objects {
-		if object.Type == int(d2enum.ObjectTypeCharacter) {
+		if object.Type == int(enum.ObjectTypeCharacter) {
 			monPreset := mr.factory.asset.Records.Monster.Presets[mr.ds1.Act][object.ID]
 			monstat := mr.factory.asset.Records.Monster.Stats[monPreset]
 			// If monstat is nil here it is a place_ type object, idk how to handle those yet.
@@ -127,7 +127,7 @@ func (mr *Stamp) Entities(tileOffsetX, tileOffsetY int) []d2interface.MapEntity 
 			}
 		}
 
-		if object.Type == int(d2enum.ObjectTypeItem) {
+		if object.Type == int(enum.ObjectTypeItem) {
 			// For objects the DS1 ID to objectID is hardcoded in the game
 			// use the lookup table
 			lookup := mr.factory.asset.Records.LookupObject(int(mr.ds1.Act), object.Type, object.ID)

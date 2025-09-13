@@ -1,7 +1,7 @@
 package d2maprenderer
 
 import (
-	"nostos/common/d2enum"
+	"nostos/common/enum"
 	"nostos/common/d2fileformats/d2ds1"
 	"nostos/common/d2fileformats/d2dt1"
 	"nostos/common/d2math"
@@ -23,7 +23,7 @@ const (
 
 func (mr *MapRenderer) generateTileCache() {
 	var err error
-	mr.palette, err = mr.loadPaletteForAct(d2enum.RegionIdType(mr.mapEngine.LevelType().ID))
+	mr.palette, err = mr.loadPaletteForAct(enum.RegionIdType(mr.mapEngine.LevelType().ID))
 
 	if err != nil {
 		mr.Error(err.Error())
@@ -111,7 +111,7 @@ func (mr *MapRenderer) generateFloorCache(tile *d2ds1.Tile) {
 }
 
 func (mr *MapRenderer) generateShadowCache(tile *d2ds1.Tile) {
-	tileOptions := mr.mapEngine.GetTiles(int(tile.Style), int(tile.Sequence), d2enum.TileShadow)
+	tileOptions := mr.mapEngine.GetTiles(int(tile.Style), int(tile.Sequence), enum.TileShadow)
 
 	var tileData *d2dt1.Tile
 
@@ -137,7 +137,7 @@ func (mr *MapRenderer) generateShadowCache(tile *d2ds1.Tile) {
 	tileHeight := int(tileMaxY - tileMinY)
 	tile.YAdjust = int(tileMinY + shadowAdjustY)
 
-	cachedImage := mr.getImageCacheRecord(tile.Style, tile.Sequence, d2enum.TileShadow, tile.RandomIndex)
+	cachedImage := mr.getImageCacheRecord(tile.Style, tile.Sequence, enum.TileShadow, tile.RandomIndex)
 	if cachedImage != nil {
 		return
 	}
@@ -150,7 +150,7 @@ func (mr *MapRenderer) generateShadowCache(tile *d2ds1.Tile) {
 
 	image.ReplacePixels(pixels)
 
-	mr.setImageCacheRecord(tile.Style, tile.Sequence, d2enum.TileShadow, tile.RandomIndex, image)
+	mr.setImageCacheRecord(tile.Style, tile.Sequence, enum.TileShadow, tile.RandomIndex, image)
 }
 
 func (mr *MapRenderer) generateWallCache(tile *d2ds1.Tile) {
@@ -166,10 +166,10 @@ func (mr *MapRenderer) generateWallCache(tile *d2ds1.Tile) {
 
 	var newTileData *d2dt1.Tile = nil
 
-	if tile.Type == d2enum.TileRightPartOfNorthCornerWall {
+	if tile.Type == enum.TileRightPartOfNorthCornerWall {
 		newTileOptions := mr.mapEngine.GetTiles(
 			int(tile.Style), int(tile.Sequence),
-			d2enum.TileLeftPartOfNorthCornerWall,
+			enum.TileLeftPartOfNorthCornerWall,
 		)
 		newTileData = &newTileOptions[tile.RandomIndex]
 	}
@@ -191,7 +191,7 @@ func (mr *MapRenderer) generateWallCache(tile *d2ds1.Tile) {
 	realHeight := d2math.MaxInt32(d2math.AbsInt32(tileData.Height), tileMaxY-tileMinY)
 	tileYOffset := -tileMinY
 
-	if tile.Type == d2enum.TileRoof {
+	if tile.Type == enum.TileRoof {
 		tile.YAdjust = -int(tileData.RoofHeight)
 	} else {
 		tile.YAdjust = int(tileMinY) + tileSurfaceHeight

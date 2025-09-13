@@ -6,7 +6,7 @@ package d2records
 type MonsterUniqueModifiers map[string]*MonUModRecord
 
 // MonsterUniqueModifierConstants contains constants from monumod.txt,
-// can be accessed with indices from d2enum.MonUModConstIndex
+// can be accessed with indices from enum.MonUModConstIndex
 type MonsterUniqueModifierConstants []int
 
 // MonUModRecord represents a single line in monumod.txt

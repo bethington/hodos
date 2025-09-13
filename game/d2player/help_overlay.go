@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"image/color"
 
-	"nostos/common/d2enum"
+	"nostos/common/enum"
 	"nostos/common/d2resource"
 
 	"nostos/common/d2interface"
@@ -341,25 +341,25 @@ func (h *HelpOverlay) updateBulletText() {
 		// "Ctrl" should be hotkey // "Hold Down <%s> to Run"
 		{text: fmt.Sprintf(
 			h.asset.TranslateString("StrHelp2"),
-			h.keyMap.KeyToString(h.keyMap.GetKeysForGameEvent(d2enum.HoldRun).Primary),
+			h.keyMap.KeyToString(h.keyMap.GetKeysForGameEvent(enum.HoldRun).Primary),
 		)},
 
 		// "Alt" should be hotkey // "Hold down <%s> to highlight items on the ground"
 		{text: fmt.Sprintf(
 			h.asset.TranslateString("StrHelp3"),
-			h.keyMap.KeyToString(h.keyMap.GetKeysForGameEvent(d2enum.HoldShowGroundItems).Primary),
+			h.keyMap.KeyToString(h.keyMap.GetKeysForGameEvent(enum.HoldShowGroundItems).Primary),
 		)},
 
 		// "Shift" should be hotkey // "Hold down <%s> to attack while standing still"
 		{text: fmt.Sprintf(
 			h.asset.TranslateString("StrHelp4"),
-			h.keyMap.KeyToString(h.keyMap.GetKeysForGameEvent(d2enum.HoldStandStill).Primary),
+			h.keyMap.KeyToString(h.keyMap.GetKeysForGameEvent(enum.HoldStandStill).Primary),
 		)},
 
 		// "Tab" should be hotkey // "Hit <%s> to toggle the automap on and off"
 		{text: fmt.Sprintf(
 			h.asset.TranslateString("StrHelp5"),
-			h.keyMap.KeyToString(h.keyMap.GetKeysForGameEvent(d2enum.ToggleAutomap).Primary),
+			h.keyMap.KeyToString(h.keyMap.GetKeysForGameEvent(enum.ToggleAutomap).Primary),
 		)},
 
 		// "Hit <Esc> to bring up the Game Menu"
@@ -374,7 +374,7 @@ func (h *HelpOverlay) updateBulletText() {
 		// "H" should be hotkey,
 		{text: fmt.Sprintf(
 			h.asset.TranslateString("StrHelp8a"),
-			h.keyMap.KeyToString(h.keyMap.GetKeysForGameEvent(d2enum.ToggleHelpScreen).Primary),
+			h.keyMap.KeyToString(h.keyMap.GetKeysForGameEvent(enum.ToggleHelpScreen).Primary),
 		)},
 	}
 

@@ -9,7 +9,7 @@ import (
 
 	"nostos/core/d2records"
 
-	"nostos/common/d2enum"
+	"nostos/common/enum"
 	"nostos/core/d2item"
 	"nostos/core/d2stats"
 	"nostos/core/d2ui"
@@ -60,7 +60,7 @@ type Item struct {
 	Seed    int64
 	rand    *rand.Rand // non-global rand instance for re-generating the item
 
-	slotType d2enum.EquippedSlot
+	slotType enum.EquippedSlot
 
 	TypeCode    string
 	CommonCode  string
@@ -107,7 +107,7 @@ type itemAttributes struct {
 	requirementsEnhancement int
 	requiredStrength        int
 	requiredDexterity       int
-	classSpecific           d2enum.Hero
+	classSpecific           enum.Hero
 
 	identitified   bool
 	crafted        bool
@@ -239,7 +239,7 @@ func affixRecords(
 }
 
 // SlotType returns the slot type (where it can be equipped)
-func (i *Item) SlotType() d2enum.EquippedSlot {
+func (i *Item) SlotType() enum.EquippedSlot {
 	return i.slotType
 }
 
@@ -746,7 +746,7 @@ func (i *Item) GetInventoryItemName() string {
 }
 
 // GetInventoryItemType returns whether the item is a weapon, armor, or misc item
-func (i *Item) GetInventoryItemType() d2enum.InventoryItemType {
+func (i *Item) GetInventoryItemType() enum.InventoryItemType {
 	typeCode := i.TypeRecord().Code
 
 	armorEquiv := i.factory.asset.Records.Item.Equivalency["armo"]
@@ -754,17 +754,17 @@ func (i *Item) GetInventoryItemType() d2enum.InventoryItemType {
 
 	for idx := range armorEquiv {
 		if armorEquiv[idx].Code == typeCode {
-			return d2enum.InventoryItemTypeArmor
+			return enum.InventoryItemTypeArmor
 		}
 	}
 
 	for idx := range weaponEquiv {
 		if weaponEquiv[idx].Code == typeCode {
-			return d2enum.InventoryItemTypeWeapon
+			return enum.InventoryItemTypeWeapon
 		}
 	}
 
-	return d2enum.InventoryItemTypeItem
+	return enum.InventoryItemTypeItem
 }
 
 // InventoryGridSize returns the size of the item in grid units

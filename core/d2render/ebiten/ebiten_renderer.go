@@ -9,7 +9,7 @@ import (
 	"github.com/hajimehoshi/ebiten/v2"
 	"github.com/hajimehoshi/ebiten/v2/ebitenutil"
 
-	"nostos/common/d2enum"
+	"nostos/common/enum"
 	"nostos/common/d2interface"
 	"nostos/core/d2config"
 )
@@ -122,7 +122,7 @@ func (r *Renderer) CreateSurface(surface d2interface.Surface) (d2interface.Surfa
 	img := surface.(*ebitenSurface).image
 	sfcState := surfaceState{
 		filter:     ebiten.FilterNearest,
-		effect:     d2enum.DrawEffectNone,
+		effect:     enum.DrawEffectNone,
 		saturation: defaultSaturation,
 		brightness: defaultBrightness,
 		skewX:      defaultSkewX,

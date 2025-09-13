@@ -5,7 +5,7 @@ import (
 	"math"
 	"strings"
 
-	"nostos/common/d2enum"
+	"nostos/common/enum"
 	"nostos/common/d2interface"
 	"nostos/common/d2resource"
 	"nostos/common/d2util"
@@ -509,7 +509,7 @@ func (h *HUD) renderStaminaBar(target d2interface.Surface) {
 	target.PushTranslation(staminaBarOffsetX, staminaBarOffsetY)
 	defer target.Pop()
 
-	target.PushEffect(d2enum.DrawEffectModulate)
+	target.PushEffect(enum.DrawEffectModulate)
 	defer target.Pop()
 
 	staminaPercent := h.hero.Stats.Stamina / float64(h.hero.Stats.MaxStamina)

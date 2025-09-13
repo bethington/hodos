@@ -3,7 +3,7 @@ package d2netpacket
 import (
 	"encoding/json"
 
-	"nostos/common/d2enum"
+	"nostos/common/enum"
 	"nostos/networking/d2netpacket/d2netpackettype"
 )
 
@@ -11,12 +11,12 @@ import (
 // is sent by the server to generate the map for the given region on
 // a client.
 type GenerateMapPacket struct {
-	RegionType d2enum.RegionIdType `json:"regionType"`
+	RegionType enum.RegionIdType `json:"regionType"`
 }
 
 // CreateGenerateMapPacket returns a NetPacket which declares a
 // GenerateMapPacket with the given regionType.
-func CreateGenerateMapPacket(regionType d2enum.RegionIdType) (NetPacket, error) {
+func CreateGenerateMapPacket(regionType enum.RegionIdType) (NetPacket, error) {
 	generateMapPacket := GenerateMapPacket{
 		RegionType: regionType,
 	}

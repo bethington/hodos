@@ -3,7 +3,7 @@ package d2ds1
 import (
 	"testing"
 
-	"nostos/common/d2enum"
+	"nostos/common/enum"
 	"nostos/common/d2path"
 )
 
@@ -55,7 +55,7 @@ func exampleData() *DS1 { //nolint:funlen // not a big deal if this is long func
 			YAdjust:     28,
 		},
 		tileWallFields: tileWallFields{
-			Type: d2enum.TileRightWall,
+			Type: enum.TileRightWall,
 		},
 	}
 
@@ -72,7 +72,7 @@ func exampleData() *DS1 { //nolint:funlen // not a big deal if this is long func
 			YAdjust:     22,
 		},
 		tileWallFields: tileWallFields{
-			Type: d2enum.TileLeftWall,
+			Type: enum.TileLeftWall,
 		},
 	}
 

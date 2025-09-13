@@ -4,7 +4,7 @@ import (
 	"image"
 	"image/color"
 
-	"nostos/common/d2enum"
+	"nostos/common/enum"
 )
 
 // Surface represents a renderable surface.
@@ -19,8 +19,8 @@ type Surface interface {
 	Pop()
 	PopN(n int)
 	PushColor(color color.Color)
-	PushEffect(effect d2enum.DrawEffect)
-	PushFilter(filter d2enum.Filter)
+	PushEffect(effect enum.DrawEffect)
+	PushFilter(filter enum.Filter)
 	PushTranslation(x, y int)
 	PushSkew(x, y float64)
 	PushScale(x, y float64)

@@ -1,7 +1,7 @@
 package d2records
 
 import (
-	"nostos/common/d2enum"
+	"nostos/common/enum"
 	"nostos/common/d2fileformats/d2txt"
 )
 
@@ -39,8 +39,8 @@ func inventoryLoader(r *RecordManager, d *d2txt.DataDictionary) error {
 				CellWidth:  d.Number("gridBoxWidth"),
 				CellHeight: d.Number("gridBoxHeight"),
 			},
-			Slots: map[d2enum.EquippedSlot]*box{
-				d2enum.EquippedSlotHead: {
+			Slots: map[enum.EquippedSlot]*box{
+				enum.EquippedSlotHead: {
 					d.Number("headLeft"),
 					d.Number("headRight"),
 					d.Number("headTop"),
@@ -48,7 +48,7 @@ func inventoryLoader(r *RecordManager, d *d2txt.DataDictionary) error {
 					d.Number("headWidth"),
 					d.Number("headHeight"),
 				},
-				d2enum.EquippedSlotNeck: {
+				enum.EquippedSlotNeck: {
 					d.Number("neckLeft"),
 					d.Number("neckRight"),
 					d.Number("neckTop"),
@@ -56,7 +56,7 @@ func inventoryLoader(r *RecordManager, d *d2txt.DataDictionary) error {
 					d.Number("neckWidth"),
 					d.Number("neckHeight"),
 				},
-				d2enum.EquippedSlotTorso: {
+				enum.EquippedSlotTorso: {
 					d.Number("torsoLeft"),
 					d.Number("torsoRight"),
 					d.Number("torsoTop"),
@@ -64,7 +64,7 @@ func inventoryLoader(r *RecordManager, d *d2txt.DataDictionary) error {
 					d.Number("torsoWidth"),
 					d.Number("torsoHeight"),
 				},
-				d2enum.EquippedSlotLeftArm: {
+				enum.EquippedSlotLeftArm: {
 					d.Number("lArmLeft"),
 					d.Number("lArmRight"),
 					d.Number("lArmTop"),
@@ -72,7 +72,7 @@ func inventoryLoader(r *RecordManager, d *d2txt.DataDictionary) error {
 					d.Number("lArmWidth"),
 					d.Number("lArmHeight"),
 				},
-				d2enum.EquippedSlotRightArm: {
+				enum.EquippedSlotRightArm: {
 					d.Number("rArmLeft"),
 					d.Number("rArmRight"),
 					d.Number("rArmTop"),
@@ -80,7 +80,7 @@ func inventoryLoader(r *RecordManager, d *d2txt.DataDictionary) error {
 					d.Number("rArmWidth"),
 					d.Number("rArmHeight"),
 				},
-				d2enum.EquippedSlotLeftHand: {
+				enum.EquippedSlotLeftHand: {
 					d.Number("lHandLeft"),
 					d.Number("lHandRight"),
 					d.Number("lHandTop"),
@@ -88,7 +88,7 @@ func inventoryLoader(r *RecordManager, d *d2txt.DataDictionary) error {
 					d.Number("lHandWidth"),
 					d.Number("lHandHeight"),
 				},
-				d2enum.EquippedSlotRightHand: {
+				enum.EquippedSlotRightHand: {
 					d.Number("rHandLeft"),
 					d.Number("rHandRight"),
 					d.Number("rHandTop"),
@@ -96,7 +96,7 @@ func inventoryLoader(r *RecordManager, d *d2txt.DataDictionary) error {
 					d.Number("rHandWidth"),
 					d.Number("rHandHeight"),
 				},
-				d2enum.EquippedSlotGloves: {
+				enum.EquippedSlotGloves: {
 					d.Number("glovesLeft"),
 					d.Number("glovesRight"),
 					d.Number("glovesTop"),
@@ -104,7 +104,7 @@ func inventoryLoader(r *RecordManager, d *d2txt.DataDictionary) error {
 					d.Number("glovesWidth"),
 					d.Number("glovesHeight"),
 				},
-				d2enum.EquippedSlotBelt: {
+				enum.EquippedSlotBelt: {
 					d.Number("beltLeft"),
 					d.Number("beltRight"),
 					d.Number("beltTop"),
@@ -112,7 +112,7 @@ func inventoryLoader(r *RecordManager, d *d2txt.DataDictionary) error {
 					d.Number("beltWidth"),
 					d.Number("beltHeight"),
 				},
-				d2enum.EquippedSlotLegs: {
+				enum.EquippedSlotLegs: {
 					d.Number("feetLeft"),
 					d.Number("feetRight"),
 					d.Number("feetTop"),

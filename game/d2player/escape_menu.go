@@ -3,7 +3,7 @@ package d2player
 import (
 	"time"
 
-	"nostos/common/d2enum"
+	"nostos/common/enum"
 	"nostos/common/d2interface"
 	"nostos/common/d2resource"
 	"nostos/common/d2util"
@@ -615,11 +615,11 @@ func (m *EscapeMenu) OnKeyDown(event d2interface.KeyEvent) bool {
 	}
 
 	switch event.Key() {
-	case d2enum.KeyUp:
+	case enum.KeyUp:
 		m.onUpKey()
-	case d2enum.KeyDown:
+	case enum.KeyDown:
 		m.onDownKey()
-	case d2enum.KeyEnter:
+	case enum.KeyEnter:
 		m.onEnterKey()
 	default:
 		return false

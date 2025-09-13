@@ -2,7 +2,7 @@ package d2ds1
 
 import (
 	"nostos/common/datautils"
-	"nostos/common/d2enum"
+	"nostos/common/enum"
 )
 
 const (
@@ -51,7 +51,7 @@ type tileSubstitutionFields struct {
 }
 
 type tileWallFields struct {
-	Type d2enum.TileType
+	Type enum.TileType
 	Zero byte
 }
 

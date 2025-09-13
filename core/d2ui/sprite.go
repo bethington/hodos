@@ -5,7 +5,7 @@ import (
 	"image"
 	"image/color"
 
-	"nostos/common/d2enum"
+	"nostos/common/enum"
 	"nostos/common/d2interface"
 	"nostos/common/d2math"
 	"nostos/common/d2util"
@@ -197,6 +197,6 @@ func (s *Sprite) Advance(elapsed float64) error {
 }
 
 // SetEffect sets the draw effect type
-func (s *Sprite) SetEffect(e d2enum.DrawEffect) {
+func (s *Sprite) SetEffect(e enum.DrawEffect) {
 	s.animation.SetEffect(e)
 }

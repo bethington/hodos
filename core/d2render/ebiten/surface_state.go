@@ -5,7 +5,7 @@ import (
 
 	"github.com/hajimehoshi/ebiten/v2"
 
-	"nostos/common/d2enum"
+	"nostos/common/enum"
 )
 
 type surfaceState struct {
@@ -15,7 +15,7 @@ type surfaceState struct {
 	color          color.Color
 	brightness     float64
 	saturation     float64
-	effect         d2enum.DrawEffect
+	effect         enum.DrawEffect
 	skewX, skewY   float64
 	scaleX, scaleY float64
 }

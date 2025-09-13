@@ -5,7 +5,7 @@ import (
 
 	"nostos/core/d2records"
 
-	"nostos/common/d2enum"
+	"nostos/common/enum"
 	"nostos/common/d2interface"
 	"nostos/common/d2resource"
 	"nostos/common/d2util"
@@ -164,17 +164,17 @@ func (g *Inventory) Load() {
 	}
 
 	// https://github.com/bethington/Nostos/issues/795
-	testEquippedItemCodes := map[d2enum.EquippedSlot][]string{
-		d2enum.EquippedSlotLeftArm:   {"wnd"},
-		d2enum.EquippedSlotRightArm:  {"buc"},
-		d2enum.EquippedSlotHead:      {"crn"},
-		d2enum.EquippedSlotTorso:     {"plt"},
-		d2enum.EquippedSlotLegs:      {"vbt"},
-		d2enum.EquippedSlotBelt:      {"vbl"},
-		d2enum.EquippedSlotGloves:    {"lgl"},
-		d2enum.EquippedSlotLeftHand:  {"rin"},
-		d2enum.EquippedSlotRightHand: {"rin"},
-		d2enum.EquippedSlotNeck:      {"amu"},
+	testEquippedItemCodes := map[enum.EquippedSlot][]string{
+		enum.EquippedSlotLeftArm:   {"wnd"},
+		enum.EquippedSlotRightArm:  {"buc"},
+		enum.EquippedSlotHead:      {"crn"},
+		enum.EquippedSlotTorso:     {"plt"},
+		enum.EquippedSlotLegs:      {"vbt"},
+		enum.EquippedSlotBelt:      {"vbl"},
+		enum.EquippedSlotGloves:    {"lgl"},
+		enum.EquippedSlotLeftHand:  {"rin"},
+		enum.EquippedSlotRightHand: {"rin"},
+		enum.EquippedSlotNeck:      {"amu"},
 	}
 
 	for slot := range testEquippedItemCodes {

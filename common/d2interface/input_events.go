@@ -1,11 +1,11 @@
 package d2interface
 
-import "nostos/common/d2enum"
+import "nostos/common/enum"
 
 // HandlerEvent holds the qualifiers for a key or mouse event
 type HandlerEvent interface {
-	KeyMod() d2enum.KeyMod
-	ButtonMod() d2enum.MouseButtonMod
+	KeyMod() enum.KeyMod
+	ButtonMod() enum.MouseButtonMod
 	X() int
 	Y() int
 }
@@ -13,7 +13,7 @@ type HandlerEvent interface {
 // KeyEvent represents an event associated with a keyboard key
 type KeyEvent interface {
 	HandlerEvent
-	Key() d2enum.Key
+	Key() enum.Key
 	// Duration represents the number of frames this key has been pressed for
 	Duration() int
 }
@@ -27,7 +27,7 @@ type KeyCharsEvent interface {
 // MouseEvent represents a mouse event
 type MouseEvent interface {
 	HandlerEvent
-	Button() d2enum.MouseButton
+	Button() enum.MouseButton
 }
 
 // MouseMoveEvent represents a mouse movement event

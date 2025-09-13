@@ -1,7 +1,7 @@
 package d2player
 
 import (
-	"nostos/common/d2enum"
+	"nostos/common/enum"
 	"nostos/core/d2records"
 )
 
@@ -14,20 +14,20 @@ type EquipmentSlot struct {
 	height int
 }
 
-func genEquipmentSlotsMap(record *d2records.InventoryRecord) map[d2enum.EquippedSlot]EquipmentSlot {
-	slotMap := map[d2enum.EquippedSlot]EquipmentSlot{}
+func genEquipmentSlotsMap(record *d2records.InventoryRecord) map[enum.EquippedSlot]EquipmentSlot {
+	slotMap := map[enum.EquippedSlot]EquipmentSlot{}
 
-	slots := []d2enum.EquippedSlot{
-		d2enum.EquippedSlotHead,
-		d2enum.EquippedSlotTorso,
-		d2enum.EquippedSlotLegs,
-		d2enum.EquippedSlotRightArm,
-		d2enum.EquippedSlotLeftArm,
-		d2enum.EquippedSlotLeftHand,
-		d2enum.EquippedSlotRightHand,
-		d2enum.EquippedSlotNeck,
-		d2enum.EquippedSlotBelt,
-		d2enum.EquippedSlotGloves,
+	slots := []enum.EquippedSlot{
+		enum.EquippedSlotHead,
+		enum.EquippedSlotTorso,
+		enum.EquippedSlotLegs,
+		enum.EquippedSlotRightArm,
+		enum.EquippedSlotLeftArm,
+		enum.EquippedSlotLeftHand,
+		enum.EquippedSlotRightHand,
+		enum.EquippedSlotNeck,
+		enum.EquippedSlotBelt,
+		enum.EquippedSlotGloves,
 	}
 
 	for _, slot := range slots {

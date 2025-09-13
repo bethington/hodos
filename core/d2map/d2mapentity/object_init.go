@@ -3,7 +3,7 @@ package d2mapentity
 import (
 	"math/rand"
 
-	"nostos/common/d2enum"
+	"nostos/common/enum"
 )
 
 // Finds an init function for the given object
@@ -29,8 +29,8 @@ func initObject(ob *Object) (bool, error) {
 
 // Initializes torch/brazier type objects
 func initTorch(ob *Object) error {
-	if ob.objectRecord.HasAnimationMode[d2enum.ObjectAnimationModeOpened] {
-		return ob.setMode(d2enum.ObjectAnimationModeOpened, 0, true)
+	if ob.objectRecord.HasAnimationMode[enum.ObjectAnimationModeOpened] {
+		return ob.setMode(enum.ObjectAnimationModeOpened, 0, true)
 	}
 
 	return nil
@@ -38,8 +38,8 @@ func initTorch(ob *Object) error {
 
 func initWaypoint(ob *Object) error {
 	// Turn these on unconditionally for now, they look nice :)
-	if ob.objectRecord.HasAnimationMode[d2enum.ObjectAnimationModeOpened] {
-		return ob.setMode(d2enum.ObjectAnimationModeOpened, 0, true)
+	if ob.objectRecord.HasAnimationMode[enum.ObjectAnimationModeOpened] {
+		return ob.setMode(enum.ObjectAnimationModeOpened, 0, true)
 	}
 
 	return nil
@@ -51,8 +51,8 @@ func initTorchRnd(ob *Object) error {
 	n := rand.Intn(coinToss) // nolint:gosec // not concerned with crypto-strong randomness
 
 	if n > 0 {
-		return ob.setMode(d2enum.ObjectAnimationModeNeutral, 0, true)
+		return ob.setMode(enum.ObjectAnimationModeNeutral, 0, true)
 	}
 
-	return ob.setMode(d2enum.ObjectAnimationModeOperating, 0, true)
+	return ob.setMode(enum.ObjectAnimationModeOperating, 0, true)
 }

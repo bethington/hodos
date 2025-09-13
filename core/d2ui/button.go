@@ -3,7 +3,7 @@ package d2ui
 import (
 	"image"
 
-	"nostos/common/d2enum"
+	"nostos/common/enum"
 	"nostos/common/d2interface"
 	"nostos/common/d2resource"
 	"nostos/common/d2util"
@@ -894,7 +894,7 @@ func (ui *UIManager) createButton(layout *ButtonLayout, text string) *Button {
 	btn.normalSurface = ui.renderer.NewSurface(btn.width, btn.height)
 
 	buttonSprite.SetPosition(0, 0)
-	buttonSprite.SetEffect(d2enum.DrawEffectModulate)
+	buttonSprite.SetEffect(enum.DrawEffectModulate)
 
 	btn.createTooltip()
 
@@ -923,7 +923,7 @@ func (v *Button) createTooltip() {
 		t.SetText(v.manager.asset.TranslateString("strClose"))
 	case buttonTooltipOk:
 		t = v.manager.NewTooltip(d2resource.Font16, d2resource.PaletteSky, TooltipXCenter, TooltipYBottom)
-		t.SetText(v.manager.asset.TranslateString(d2enum.OKLabel))
+		t.SetText(v.manager.asset.TranslateString(enum.OKLabel))
 	case buttonTooltipBuy:
 		t = v.manager.NewTooltip(d2resource.Font16, d2resource.PaletteSky, TooltipXCenter, TooltipYBottom)
 		t.SetText(v.manager.asset.TranslateString("NPCPurchaseItems"))
@@ -935,7 +935,7 @@ func (v *Button) createTooltip() {
 		t.SetText(v.manager.asset.TranslateString("NPCRepairItems"))
 	case buttonTooltipRepairAll:
 		t = v.manager.NewTooltip(d2resource.Font16, d2resource.PaletteSky, TooltipXCenter, TooltipYBottom)
-		t.SetText(v.manager.asset.TranslateString(d2enum.RepairAll))
+		t.SetText(v.manager.asset.TranslateString(enum.RepairAll))
 	case buttonTooltipLeftArrow:
 		t = v.manager.NewTooltip(d2resource.Font16, d2resource.PaletteSky, TooltipXCenter, TooltipYBottom)
 		t.SetText(v.manager.asset.TranslateString("KeyLeft"))
@@ -1059,7 +1059,7 @@ func (v *Button) Activate() {
 
 // Render renders the button
 func (v *Button) Render(target d2interface.Surface) {
-	target.PushFilter(d2enum.FilterNearest)
+	target.PushFilter(enum.FilterNearest)
 	defer target.Pop()
 
 	target.PushTranslation(v.x, v.y)

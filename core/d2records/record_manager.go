@@ -5,7 +5,7 @@ import (
 
 	"nostos/common/d2util"
 
-	"nostos/common/d2enum"
+	"nostos/common/enum"
 	"nostos/common/d2fileformats/d2animdata"
 	"nostos/common/d2fileformats/d2txt"
 	"nostos/common/d2resource"
@@ -324,12 +324,12 @@ func (r *RecordManager) Load(path string, dict *d2txt.DataDictionary) error {
 }
 
 // GetMaxLevelByHero returns the highest level attainable for a hero type
-func (r *RecordManager) GetMaxLevelByHero(heroType d2enum.Hero) int {
+func (r *RecordManager) GetMaxLevelByHero(heroType enum.Hero) int {
 	return r.Character.MaxLevel[heroType]
 }
 
 // GetExperienceBreakpoint given a hero type and a level, returns the experience required for the level
-func (r *RecordManager) GetExperienceBreakpoint(heroType d2enum.Hero, level int) int {
+func (r *RecordManager) GetExperienceBreakpoint(heroType enum.Hero, level int) int {
 	return r.Character.Experience[level].HeroBreakpoints[heroType]
 }
 

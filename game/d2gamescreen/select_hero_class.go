@@ -7,7 +7,7 @@ import (
 
 	"nostos/core/d2inventory"
 
-	"nostos/common/d2enum"
+	"nostos/common/enum"
 	"nostos/common/d2interface"
 	"nostos/common/d2resource"
 	"nostos/common/d2util"
@@ -103,10 +103,10 @@ const (
 const heroDescCharWidth = 37
 
 //nolint:funlen // this func returns a map of structs and the structs are big, deal with it
-func getHeroRenderConfiguration() map[d2enum.Hero]*heroRenderConfig {
-	configs := make(map[d2enum.Hero]*heroRenderConfig)
+func getHeroRenderConfiguration() map[enum.Hero]*heroRenderConfig {
+	configs := make(map[enum.Hero]*heroRenderConfig)
 
-	configs[d2enum.HeroBarbarian] = &heroRenderConfig{
+	configs[enum.HeroBarbarian] = &heroRenderConfig{
 		d2resource.CharacterSelectBarbarianUnselected,
 		d2resource.CharacterSelectBarbarianUnselectedH,
 		d2resource.CharacterSelectBarbarianForwardWalk,
@@ -125,7 +125,7 @@ func getHeroRenderConfiguration() map[d2enum.Hero]*heroRenderConfig {
 		barbBackLength,
 	}
 
-	configs[d2enum.HeroSorceress] = &heroRenderConfig{
+	configs[enum.HeroSorceress] = &heroRenderConfig{
 		d2resource.CharacterSelectSorceressUnselected,
 		d2resource.CharacterSelectSorceressUnselectedH,
 		d2resource.CharacterSelectSorceressForwardWalk,
@@ -144,7 +144,7 @@ func getHeroRenderConfiguration() map[d2enum.Hero]*heroRenderConfig {
 		sorcBackLength,
 	}
 
-	configs[d2enum.HeroNecromancer] = &heroRenderConfig{
+	configs[enum.HeroNecromancer] = &heroRenderConfig{
 		d2resource.CharacterSelectNecromancerUnselected,
 		d2resource.CharacterSelectNecromancerUnselectedH,
 		d2resource.CharacterSelectNecromancerForwardWalk,
@@ -163,7 +163,7 @@ func getHeroRenderConfiguration() map[d2enum.Hero]*heroRenderConfig {
 		necBackLength,
 	}
 
-	configs[d2enum.HeroPaladin] = &heroRenderConfig{
+	configs[enum.HeroPaladin] = &heroRenderConfig{
 		d2resource.CharacterSelectPaladinUnselected,
 		d2resource.CharacterSelectPaladinUnselectedH,
 		d2resource.CharacterSelectPaladinForwardWalk,
@@ -182,7 +182,7 @@ func getHeroRenderConfiguration() map[d2enum.Hero]*heroRenderConfig {
 		palBackLength,
 	}
 
-	configs[d2enum.HeroAmazon] = &heroRenderConfig{
+	configs[enum.HeroAmazon] = &heroRenderConfig{
 		d2resource.CharacterSelectAmazonUnselected,
 		d2resource.CharacterSelectAmazonUnselectedH,
 		d2resource.CharacterSelectAmazonForwardWalk,
@@ -201,7 +201,7 @@ func getHeroRenderConfiguration() map[d2enum.Hero]*heroRenderConfig {
 		amaBackLength,
 	}
 
-	configs[d2enum.HeroAssassin] = &heroRenderConfig{
+	configs[enum.HeroAssassin] = &heroRenderConfig{
 		d2resource.CharacterSelectAssassinUnselected,
 		d2resource.CharacterSelectAssassinUnselectedH,
 		d2resource.CharacterSelectAssassinForwardWalk,
@@ -220,7 +220,7 @@ func getHeroRenderConfiguration() map[d2enum.Hero]*heroRenderConfig {
 		assBackLength,
 	}
 
-	configs[d2enum.HeroDruid] = &heroRenderConfig{
+	configs[enum.HeroDruid] = &heroRenderConfig{
 		d2resource.CharacterSelectDruidUnselected,
 		d2resource.CharacterSelectDruidUnselectedH,
 		d2resource.CharacterSelectDruidForwardWalk,
@@ -244,7 +244,7 @@ func getHeroRenderConfiguration() map[d2enum.Hero]*heroRenderConfig {
 
 // HeroRenderInfo stores the rendering information of a hero for the Select Hero Class screen
 type HeroRenderInfo struct {
-	Stance                   d2enum.HeroStance
+	Stance                   enum.HeroStance
 	IdleSprite               *d2ui.Sprite
 	IdleSelectedSprite       *d2ui.Sprite
 	ForwardWalkSprite        *d2ui.Sprite
@@ -293,8 +293,8 @@ func CreateSelectHeroClass(
 
 	selectHeroClass := &SelectHeroClass{
 		asset:                asset,
-		heroRenderInfo:       make(map[d2enum.Hero]*HeroRenderInfo),
-		selectedHero:         d2enum.HeroNone,
+		heroRenderInfo:       make(map[enum.Hero]*HeroRenderInfo),
+		selectedHero:         enum.HeroNone,
 		connectionType:       connectionType,
 		connectionHost:       connectionHost,
 		audioProvider:        audioProvider,
@@ -325,10 +325,10 @@ type SelectHeroClass struct {
 	heroDesc3Label  *d2ui.Label
 	heroNameTextbox *d2ui.TextBox
 	heroNameLabel   *d2ui.Label
-	heroRenderInfo  map[d2enum.Hero]*HeroRenderInfo
+	heroRenderInfo  map[enum.Hero]*HeroRenderInfo
 	*d2inventory.InventoryItemFactory
 	*d2hero.HeroStateFactory
-	selectedHero       d2enum.Hero
+	selectedHero       enum.Hero
 	exitButton         *d2ui.Button
 	okButton           *d2ui.Button
 	expansionCheckbox  *d2ui.Checkbox
@@ -385,7 +385,7 @@ func (v *SelectHeroClass) OnLoad(loading d2screen.LoadingState) {
 			config.forwardWalkOverlayBlend,
 		)
 		v.heroRenderInfo[hero] = &HeroRenderInfo{
-			Stance: d2enum.HeroStanceIdle,
+			Stance: enum.HeroStanceIdle,
 			IdleSprite: v.loadSprite(config.idleAnimationPath, position,
 				config.idlePlayLengthMs, true, false),
 			IdleSelectedSprite: v.loadSprite(config.idleSelectedAnimationPath,
@@ -416,7 +416,7 @@ func (v *SelectHeroClass) createLabels() {
 	halfFontWidth := fontWidth / half
 
 	v.headingLabel.SetPosition(headingX-halfFontWidth, headingY)
-	v.headingLabel.SetText(v.asset.TranslateString(d2enum.SelectHeroClassLabel))
+	v.headingLabel.SetText(v.asset.TranslateString(enum.SelectHeroClassLabel))
 	v.headingLabel.Alignment = d2ui.HorizontalAlignCenter
 
 	v.heroClassLabel = v.uiManager.NewLabel(d2resource.Font30, d2resource.PaletteUnits)
@@ -437,7 +437,7 @@ func (v *SelectHeroClass) createLabels() {
 
 	v.heroNameLabel = v.uiManager.NewLabel(d2resource.Font16, d2resource.PaletteUnits)
 	v.heroNameLabel.Alignment = d2ui.HorizontalAlignLeft
-	v.heroNameLabel.SetText(d2ui.ColorTokenize(v.asset.TranslateString(d2enum.CharNameLabel), d2ui.ColorTokenGold))
+	v.heroNameLabel.SetText(d2ui.ColorTokenize(v.asset.TranslateString(enum.CharNameLabel), d2ui.ColorTokenGold))
 	v.heroNameLabel.SetPosition(heroNameLabelX, heroNameLabelY)
 
 	v.expansionCharLabel = v.uiManager.NewLabel(d2resource.Font16, d2resource.PaletteUnits)
@@ -447,16 +447,16 @@ func (v *SelectHeroClass) createLabels() {
 
 	v.hardcoreCharLabel = v.uiManager.NewLabel(d2resource.Font16, d2resource.PaletteUnits)
 	v.hardcoreCharLabel.Alignment = d2ui.HorizontalAlignLeft
-	v.hardcoreCharLabel.SetText(d2ui.ColorTokenize(v.asset.TranslateString(d2enum.HardCoreLabel), d2ui.ColorTokenGold))
+	v.hardcoreCharLabel.SetText(d2ui.ColorTokenize(v.asset.TranslateString(enum.HardCoreLabel), d2ui.ColorTokenGold))
 	v.hardcoreCharLabel.SetPosition(hardcoreLabelX, hardcoreLabelY)
 }
 
 func (v *SelectHeroClass) createButtons() {
-	v.exitButton = v.uiManager.NewButton(d2ui.ButtonTypeMedium, v.asset.TranslateString(d2enum.ExitLabel))
+	v.exitButton = v.uiManager.NewButton(d2ui.ButtonTypeMedium, v.asset.TranslateString(enum.ExitLabel))
 	v.exitButton.SetPosition(selHeroExitBtnX, selHeroExitBtnY)
 	v.exitButton.OnActivated(func() { v.onExitButtonClicked() })
 
-	v.okButton = v.uiManager.NewButton(d2ui.ButtonTypeMedium, v.asset.TranslateString(d2enum.OKLabel))
+	v.okButton = v.uiManager.NewButton(d2ui.ButtonTypeMedium, v.asset.TranslateString(enum.OKLabel))
 	v.okButton.SetPosition(selHeroOkBtnX, selHeroOkBtnY)
 	v.okButton.OnActivated(func() { v.onOkButtonClicked() })
 	v.okButton.SetVisible(false)
@@ -520,18 +520,18 @@ func (v *SelectHeroClass) Render(screen d2interface.Surface) {
 	v.headingLabel.Render(screen)
 
 	for heroClass, heroInfo := range v.heroRenderInfo {
-		if heroInfo.Stance == d2enum.HeroStanceIdle || heroInfo.Stance == d2enum.HeroStanceIdleSelected {
+		if heroInfo.Stance == enum.HeroStanceIdle || heroInfo.Stance == enum.HeroStanceIdleSelected {
 			v.renderHero(screen, heroClass)
 		}
 	}
 
 	for heroClass, heroInfo := range v.heroRenderInfo {
-		if heroInfo.Stance != d2enum.HeroStanceIdle && heroInfo.Stance != d2enum.HeroStanceIdleSelected {
+		if heroInfo.Stance != enum.HeroStanceIdle && heroInfo.Stance != enum.HeroStanceIdleSelected {
 			v.renderHero(screen, heroClass)
 		}
 	}
 
-	if v.selectedHero != d2enum.HeroNone {
+	if v.selectedHero != enum.HeroNone {
 		v.heroClassLabel.Render(screen)
 		v.heroDesc1Label.Render(screen)
 		v.heroDesc2Label.Render(screen)
@@ -558,9 +558,9 @@ func (v *SelectHeroClass) Advance(tickTime float64) error {
 	for infoIdx := range v.heroRenderInfo {
 		v.heroRenderInfo[infoIdx].advance(tickTime)
 
-		if v.heroRenderInfo[infoIdx].Stance != d2enum.HeroStanceIdle &&
-			v.heroRenderInfo[infoIdx].Stance != d2enum.HeroStanceIdleSelected &&
-			v.heroRenderInfo[infoIdx].Stance != d2enum.HeroStanceSelected {
+		if v.heroRenderInfo[infoIdx].Stance != enum.HeroStanceIdle &&
+			v.heroRenderInfo[infoIdx].Stance != enum.HeroStanceIdleSelected &&
+			v.heroRenderInfo[infoIdx].Stance != enum.HeroStanceSelected {
 			canSelect = false
 		}
 	}
@@ -569,32 +569,32 @@ func (v *SelectHeroClass) Advance(tickTime float64) error {
 		v.updateHeroSelectionHover(heroType, canSelect)
 	}
 
-	v.okButton.SetEnabled(len(v.heroNameTextbox.GetText()) >= 2 && v.selectedHero != d2enum.HeroNone)
+	v.okButton.SetEnabled(len(v.heroNameTextbox.GetText()) >= 2 && v.selectedHero != enum.HeroNone)
 
 	return nil
 }
 
-func (v *SelectHeroClass) updateHeroSelectionHover(hero d2enum.Hero, canSelect bool) {
+func (v *SelectHeroClass) updateHeroSelectionHover(hero enum.Hero, canSelect bool) {
 	renderInfo := v.heroRenderInfo[hero]
 	switch renderInfo.Stance {
-	case d2enum.HeroStanceApproaching:
+	case enum.HeroStanceApproaching:
 		if renderInfo.ForwardWalkSprite.IsOnLastFrame() {
-			renderInfo.Stance = d2enum.HeroStanceSelected
+			renderInfo.Stance = enum.HeroStanceSelected
 			setSpriteToFirstFrame(renderInfo.SelectedSprite)
 			setSpriteToFirstFrame(renderInfo.SelectedSpriteOverlay)
 		}
 
 		return
-	case d2enum.HeroStanceRetreating:
+	case enum.HeroStanceRetreating:
 		if renderInfo.BackWalkSprite.IsOnLastFrame() {
-			renderInfo.Stance = d2enum.HeroStanceIdle
+			renderInfo.Stance = enum.HeroStanceIdle
 			setSpriteToFirstFrame(renderInfo.IdleSprite)
 		}
 
 		return
 	}
 
-	if !canSelect || renderInfo.Stance == d2enum.HeroStanceSelected {
+	if !canSelect || renderInfo.Stance == enum.HeroStanceSelected {
 		return
 	}
 
@@ -609,31 +609,31 @@ func (v *SelectHeroClass) updateHeroSelectionHover(hero d2enum.Hero, canSelect b
 
 	v.setCurrentFrame(mouseHover, renderInfo)
 
-	if v.selectedHero == d2enum.HeroNone && mouseHover {
+	if v.selectedHero == enum.HeroNone && mouseHover {
 		v.selectedHero = hero
 		v.updateHeroText()
 	}
 }
 
-func (v *SelectHeroClass) handleCursorButtonPress(hero d2enum.Hero, renderInfo *HeroRenderInfo) {
+func (v *SelectHeroClass) handleCursorButtonPress(hero enum.Hero, renderInfo *HeroRenderInfo) {
 	v.heroNameTextbox.SetVisible(true)
 	v.heroNameTextbox.Activate()
 	v.okButton.SetVisible(true)
 	v.expansionCheckbox.SetVisible(true)
 	v.hardcoreCheckbox.SetVisible(true)
 
-	renderInfo.Stance = d2enum.HeroStanceApproaching
+	renderInfo.Stance = enum.HeroStanceApproaching
 	setSpriteToFirstFrame(renderInfo.ForwardWalkSprite)
 	setSpriteToFirstFrame(renderInfo.ForwardWalkSpriteOverlay)
 
 	for _, heroInfo := range v.heroRenderInfo {
-		if heroInfo.Stance != d2enum.HeroStanceSelected {
+		if heroInfo.Stance != enum.HeroStanceSelected {
 			continue
 		}
 
 		heroInfo.SelectSfx.Stop()
 		heroInfo.DeselectSfx.Play()
-		heroInfo.Stance = d2enum.HeroStanceRetreating
+		heroInfo.Stance = enum.HeroStanceRetreating
 		setSpriteToFirstFrame(heroInfo.BackWalkSprite)
 		setSpriteToFirstFrame(heroInfo.BackWalkSpriteOverlay)
 	}
@@ -644,35 +644,35 @@ func (v *SelectHeroClass) handleCursorButtonPress(hero d2enum.Hero, renderInfo *
 }
 
 func (v *SelectHeroClass) setCurrentFrame(mouseHover bool, renderInfo *HeroRenderInfo) {
-	if mouseHover && renderInfo.Stance != d2enum.HeroStanceIdleSelected {
+	if mouseHover && renderInfo.Stance != enum.HeroStanceIdleSelected {
 		if err := renderInfo.IdleSelectedSprite.SetCurrentFrame(renderInfo.IdleSprite.GetCurrentFrame()); err != nil {
 			v.Errorf("could not set current frame to: %d\n", renderInfo.IdleSprite.GetCurrentFrame())
 		}
 
-		renderInfo.Stance = d2enum.HeroStanceIdleSelected
-	} else if !mouseHover && renderInfo.Stance != d2enum.HeroStanceIdle {
+		renderInfo.Stance = enum.HeroStanceIdleSelected
+	} else if !mouseHover && renderInfo.Stance != enum.HeroStanceIdle {
 		if err := renderInfo.IdleSprite.SetCurrentFrame(renderInfo.IdleSelectedSprite.GetCurrentFrame()); err != nil {
 			v.Errorf("could not set current frame to: %d\n", renderInfo.IdleSelectedSprite.GetCurrentFrame())
 		}
 
-		renderInfo.Stance = d2enum.HeroStanceIdle
+		renderInfo.Stance = enum.HeroStanceIdle
 	}
 }
 
-func (v *SelectHeroClass) renderHero(screen d2interface.Surface, hero d2enum.Hero) {
+func (v *SelectHeroClass) renderHero(screen d2interface.Surface, hero enum.Hero) {
 	renderInfo := v.heroRenderInfo[hero]
 	switch renderInfo.Stance {
-	case d2enum.HeroStanceIdle:
+	case enum.HeroStanceIdle:
 		drawSprite(renderInfo.IdleSprite, screen)
-	case d2enum.HeroStanceIdleSelected:
+	case enum.HeroStanceIdleSelected:
 		drawSprite(renderInfo.IdleSelectedSprite, screen)
-	case d2enum.HeroStanceApproaching:
+	case enum.HeroStanceApproaching:
 		drawSprite(renderInfo.ForwardWalkSprite, screen)
 		drawSprite(renderInfo.ForwardWalkSpriteOverlay, screen)
-	case d2enum.HeroStanceSelected:
+	case enum.HeroStanceSelected:
 		drawSprite(renderInfo.SelectedSprite, screen)
 		drawSprite(renderInfo.SelectedSpriteOverlay, screen)
-	case d2enum.HeroStanceRetreating:
+	case enum.HeroStanceRetreating:
 		drawSprite(renderInfo.BackWalkSprite, screen)
 		drawSprite(renderInfo.BackWalkSpriteOverlay, screen)
 	}
@@ -681,27 +681,27 @@ func (v *SelectHeroClass) renderHero(screen d2interface.Surface, hero d2enum.Her
 func (v *SelectHeroClass) updateHeroText() {
 	// v.setDescLabels("") really takes a string translation key, but temporarily disabled.
 	switch v.selectedHero {
-	case d2enum.HeroNone:
+	case enum.HeroNone:
 		return
-	case d2enum.HeroBarbarian:
+	case enum.HeroBarbarian:
 		v.heroClassLabel.SetText(v.asset.TranslateString("partycharbar"))
-		v.setDescLabels(d2enum.BarbarianDescr, "")
-	case d2enum.HeroNecromancer:
+		v.setDescLabels(enum.BarbarianDescr, "")
+	case enum.HeroNecromancer:
 		v.heroClassLabel.SetText(v.asset.TranslateString("partycharnec"))
-		v.setDescLabels(d2enum.NecromancerDescr, "")
-	case d2enum.HeroPaladin:
+		v.setDescLabels(enum.NecromancerDescr, "")
+	case enum.HeroPaladin:
 		v.heroClassLabel.SetText(v.asset.TranslateString("partycharpal"))
-		v.setDescLabels(d2enum.PaladinDescr, "")
-	case d2enum.HeroAssassin:
+		v.setDescLabels(enum.PaladinDescr, "")
+	case enum.HeroAssassin:
 		v.heroClassLabel.SetText(v.asset.TranslateString("partycharass"))
 		v.setDescLabels(0, "#305")
-	case d2enum.HeroSorceress:
+	case enum.HeroSorceress:
 		v.heroClassLabel.SetText(v.asset.TranslateString("partycharsor"))
-		v.setDescLabels(d2enum.SorceressDescr, "")
-	case d2enum.HeroAmazon:
+		v.setDescLabels(enum.SorceressDescr, "")
+	case enum.HeroAmazon:
 		v.heroClassLabel.SetText(v.asset.TranslateString("partycharama"))
-		v.setDescLabels(d2enum.AmazonDescr, "")
-	case d2enum.HeroDruid:
+		v.setDescLabels(enum.AmazonDescr, "")
+	case enum.HeroDruid:
 		v.heroClassLabel.SetText(v.asset.TranslateString("partychardru"))
 		// here is a problem with polish language: in polish string table, there are two items with key "#304"
 		v.setDescLabels(0, "#304")
@@ -779,7 +779,7 @@ func (v *SelectHeroClass) loadSprite(animationPath string, position image.Point,
 	sprite.SetPlayLoop(playLoop)
 
 	if blend {
-		sprite.SetEffect(d2enum.DrawEffectModulate)
+		sprite.SetEffect(enum.DrawEffectModulate)
 	}
 
 	if playLength != 0 {

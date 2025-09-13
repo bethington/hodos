@@ -3,7 +3,7 @@ package d2player
 import (
 	"sync"
 
-	"nostos/common/d2enum"
+	"nostos/common/enum"
 	"nostos/core/d2asset"
 )
 
@@ -11,9 +11,9 @@ import (
 // can be associated to 2 different keys. A key of -1 means none
 type KeyMap struct {
 	mutex              sync.RWMutex
-	mapping            map[d2enum.Key]d2enum.GameEvent
-	controls           map[d2enum.GameEvent]*KeyBinding
-	keyToStringMapping map[d2enum.Key]string
+	mapping            map[enum.Key]enum.GameEvent
+	controls           map[enum.GameEvent]*KeyBinding
+	keyToStringMapping map[enum.Key]string
 }
 
 // KeyBindingType defines whether it's a primary or
@@ -30,91 +30,91 @@ const (
 // NewKeyMap returns a new instance of a KeyMap
 func NewKeyMap(asset *d2asset.AssetManager) *KeyMap {
 	return &KeyMap{
-		mapping:            make(map[d2enum.Key]d2enum.GameEvent),
-		controls:           make(map[d2enum.GameEvent]*KeyBinding),
+		mapping:            make(map[enum.Key]enum.GameEvent),
+		controls:           make(map[enum.GameEvent]*KeyBinding),
 		keyToStringMapping: getKeyStringMapping(asset),
 	}
 }
 
-func getKeyStringMapping(assetManager *d2asset.AssetManager) map[d2enum.Key]string {
-	return map[d2enum.Key]string{
+func getKeyStringMapping(assetManager *d2asset.AssetManager) map[enum.Key]string {
+	return map[enum.Key]string{
 		-1:                       assetManager.TranslateString("KeyNone"),
-		d2enum.KeyTilde:          "~",
-		d2enum.KeyHome:           assetManager.TranslateString("KeyHome"),
-		d2enum.KeyControl:        assetManager.TranslateString("KeyControl"),
-		d2enum.KeyShift:          assetManager.TranslateString("KeyShift"),
-		d2enum.KeySpace:          assetManager.TranslateString("KeySpace"),
-		d2enum.KeyAlt:            assetManager.TranslateString("KeyMenu"),
-		d2enum.KeyTab:            assetManager.TranslateString("KeyTab"),
-		d2enum.Key0:              "0",
-		d2enum.Key1:              "1",
-		d2enum.Key2:              "2",
-		d2enum.Key3:              "3",
-		d2enum.Key4:              "4",
-		d2enum.Key5:              "5",
-		d2enum.Key6:              "6",
-		d2enum.Key7:              "7",
-		d2enum.Key8:              "8",
-		d2enum.Key9:              "9",
-		d2enum.KeyA:              "A",
-		d2enum.KeyB:              "B",
-		d2enum.KeyC:              "C",
-		d2enum.KeyD:              "D",
-		d2enum.KeyE:              "E",
-		d2enum.KeyF:              "F",
-		d2enum.KeyG:              "G",
-		d2enum.KeyH:              "H",
-		d2enum.KeyI:              "I",
-		d2enum.KeyJ:              "J",
-		d2enum.KeyK:              "K",
-		d2enum.KeyL:              "L",
-		d2enum.KeyM:              "M",
-		d2enum.KeyN:              "N",
-		d2enum.KeyO:              "O",
-		d2enum.KeyP:              "P",
-		d2enum.KeyQ:              "Q",
-		d2enum.KeyR:              "R",
-		d2enum.KeyS:              "S",
-		d2enum.KeyT:              "T",
-		d2enum.KeyU:              "U",
-		d2enum.KeyV:              "V",
-		d2enum.KeyW:              "W",
-		d2enum.KeyX:              "X",
-		d2enum.KeyY:              "Y",
-		d2enum.KeyZ:              "Z",
-		d2enum.KeyF1:             "F1",
-		d2enum.KeyF2:             "F2",
-		d2enum.KeyF3:             "F3",
-		d2enum.KeyF4:             "F4",
-		d2enum.KeyF5:             "F5",
-		d2enum.KeyF6:             "F6",
-		d2enum.KeyF7:             "F7",
-		d2enum.KeyF8:             "F8",
-		d2enum.KeyF9:             "F9",
-		d2enum.KeyF10:            "F10",
-		d2enum.KeyF11:            "F11",
-		d2enum.KeyF12:            "F12",
-		d2enum.KeyKP0:            assetManager.TranslateString("KeyNumPad0"),
-		d2enum.KeyKP1:            assetManager.TranslateString("KeyNumPad1"),
-		d2enum.KeyKP2:            assetManager.TranslateString("KeyNumPad2"),
-		d2enum.KeyKP3:            assetManager.TranslateString("KeyNumPad3"),
-		d2enum.KeyKP4:            assetManager.TranslateString("KeyNumPad4"),
-		d2enum.KeyKP5:            assetManager.TranslateString("KeyNumPad5"),
-		d2enum.KeyKP6:            assetManager.TranslateString("KeyNumPad6"),
-		d2enum.KeyKP7:            assetManager.TranslateString("KeyNumPad7"),
-		d2enum.KeyKP8:            assetManager.TranslateString("KeyNumPad8"),
-		d2enum.KeyKP9:            assetManager.TranslateString("KeyNumPad9"),
-		d2enum.KeyPrintScreen:    assetManager.TranslateString("KeySnapshot"),
-		d2enum.KeyRightBracket:   assetManager.TranslateString("KeyRBracket"),
-		d2enum.KeyLeftBracket:    assetManager.TranslateString("KeyLBracket"),
-		d2enum.KeyMouse3:         assetManager.TranslateString("KeyMButton"),
-		d2enum.KeyMouse4:         assetManager.TranslateString("Key4Button"),
-		d2enum.KeyMouse5:         assetManager.TranslateString("Key5Button"),
-		d2enum.KeyMouseWheelUp:   assetManager.TranslateString("KeyWheelUp"),
-		d2enum.KeyMouseWheelDown: assetManager.TranslateString("KeyWheelDown"),
+		enum.KeyTilde:          "~",
+		enum.KeyHome:           assetManager.TranslateString("KeyHome"),
+		enum.KeyControl:        assetManager.TranslateString("KeyControl"),
+		enum.KeyShift:          assetManager.TranslateString("KeyShift"),
+		enum.KeySpace:          assetManager.TranslateString("KeySpace"),
+		enum.KeyAlt:            assetManager.TranslateString("KeyMenu"),
+		enum.KeyTab:            assetManager.TranslateString("KeyTab"),
+		enum.Key0:              "0",
+		enum.Key1:              "1",
+		enum.Key2:              "2",
+		enum.Key3:              "3",
+		enum.Key4:              "4",
+		enum.Key5:              "5",
+		enum.Key6:              "6",
+		enum.Key7:              "7",
+		enum.Key8:              "8",
+		enum.Key9:              "9",
+		enum.KeyA:              "A",
+		enum.KeyB:              "B",
+		enum.KeyC:              "C",
+		enum.KeyD:              "D",
+		enum.KeyE:              "E",
+		enum.KeyF:              "F",
+		enum.KeyG:              "G",
+		enum.KeyH:              "H",
+		enum.KeyI:              "I",
+		enum.KeyJ:              "J",
+		enum.KeyK:              "K",
+		enum.KeyL:              "L",
+		enum.KeyM:              "M",
+		enum.KeyN:              "N",
+		enum.KeyO:              "O",
+		enum.KeyP:              "P",
+		enum.KeyQ:              "Q",
+		enum.KeyR:              "R",
+		enum.KeyS:              "S",
+		enum.KeyT:              "T",
+		enum.KeyU:              "U",
+		enum.KeyV:              "V",
+		enum.KeyW:              "W",
+		enum.KeyX:              "X",
+		enum.KeyY:              "Y",
+		enum.KeyZ:              "Z",
+		enum.KeyF1:             "F1",
+		enum.KeyF2:             "F2",
+		enum.KeyF3:             "F3",
+		enum.KeyF4:             "F4",
+		enum.KeyF5:             "F5",
+		enum.KeyF6:             "F6",
+		enum.KeyF7:             "F7",
+		enum.KeyF8:             "F8",
+		enum.KeyF9:             "F9",
+		enum.KeyF10:            "F10",
+		enum.KeyF11:            "F11",
+		enum.KeyF12:            "F12",
+		enum.KeyKP0:            assetManager.TranslateString("KeyNumPad0"),
+		enum.KeyKP1:            assetManager.TranslateString("KeyNumPad1"),
+		enum.KeyKP2:            assetManager.TranslateString("KeyNumPad2"),
+		enum.KeyKP3:            assetManager.TranslateString("KeyNumPad3"),
+		enum.KeyKP4:            assetManager.TranslateString("KeyNumPad4"),
+		enum.KeyKP5:            assetManager.TranslateString("KeyNumPad5"),
+		enum.KeyKP6:            assetManager.TranslateString("KeyNumPad6"),
+		enum.KeyKP7:            assetManager.TranslateString("KeyNumPad7"),
+		enum.KeyKP8:            assetManager.TranslateString("KeyNumPad8"),
+		enum.KeyKP9:            assetManager.TranslateString("KeyNumPad9"),
+		enum.KeyPrintScreen:    assetManager.TranslateString("KeySnapshot"),
+		enum.KeyRightBracket:   assetManager.TranslateString("KeyRBracket"),
+		enum.KeyLeftBracket:    assetManager.TranslateString("KeyLBracket"),
+		enum.KeyMouse3:         assetManager.TranslateString("KeyMButton"),
+		enum.KeyMouse4:         assetManager.TranslateString("Key4Button"),
+		enum.KeyMouse5:         assetManager.TranslateString("Key5Button"),
+		enum.KeyMouseWheelUp:   assetManager.TranslateString("KeyWheelUp"),
+		enum.KeyMouseWheelDown: assetManager.TranslateString("KeyWheelDown"),
 	}
 }
-func (km *KeyMap) checkOverwrite(key d2enum.Key) (*KeyBinding, KeyBindingType) {
+func (km *KeyMap) checkOverwrite(key enum.Key) (*KeyBinding, KeyBindingType) {
 	var (
 		overwrittenBinding     *KeyBinding
 		overwrittenBindingType KeyBindingType
@@ -138,8 +138,8 @@ func (km *KeyMap) checkOverwrite(key d2enum.Key) (*KeyBinding, KeyBindingType) {
 }
 
 // SetPrimaryBinding binds the first key for gameEvent
-func (km *KeyMap) SetPrimaryBinding(gameEvent d2enum.GameEvent, key d2enum.Key) (*KeyBinding, KeyBindingType) {
-	if key == d2enum.KeyEscape {
+func (km *KeyMap) SetPrimaryBinding(gameEvent enum.GameEvent, key enum.Key) (*KeyBinding, KeyBindingType) {
+	if key == enum.KeyEscape {
 		return nil, -1
 	}
 
@@ -162,8 +162,8 @@ func (km *KeyMap) SetPrimaryBinding(gameEvent d2enum.GameEvent, key d2enum.Key) 
 }
 
 // SetSecondaryBinding binds the second key for gameEvent
-func (km *KeyMap) SetSecondaryBinding(gameEvent d2enum.GameEvent, key d2enum.Key) (*KeyBinding, KeyBindingType) {
-	if key == d2enum.KeyEscape {
+func (km *KeyMap) SetSecondaryBinding(gameEvent enum.GameEvent, key enum.Key) (*KeyBinding, KeyBindingType) {
+	if key == enum.KeyEscape {
 		return nil, -1
 	}
 
@@ -181,7 +181,7 @@ func (km *KeyMap) SetSecondaryBinding(gameEvent d2enum.GameEvent, key d2enum.Key
 	km.mapping[key] = gameEvent
 
 	if km.controls[gameEvent].Primary == key {
-		km.controls[gameEvent].Primary = d2enum.Key(-1)
+		km.controls[gameEvent].Primary = enum.Key(-1)
 	}
 
 	km.controls[gameEvent].Secondary = key
@@ -189,7 +189,7 @@ func (km *KeyMap) SetSecondaryBinding(gameEvent d2enum.GameEvent, key d2enum.Key
 	return overwrittenBinding, overwrittenBindingType
 }
 
-func (km *KeyMap) getGameEvent(key d2enum.Key) d2enum.GameEvent {
+func (km *KeyMap) getGameEvent(key enum.Key) enum.GameEvent {
 	km.mutex.RLock()
 	defer km.mutex.RUnlock()
 
@@ -197,7 +197,7 @@ func (km *KeyMap) getGameEvent(key d2enum.Key) d2enum.GameEvent {
 }
 
 // GetKeysForGameEvent returns the bindings for a givent game event
-func (km *KeyMap) GetKeysForGameEvent(gameEvent d2enum.GameEvent) *KeyBinding {
+func (km *KeyMap) GetKeysForGameEvent(gameEvent enum.GameEvent) *KeyBinding {
 	km.mutex.RLock()
 	defer km.mutex.RUnlock()
 
@@ -205,7 +205,7 @@ func (km *KeyMap) GetKeysForGameEvent(gameEvent d2enum.GameEvent) *KeyBinding {
 }
 
 // GetBindingByKey returns the bindings for a givent game event
-func (km *KeyMap) GetBindingByKey(key d2enum.Key) (*KeyBinding, d2enum.GameEvent, KeyBindingType) {
+func (km *KeyMap) GetBindingByKey(key enum.Key) (*KeyBinding, enum.GameEvent, KeyBindingType) {
 	km.mutex.RLock()
 	defer km.mutex.RUnlock()
 
@@ -224,8 +224,8 @@ func (km *KeyMap) GetBindingByKey(key d2enum.Key) (*KeyBinding, d2enum.GameEvent
 
 // KeyBinding holds the primary and secondary keys assigned to a GameEvent
 type KeyBinding struct {
-	Primary   d2enum.Key
-	Secondary d2enum.Key
+	Primary   enum.Key
+	Secondary enum.Key
 }
 
 // IsEmpty checks if no keys are associated to the binding
@@ -235,68 +235,68 @@ func (b KeyBinding) IsEmpty() bool {
 
 // ResetToDefault will reset the KeyMap to the default values
 func (km *KeyMap) ResetToDefault() {
-	defaultControls := map[d2enum.GameEvent]KeyBinding{
-		d2enum.ToggleCharacterPanel: {d2enum.KeyA, d2enum.KeyC},
-		d2enum.ToggleInventoryPanel: {d2enum.KeyB, d2enum.KeyI},
-		d2enum.TogglePartyPanel:     {d2enum.KeyP, -1},
-		d2enum.ToggleHirelingPanel:  {d2enum.KeyO, -1},
-		d2enum.ToggleMessageLog:     {d2enum.KeyM, -1},
-		d2enum.ToggleQuestLog:       {d2enum.KeyQ, -1},
-		d2enum.ToggleHelpScreen:     {d2enum.KeyH, -1},
+	defaultControls := map[enum.GameEvent]KeyBinding{
+		enum.ToggleCharacterPanel: {enum.KeyA, enum.KeyC},
+		enum.ToggleInventoryPanel: {enum.KeyB, enum.KeyI},
+		enum.TogglePartyPanel:     {enum.KeyP, -1},
+		enum.ToggleHirelingPanel:  {enum.KeyO, -1},
+		enum.ToggleMessageLog:     {enum.KeyM, -1},
+		enum.ToggleQuestLog:       {enum.KeyQ, -1},
+		enum.ToggleHelpScreen:     {enum.KeyH, -1},
 
-		d2enum.ToggleSkillTreePanel:     {d2enum.KeyT, -1},
-		d2enum.ToggleRightSkillSelector: {d2enum.KeyS, -1},
-		d2enum.UseSkill1:                {d2enum.KeyF1, -1},
-		d2enum.UseSkill2:                {d2enum.KeyF2, -1},
-		d2enum.UseSkill3:                {d2enum.KeyF3, -1},
-		d2enum.UseSkill4:                {d2enum.KeyF4, -1},
-		d2enum.UseSkill5:                {d2enum.KeyF5, -1},
-		d2enum.UseSkill6:                {d2enum.KeyF6, -1},
-		d2enum.UseSkill7:                {d2enum.KeyF7, -1},
-		d2enum.UseSkill8:                {d2enum.KeyF8, -1},
-		d2enum.UseSkill9:                {-1, -1},
-		d2enum.UseSkill10:               {-1, -1},
-		d2enum.UseSkill11:               {-1, -1},
-		d2enum.UseSkill12:               {-1, -1},
-		d2enum.UseSkill13:               {-1, -1},
-		d2enum.UseSkill14:               {-1, -1},
-		d2enum.UseSkill15:               {-1, -1},
-		d2enum.UseSkill16:               {-1, -1},
-		d2enum.SelectPreviousSkill:      {d2enum.KeyMouseWheelUp, -1},
-		d2enum.SelectNextSkill:          {d2enum.KeyMouseWheelDown, -1},
+		enum.ToggleSkillTreePanel:     {enum.KeyT, -1},
+		enum.ToggleRightSkillSelector: {enum.KeyS, -1},
+		enum.UseSkill1:                {enum.KeyF1, -1},
+		enum.UseSkill2:                {enum.KeyF2, -1},
+		enum.UseSkill3:                {enum.KeyF3, -1},
+		enum.UseSkill4:                {enum.KeyF4, -1},
+		enum.UseSkill5:                {enum.KeyF5, -1},
+		enum.UseSkill6:                {enum.KeyF6, -1},
+		enum.UseSkill7:                {enum.KeyF7, -1},
+		enum.UseSkill8:                {enum.KeyF8, -1},
+		enum.UseSkill9:                {-1, -1},
+		enum.UseSkill10:               {-1, -1},
+		enum.UseSkill11:               {-1, -1},
+		enum.UseSkill12:               {-1, -1},
+		enum.UseSkill13:               {-1, -1},
+		enum.UseSkill14:               {-1, -1},
+		enum.UseSkill15:               {-1, -1},
+		enum.UseSkill16:               {-1, -1},
+		enum.SelectPreviousSkill:      {enum.KeyMouseWheelUp, -1},
+		enum.SelectNextSkill:          {enum.KeyMouseWheelDown, -1},
 
-		d2enum.ToggleBelts:  {d2enum.KeyTilde, -1},
-		d2enum.UseBeltSlot1: {d2enum.Key1, -1},
-		d2enum.UseBeltSlot2: {d2enum.Key2, -1},
-		d2enum.UseBeltSlot3: {d2enum.Key3, -1},
-		d2enum.UseBeltSlot4: {d2enum.Key4, -1},
-		d2enum.SwapWeapons:  {d2enum.KeyW, -1},
+		enum.ToggleBelts:  {enum.KeyTilde, -1},
+		enum.UseBeltSlot1: {enum.Key1, -1},
+		enum.UseBeltSlot2: {enum.Key2, -1},
+		enum.UseBeltSlot3: {enum.Key3, -1},
+		enum.UseBeltSlot4: {enum.Key4, -1},
+		enum.SwapWeapons:  {enum.KeyW, -1},
 
-		d2enum.ToggleChatBox:       {d2enum.KeyEnter, -1},
-		d2enum.HoldRun:             {d2enum.KeyControl, -1},
-		d2enum.ToggleRunWalk:       {d2enum.KeyR, -1},
-		d2enum.HoldStandStill:      {d2enum.KeyShift, -1},
-		d2enum.HoldShowGroundItems: {d2enum.KeyAlt, -1},
-		d2enum.HoldShowPortraits:   {d2enum.KeyZ, -1},
+		enum.ToggleChatBox:       {enum.KeyEnter, -1},
+		enum.HoldRun:             {enum.KeyControl, -1},
+		enum.ToggleRunWalk:       {enum.KeyR, -1},
+		enum.HoldStandStill:      {enum.KeyShift, -1},
+		enum.HoldShowGroundItems: {enum.KeyAlt, -1},
+		enum.HoldShowPortraits:   {enum.KeyZ, -1},
 
-		d2enum.ToggleAutomap:        {d2enum.KeyTab, -1},
-		d2enum.CenterAutomap:        {d2enum.KeyHome, -1},
-		d2enum.TogglePartyOnAutomap: {d2enum.KeyF11, -1},
-		d2enum.ToggleNamesOnAutomap: {d2enum.KeyF12, -1},
-		d2enum.ToggleMiniMap:        {d2enum.KeyV, -1},
+		enum.ToggleAutomap:        {enum.KeyTab, -1},
+		enum.CenterAutomap:        {enum.KeyHome, -1},
+		enum.TogglePartyOnAutomap: {enum.KeyF11, -1},
+		enum.ToggleNamesOnAutomap: {enum.KeyF12, -1},
+		enum.ToggleMiniMap:        {enum.KeyV, -1},
 
-		d2enum.SayHelp:         {d2enum.KeyKP0, -1},
-		d2enum.SayFollowMe:     {d2enum.KeyKP1, -1},
-		d2enum.SayThisIsForYou: {d2enum.KeyKP2, -1},
-		d2enum.SayThanks:       {d2enum.KeyKP3, -1},
-		d2enum.SaySorry:        {d2enum.KeyKP4, -1},
-		d2enum.SayBye:          {d2enum.KeyKP5, -1},
-		d2enum.SayNowYouDie:    {d2enum.KeyKP6, -1},
-		d2enum.SayRetreat:      {d2enum.KeyKP7, -1},
+		enum.SayHelp:         {enum.KeyKP0, -1},
+		enum.SayFollowMe:     {enum.KeyKP1, -1},
+		enum.SayThisIsForYou: {enum.KeyKP2, -1},
+		enum.SayThanks:       {enum.KeyKP3, -1},
+		enum.SaySorry:        {enum.KeyKP4, -1},
+		enum.SayBye:          {enum.KeyKP5, -1},
+		enum.SayNowYouDie:    {enum.KeyKP6, -1},
+		enum.SayRetreat:      {enum.KeyKP7, -1},
 
-		d2enum.TakeScreenShot: {d2enum.KeyPrintScreen, -1},
-		d2enum.ClearScreen:    {d2enum.KeySpace, -1},
-		d2enum.ClearMessages:  {d2enum.KeyN, -1},
+		enum.TakeScreenShot: {enum.KeyPrintScreen, -1},
+		enum.ClearScreen:    {enum.KeySpace, -1},
+		enum.ClearMessages:  {enum.KeyN, -1},
 	}
 
 	for gameEvent, keys := range defaultControls {
@@ -306,7 +306,7 @@ func (km *KeyMap) ResetToDefault() {
 }
 
 // KeyToString returns a string representing the key
-func (km *KeyMap) KeyToString(k d2enum.Key) string {
+func (km *KeyMap) KeyToString(k enum.Key) string {
 	return km.keyToStringMapping[k]
 }
 

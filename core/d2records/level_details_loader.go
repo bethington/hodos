@@ -3,7 +3,7 @@ package d2records
 import (
 	"nostos/common/d2fileformats/d2txt"
 
-	"nostos/common/d2enum"
+	"nostos/common/enum"
 )
 
 // nolint:funlen // cant reduce
@@ -28,7 +28,7 @@ func levelDetailsLoader(r *RecordManager, d *d2txt.DataDictionary) error {
 			WorldOffsetX:               d.Number("OffsetX"),
 			WorldOffsetY:               d.Number("OffsetY"),
 			DependantLevelID:           d.Number("Depend"),
-			TeleportFlag:               d2enum.TeleportFlag(d.Number("Teleport")),
+			TeleportFlag:               enum.TeleportFlag(d.Number("Teleport")),
 			EnableRain:                 d.Number("Rain") > 0,
 			EnableMud:                  d.Number("Mud") > 0,
 			EnablePerspective:          d.Number("NoPer") > 0,
@@ -37,7 +37,7 @@ func levelDetailsLoader(r *RecordManager, d *d2txt.DataDictionary) error {
 			EnableBlankScreen:          d.Number("BlankScreen") > 0,
 			EnableDrawEdges:            d.Number("DrawEdges") > 0,
 			IsInside:                   d.Number("IsInside") > 0,
-			LevelGenerationType:        d2enum.LevelGenerationType(d.Number("DrlgType")),
+			LevelGenerationType:        enum.LevelGenerationType(d.Number("DrlgType")),
 			LevelType:                  d.Number("LevelType"),
 			SubType:                    d.Number("SubType"),
 			SubTheme:                   d.Number("SubTheme"),

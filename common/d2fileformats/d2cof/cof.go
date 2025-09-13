@@ -4,7 +4,7 @@ import (
 	"strings"
 
 	"nostos/common/datautils"
-	"nostos/common/d2enum"
+	"nostos/common/enum"
 )
 
 const (
@@ -44,9 +44,9 @@ func New() *COF {
 		NumberOfLayers:     0,
 		Speed:              0,
 		CofLayers:          make([]CofLayer, 0),
-		CompositeLayers:    make(map[d2enum.CompositeType]int),
-		AnimationFrames:    make([]d2enum.AnimationFrame, 0),
-		Priority:           make([][][]d2enum.CompositeType, 0),
+		CompositeLayers:    make(map[enum.CompositeType]int),
+		AnimationFrames:    make([]enum.AnimationFrame, 0),
+		Priority:           make([][][]enum.CompositeType, 0),
 	}
 }
 
@@ -74,9 +74,9 @@ type COF struct {
 	NumberOfLayers     int
 	Speed              int
 	CofLayers          []CofLayer
-	CompositeLayers    map[d2enum.CompositeType]int
-	AnimationFrames    []d2enum.AnimationFrame
-	Priority           [][][]d2enum.CompositeType
+	CompositeLayers    map[enum.CompositeType]int
+	AnimationFrames    []enum.AnimationFrame
+	Priority           [][][]enum.CompositeType
 }
 
 // Unmarshal a byte slice to this COF
@@ -98,7 +98,7 @@ func (c *COF) Unmarshal(fileData []byte) error {
 	}
 
 	c.CofLayers = make([]CofLayer, c.NumberOfLayers)
-	c.CompositeLayers = make(map[d2enum.CompositeType]int)
+	c.CompositeLayers = make(map[enum.CompositeType]int)
 
 	err = c.loadCOFLayers(streamReader)
 	if err != nil {
@@ -113,7 +113,7 @@ func (c *COF) Unmarshal(fileData []byte) error {
 	c.loadAnimationFrames(animationFramesData)
 
 	priorityLen := c.FramesPerDirection * c.NumberOfDirections * c.NumberOfLayers
-	c.Priority = make([][][]d2enum.CompositeType, c.NumberOfDirections)
+	c.Priority = make([][][]enum.CompositeType, c.NumberOfDirections)
 
 	priorityBytes, err := streamReader.ReadBytes(priorityLen)
 	if err != nil {
@@ -142,13 +142,13 @@ func (c *COF) loadCOFLayers(streamReader *datautils.StreamReader) error {
 			return err
 		}
 
-		layer.Type = d2enum.CompositeType(b[layerType])
+		layer.Type = enum.CompositeType(b[layerType])
 		layer.Shadow = b[layerShadow]
 		layer.Selectable = b[layerSelectable] > 0
 		layer.Transparent = b[layerTransparent] > 0
-		layer.DrawEffect = d2enum.DrawEffect(b[layerDrawEffect])
+		layer.DrawEffect = enum.DrawEffect(b[layerDrawEffect])
 
-		layer.WeaponClass = d2enum.WeaponClassFromString(strings.TrimSpace(strings.ReplaceAll(
+		layer.WeaponClass = enum.WeaponClassFromString(strings.TrimSpace(strings.ReplaceAll(
 			string(b[layerWeaponClass:]), badCharacter, "")))
 
 		c.CofLayers[i] = layer
@@ -159,10 +159,10 @@ func (c *COF) loadCOFLayers(streamReader *datautils.StreamReader) error {
 }
 
 func (c *COF) loadAnimationFrames(b []byte) {
-	c.AnimationFrames = make([]d2enum.AnimationFrame, c.FramesPerDirection)
+	c.AnimationFrames = make([]enum.AnimationFrame, c.FramesPerDirection)
 
 	for i := range b {
-		c.AnimationFrames[i] = d2enum.AnimationFrame(b[i])
+		c.AnimationFrames[i] = enum.AnimationFrame(b[i])
 	}
 }
 
@@ -170,11 +170,11 @@ func (c *COF) loadPriority(priorityBytes []byte) {
 	priorityIndex := 0
 
 	for direction := 0; direction < c.NumberOfDirections; direction++ {
-		c.Priority[direction] = make([][]d2enum.CompositeType, c.FramesPerDirection)
+		c.Priority[direction] = make([][]enum.CompositeType, c.FramesPerDirection)
 		for frame := 0; frame < c.FramesPerDirection; frame++ {
-			c.Priority[direction][frame] = make([]d2enum.CompositeType, c.NumberOfLayers)
+			c.Priority[direction][frame] = make([]enum.CompositeType, c.NumberOfLayers)
 			for i := 0; i < c.NumberOfLayers; i++ {
-				c.Priority[direction][frame][i] = d2enum.CompositeType(priorityBytes[priorityIndex])
+				c.Priority[direction][frame][i] = enum.CompositeType(priorityBytes[priorityIndex])
 				priorityIndex++
 			}
 		}

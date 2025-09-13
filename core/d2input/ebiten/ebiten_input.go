@@ -5,118 +5,118 @@ import (
 	"github.com/hajimehoshi/ebiten/v2"
 	"github.com/hajimehoshi/ebiten/v2/inpututil"
 
-	"nostos/common/d2enum"
+	"nostos/common/enum"
 )
 
 var (
 	//nolint:gochecknoglobals // This is a constant in all but by name, no constant map in go
-	keyToEbiten = map[d2enum.Key]ebiten.Key{
-		d2enum.Key0:            ebiten.Key0,
-		d2enum.Key1:            ebiten.Key1,
-		d2enum.Key2:            ebiten.Key2,
-		d2enum.Key3:            ebiten.Key3,
-		d2enum.Key4:            ebiten.Key4,
-		d2enum.Key5:            ebiten.Key5,
-		d2enum.Key6:            ebiten.Key6,
-		d2enum.Key7:            ebiten.Key7,
-		d2enum.Key8:            ebiten.Key8,
-		d2enum.Key9:            ebiten.Key9,
-		d2enum.KeyA:            ebiten.KeyA,
-		d2enum.KeyB:            ebiten.KeyB,
-		d2enum.KeyC:            ebiten.KeyC,
-		d2enum.KeyD:            ebiten.KeyD,
-		d2enum.KeyE:            ebiten.KeyE,
-		d2enum.KeyF:            ebiten.KeyF,
-		d2enum.KeyG:            ebiten.KeyG,
-		d2enum.KeyH:            ebiten.KeyH,
-		d2enum.KeyI:            ebiten.KeyI,
-		d2enum.KeyJ:            ebiten.KeyJ,
-		d2enum.KeyK:            ebiten.KeyK,
-		d2enum.KeyL:            ebiten.KeyL,
-		d2enum.KeyM:            ebiten.KeyM,
-		d2enum.KeyN:            ebiten.KeyN,
-		d2enum.KeyO:            ebiten.KeyO,
-		d2enum.KeyP:            ebiten.KeyP,
-		d2enum.KeyQ:            ebiten.KeyQ,
-		d2enum.KeyR:            ebiten.KeyR,
-		d2enum.KeyS:            ebiten.KeyS,
-		d2enum.KeyT:            ebiten.KeyT,
-		d2enum.KeyU:            ebiten.KeyU,
-		d2enum.KeyV:            ebiten.KeyV,
-		d2enum.KeyW:            ebiten.KeyW,
-		d2enum.KeyX:            ebiten.KeyX,
-		d2enum.KeyY:            ebiten.KeyY,
-		d2enum.KeyZ:            ebiten.KeyZ,
-		d2enum.KeyApostrophe:   ebiten.KeyApostrophe,
-		d2enum.KeyBackslash:    ebiten.KeyBackslash,
-		d2enum.KeyBackspace:    ebiten.KeyBackspace,
-		d2enum.KeyCapsLock:     ebiten.KeyCapsLock,
-		d2enum.KeyComma:        ebiten.KeyComma,
-		d2enum.KeyDelete:       ebiten.KeyDelete,
-		d2enum.KeyDown:         ebiten.KeyDown,
-		d2enum.KeyEnd:          ebiten.KeyEnd,
-		d2enum.KeyEnter:        ebiten.KeyEnter,
-		d2enum.KeyEqual:        ebiten.KeyEqual,
-		d2enum.KeyEscape:       ebiten.KeyEscape,
-		d2enum.KeyF1:           ebiten.KeyF1,
-		d2enum.KeyF2:           ebiten.KeyF2,
-		d2enum.KeyF3:           ebiten.KeyF3,
-		d2enum.KeyF4:           ebiten.KeyF4,
-		d2enum.KeyF5:           ebiten.KeyF5,
-		d2enum.KeyF6:           ebiten.KeyF6,
-		d2enum.KeyF7:           ebiten.KeyF7,
-		d2enum.KeyF8:           ebiten.KeyF8,
-		d2enum.KeyF9:           ebiten.KeyF9,
-		d2enum.KeyF10:          ebiten.KeyF10,
-		d2enum.KeyF11:          ebiten.KeyF11,
-		d2enum.KeyF12:          ebiten.KeyF12,
-		d2enum.KeyGraveAccent:  ebiten.KeyGraveAccent,
-		d2enum.KeyHome:         ebiten.KeyHome,
-		d2enum.KeyInsert:       ebiten.KeyInsert,
-		d2enum.KeyKP0:          ebiten.KeyKP0,
-		d2enum.KeyKP1:          ebiten.KeyKP1,
-		d2enum.KeyKP2:          ebiten.KeyKP2,
-		d2enum.KeyKP3:          ebiten.KeyKP3,
-		d2enum.KeyKP4:          ebiten.KeyKP4,
-		d2enum.KeyKP5:          ebiten.KeyKP5,
-		d2enum.KeyKP6:          ebiten.KeyKP6,
-		d2enum.KeyKP7:          ebiten.KeyKP7,
-		d2enum.KeyKP8:          ebiten.KeyKP8,
-		d2enum.KeyKP9:          ebiten.KeyKP9,
-		d2enum.KeyKPAdd:        ebiten.KeyKPAdd,
-		d2enum.KeyKPDecimal:    ebiten.KeyKPDecimal,
-		d2enum.KeyKPDivide:     ebiten.KeyKPDivide,
-		d2enum.KeyKPEnter:      ebiten.KeyKPEnter,
-		d2enum.KeyKPEqual:      ebiten.KeyKPEqual,
-		d2enum.KeyKPMultiply:   ebiten.KeyKPMultiply,
-		d2enum.KeyKPSubtract:   ebiten.KeyKPSubtract,
-		d2enum.KeyLeft:         ebiten.KeyLeft,
-		d2enum.KeyLeftBracket:  ebiten.KeyLeftBracket,
-		d2enum.KeyMenu:         ebiten.KeyMenu,
-		d2enum.KeyMinus:        ebiten.KeyMinus,
-		d2enum.KeyNumLock:      ebiten.KeyNumLock,
-		d2enum.KeyPageDown:     ebiten.KeyPageDown,
-		d2enum.KeyPageUp:       ebiten.KeyPageUp,
-		d2enum.KeyPause:        ebiten.KeyPause,
-		d2enum.KeyPeriod:       ebiten.KeyPeriod,
-		d2enum.KeyPrintScreen:  ebiten.KeyPrintScreen,
-		d2enum.KeyRight:        ebiten.KeyRight,
-		d2enum.KeyRightBracket: ebiten.KeyRightBracket,
-		d2enum.KeyScrollLock:   ebiten.KeyScrollLock,
-		d2enum.KeySemicolon:    ebiten.KeySemicolon,
-		d2enum.KeySlash:        ebiten.KeySlash,
-		d2enum.KeySpace:        ebiten.KeySpace,
-		d2enum.KeyTab:          ebiten.KeyTab,
-		d2enum.KeyUp:           ebiten.KeyUp,
-		d2enum.KeyAlt:          ebiten.KeyAlt,
-		d2enum.KeyControl:      ebiten.KeyControl,
-		d2enum.KeyShift:        ebiten.KeyShift,
+	keyToEbiten = map[enum.Key]ebiten.Key{
+		enum.Key0:            ebiten.Key0,
+		enum.Key1:            ebiten.Key1,
+		enum.Key2:            ebiten.Key2,
+		enum.Key3:            ebiten.Key3,
+		enum.Key4:            ebiten.Key4,
+		enum.Key5:            ebiten.Key5,
+		enum.Key6:            ebiten.Key6,
+		enum.Key7:            ebiten.Key7,
+		enum.Key8:            ebiten.Key8,
+		enum.Key9:            ebiten.Key9,
+		enum.KeyA:            ebiten.KeyA,
+		enum.KeyB:            ebiten.KeyB,
+		enum.KeyC:            ebiten.KeyC,
+		enum.KeyD:            ebiten.KeyD,
+		enum.KeyE:            ebiten.KeyE,
+		enum.KeyF:            ebiten.KeyF,
+		enum.KeyG:            ebiten.KeyG,
+		enum.KeyH:            ebiten.KeyH,
+		enum.KeyI:            ebiten.KeyI,
+		enum.KeyJ:            ebiten.KeyJ,
+		enum.KeyK:            ebiten.KeyK,
+		enum.KeyL:            ebiten.KeyL,
+		enum.KeyM:            ebiten.KeyM,
+		enum.KeyN:            ebiten.KeyN,
+		enum.KeyO:            ebiten.KeyO,
+		enum.KeyP:            ebiten.KeyP,
+		enum.KeyQ:            ebiten.KeyQ,
+		enum.KeyR:            ebiten.KeyR,
+		enum.KeyS:            ebiten.KeyS,
+		enum.KeyT:            ebiten.KeyT,
+		enum.KeyU:            ebiten.KeyU,
+		enum.KeyV:            ebiten.KeyV,
+		enum.KeyW:            ebiten.KeyW,
+		enum.KeyX:            ebiten.KeyX,
+		enum.KeyY:            ebiten.KeyY,
+		enum.KeyZ:            ebiten.KeyZ,
+		enum.KeyApostrophe:   ebiten.KeyApostrophe,
+		enum.KeyBackslash:    ebiten.KeyBackslash,
+		enum.KeyBackspace:    ebiten.KeyBackspace,
+		enum.KeyCapsLock:     ebiten.KeyCapsLock,
+		enum.KeyComma:        ebiten.KeyComma,
+		enum.KeyDelete:       ebiten.KeyDelete,
+		enum.KeyDown:         ebiten.KeyDown,
+		enum.KeyEnd:          ebiten.KeyEnd,
+		enum.KeyEnter:        ebiten.KeyEnter,
+		enum.KeyEqual:        ebiten.KeyEqual,
+		enum.KeyEscape:       ebiten.KeyEscape,
+		enum.KeyF1:           ebiten.KeyF1,
+		enum.KeyF2:           ebiten.KeyF2,
+		enum.KeyF3:           ebiten.KeyF3,
+		enum.KeyF4:           ebiten.KeyF4,
+		enum.KeyF5:           ebiten.KeyF5,
+		enum.KeyF6:           ebiten.KeyF6,
+		enum.KeyF7:           ebiten.KeyF7,
+		enum.KeyF8:           ebiten.KeyF8,
+		enum.KeyF9:           ebiten.KeyF9,
+		enum.KeyF10:          ebiten.KeyF10,
+		enum.KeyF11:          ebiten.KeyF11,
+		enum.KeyF12:          ebiten.KeyF12,
+		enum.KeyGraveAccent:  ebiten.KeyGraveAccent,
+		enum.KeyHome:         ebiten.KeyHome,
+		enum.KeyInsert:       ebiten.KeyInsert,
+		enum.KeyKP0:          ebiten.KeyKP0,
+		enum.KeyKP1:          ebiten.KeyKP1,
+		enum.KeyKP2:          ebiten.KeyKP2,
+		enum.KeyKP3:          ebiten.KeyKP3,
+		enum.KeyKP4:          ebiten.KeyKP4,
+		enum.KeyKP5:          ebiten.KeyKP5,
+		enum.KeyKP6:          ebiten.KeyKP6,
+		enum.KeyKP7:          ebiten.KeyKP7,
+		enum.KeyKP8:          ebiten.KeyKP8,
+		enum.KeyKP9:          ebiten.KeyKP9,
+		enum.KeyKPAdd:        ebiten.KeyKPAdd,
+		enum.KeyKPDecimal:    ebiten.KeyKPDecimal,
+		enum.KeyKPDivide:     ebiten.KeyKPDivide,
+		enum.KeyKPEnter:      ebiten.KeyKPEnter,
+		enum.KeyKPEqual:      ebiten.KeyKPEqual,
+		enum.KeyKPMultiply:   ebiten.KeyKPMultiply,
+		enum.KeyKPSubtract:   ebiten.KeyKPSubtract,
+		enum.KeyLeft:         ebiten.KeyLeft,
+		enum.KeyLeftBracket:  ebiten.KeyLeftBracket,
+		enum.KeyMenu:         ebiten.KeyMenu,
+		enum.KeyMinus:        ebiten.KeyMinus,
+		enum.KeyNumLock:      ebiten.KeyNumLock,
+		enum.KeyPageDown:     ebiten.KeyPageDown,
+		enum.KeyPageUp:       ebiten.KeyPageUp,
+		enum.KeyPause:        ebiten.KeyPause,
+		enum.KeyPeriod:       ebiten.KeyPeriod,
+		enum.KeyPrintScreen:  ebiten.KeyPrintScreen,
+		enum.KeyRight:        ebiten.KeyRight,
+		enum.KeyRightBracket: ebiten.KeyRightBracket,
+		enum.KeyScrollLock:   ebiten.KeyScrollLock,
+		enum.KeySemicolon:    ebiten.KeySemicolon,
+		enum.KeySlash:        ebiten.KeySlash,
+		enum.KeySpace:        ebiten.KeySpace,
+		enum.KeyTab:          ebiten.KeyTab,
+		enum.KeyUp:           ebiten.KeyUp,
+		enum.KeyAlt:          ebiten.KeyAlt,
+		enum.KeyControl:      ebiten.KeyControl,
+		enum.KeyShift:        ebiten.KeyShift,
 	}
 	//nolint:gochecknoglobals // This is a constant in all but by name, no constant map in go
-	mouseButtonToEbiten = map[d2enum.MouseButton]ebiten.MouseButton{
-		d2enum.MouseButtonLeft:   ebiten.MouseButtonLeft,
-		d2enum.MouseButtonMiddle: ebiten.MouseButtonMiddle,
-		d2enum.MouseButtonRight:  ebiten.MouseButtonRight,
+	mouseButtonToEbiten = map[enum.MouseButton]ebiten.MouseButton{
+		enum.MouseButtonLeft:   ebiten.MouseButtonLeft,
+		enum.MouseButtonMiddle: ebiten.MouseButtonMiddle,
+		enum.MouseButtonRight:  ebiten.MouseButtonRight,
 	}
 )
 
@@ -134,36 +134,36 @@ func (is InputService) InputChars() []rune {
 }
 
 // IsKeyPressed checks if the provided key is down.
-func (is InputService) IsKeyPressed(key d2enum.Key) bool {
+func (is InputService) IsKeyPressed(key enum.Key) bool {
 	return ebiten.IsKeyPressed(keyToEbiten[key])
 }
 
 // IsKeyJustPressed checks if the provided key is just transitioned from up to down.
-func (is InputService) IsKeyJustPressed(key d2enum.Key) bool {
+func (is InputService) IsKeyJustPressed(key enum.Key) bool {
 	return inpututil.IsKeyJustPressed(keyToEbiten[key])
 }
 
 // IsKeyJustReleased checks if the provided key is just transitioned from down to up.
-func (is InputService) IsKeyJustReleased(key d2enum.Key) bool {
+func (is InputService) IsKeyJustReleased(key enum.Key) bool {
 	return inpututil.IsKeyJustReleased(keyToEbiten[key])
 }
 
 // IsMouseButtonPressed checks if the provided mouse button is down.
-func (is InputService) IsMouseButtonPressed(button d2enum.MouseButton) bool {
+func (is InputService) IsMouseButtonPressed(button enum.MouseButton) bool {
 	return ebiten.IsMouseButtonPressed(mouseButtonToEbiten[button])
 }
 
 // IsMouseButtonJustPressed checks if the provided mouse button is just transitioned from up to down.
-func (is InputService) IsMouseButtonJustPressed(button d2enum.MouseButton) bool {
+func (is InputService) IsMouseButtonJustPressed(button enum.MouseButton) bool {
 	return inpututil.IsMouseButtonJustPressed(mouseButtonToEbiten[button])
 }
 
 // IsMouseButtonJustReleased checks if the provided mouse button is just transitioned from down to up.
-func (is InputService) IsMouseButtonJustReleased(button d2enum.MouseButton) bool {
+func (is InputService) IsMouseButtonJustReleased(button enum.MouseButton) bool {
 	return inpututil.IsMouseButtonJustReleased(mouseButtonToEbiten[button])
 }
 
 // KeyPressDuration returns how long the key is pressed in frames.
-func (is InputService) KeyPressDuration(key d2enum.Key) int {
+func (is InputService) KeyPressDuration(key enum.Key) int {
 	return inpututil.KeyPressDuration(keyToEbiten[key])
 }

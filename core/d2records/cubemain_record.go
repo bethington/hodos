@@ -1,6 +1,6 @@
 package d2records
 
-import "nostos/common/d2enum"
+import "nostos/common/enum"
 
 // CubeRecipes contains all rows in CubeMain.txt.
 type CubeRecipes []*CubeRecipeRecord
@@ -57,7 +57,7 @@ type CubeRecipeRecord struct {
 	// example. It understands the following syntax,
 	// which may be incorrect:
 	// "ama,bar,dru"
-	Class []d2enum.Hero
+	Class []enum.Hero
 
 	// NumInputs is the total count of input items
 	// required, including counts in item stacks.

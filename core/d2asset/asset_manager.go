@@ -21,7 +21,7 @@ import (
 	"nostos/common/d2fileformats/d2font"
 	"nostos/common/d2fileformats/d2txt"
 
-	"nostos/common/d2enum"
+	"nostos/common/enum"
 	"nostos/common/d2fileformats/d2dat"
 	"nostos/common/d2fileformats/d2dc6"
 	"nostos/common/d2fileformats/d2dcc"
@@ -150,12 +150,12 @@ func (am *AssetManager) LoadLanguage(languagePath string) string {
 
 // LoadAnimation loads an Animation by its resource path and its palette path
 func (am *AssetManager) LoadAnimation(animationPath, palettePath string) (d2interface.Animation, error) {
-	return am.LoadAnimationWithEffect(animationPath, palettePath, d2enum.DrawEffectNone)
+	return am.LoadAnimationWithEffect(animationPath, palettePath, enum.DrawEffectNone)
 }
 
 // LoadAnimationWithEffect loads an Animation by its resource path and its palette path with a given transparency value
 func (am *AssetManager) LoadAnimationWithEffect(animationPath, palettePath string,
-	effect d2enum.DrawEffect) (d2interface.Animation, error) {
+	effect enum.DrawEffect) (d2interface.Animation, error) {
 	cachePath := fmt.Sprintf("%s;%s;%d", animationPath, palettePath, effect)
 
 	if animation, found := am.animations.Retrieve(cachePath); found {
@@ -192,7 +192,7 @@ func (am *AssetManager) LoadAnimationWithEffect(animationPath, palettePath strin
 }
 
 // LoadComposite creates a composite object from a ObjectLookupRecord and palettePath describing it
-func (am *AssetManager) LoadComposite(baseType d2enum.ObjectType, token, palettePath string) (*Composite, error) {
+func (am *AssetManager) LoadComposite(baseType enum.ObjectType, token, palettePath string) (*Composite, error) {
 	am.Debugf(fmtLoadComposite, baseType, token, palettePath)
 
 	c := &Composite{
@@ -298,7 +298,7 @@ func (am *AssetManager) TranslateString(input interface{}) string {
 	case fmt.Stringer:
 		key = s.String()
 	case int:
-		key = fmt.Sprintf("#%d", d2enum.BaseLabelNumbers(s+am.languageModifier))
+		key = fmt.Sprintf("#%d", enum.BaseLabelNumbers(s+am.languageModifier))
 	}
 
 	for idx := range am.tables {
@@ -373,7 +373,7 @@ func (am *AssetManager) LoadRecords(path string) error {
 
 // loadDC6 creates an Animation from d2dc6.DC6 and d2dat.DATPalette
 func (am *AssetManager) loadDC6(path string,
-	palette d2interface.Palette, effect d2enum.DrawEffect) (d2interface.Animation, error) {
+	palette d2interface.Palette, effect enum.DrawEffect) (d2interface.Animation, error) {
 	dc6Data, err := am.LoadFile(path)
 	if err != nil {
 		return nil, err
@@ -391,7 +391,7 @@ func (am *AssetManager) loadDC6(path string,
 
 // loadDCC creates an Animation from d2dcc.DCC and d2dat.DATPalette
 func (am *AssetManager) loadDCC(path string,
-	palette d2interface.Palette, effect d2enum.DrawEffect) (d2interface.Animation, error) {
+	palette d2interface.Palette, effect enum.DrawEffect) (d2interface.Animation, error) {
 	dcc, err := am.LoadDCC(path)
 	if err != nil {
 		return nil, err

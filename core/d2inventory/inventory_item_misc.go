@@ -1,7 +1,7 @@
 package d2inventory
 
 import (
-	"nostos/common/d2enum"
+	"nostos/common/enum"
 )
 
 // InventoryItemMisc stores the info of an miscellaneous item in the inventory
@@ -24,8 +24,8 @@ func (v *InventoryItemMisc) InventoryItemName() string {
 }
 
 // InventoryItemType returns the item type of the miscellaneous item
-func (v *InventoryItemMisc) InventoryItemType() d2enum.InventoryItemType {
-	return d2enum.InventoryItemTypeItem
+func (v *InventoryItemMisc) InventoryItemType() enum.InventoryItemType {
+	return enum.InventoryItemTypeItem
 }
 
 // InventoryGridSize returns the grid size of the miscellaneous item

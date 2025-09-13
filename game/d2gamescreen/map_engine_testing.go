@@ -8,7 +8,7 @@ import (
 
 	"nostos/core/d2hero"
 
-	"nostos/common/d2enum"
+	"nostos/common/enum"
 	"nostos/common/d2interface"
 	"nostos/common/d2math/d2vector"
 	"nostos/common/d2resource"
@@ -25,7 +25,7 @@ const (
 )
 
 type regionSpec struct {
-	regionType       d2enum.RegionIdType
+	regionType       enum.RegionIdType
 	startPresetIndex int
 	endPresetIndex   int
 	extra            []int
@@ -34,56 +34,56 @@ type regionSpec struct {
 func getRegions() []regionSpec {
 	return []regionSpec{
 		// Act I
-		{d2enum.RegionAct1Town, 1, 3, []int{}},
-		{d2enum.RegionAct1Wilderness, 4, 52, []int{
+		{enum.RegionAct1Town, 1, 3, []int{}},
+		{enum.RegionAct1Wilderness, 4, 52, []int{
 			108,
 			160, 161, 162, 163, 164,
 		}},
-		{d2enum.RegionAct1Cave, 53, 107, []int{}},
-		{d2enum.RegionAct1Crypt, 109, 159, []int{}},
-		{d2enum.RegionAct1Monestary, 165, 165, []int{}},
-		{d2enum.RegionAct1Courtyard, 166, 166, []int{256}},
-		{d2enum.RegionAct1Barracks, 167, 205, []int{}},
-		{d2enum.RegionAct1Jail, 206, 255, []int{}},
-		{d2enum.RegionAct1Cathedral, 257, 257, []int{}},
-		{d2enum.RegionAct1Catacombs, 258, 299, []int{}},
-		{d2enum.RegionAct1Tristram, 300, 300, []int{}},
+		{enum.RegionAct1Cave, 53, 107, []int{}},
+		{enum.RegionAct1Crypt, 109, 159, []int{}},
+		{enum.RegionAct1Monestary, 165, 165, []int{}},
+		{enum.RegionAct1Courtyard, 166, 166, []int{256}},
+		{enum.RegionAct1Barracks, 167, 205, []int{}},
+		{enum.RegionAct1Jail, 206, 255, []int{}},
+		{enum.RegionAct1Cathedral, 257, 257, []int{}},
+		{enum.RegionAct1Catacombs, 258, 299, []int{}},
+		{enum.RegionAct1Tristram, 300, 300, []int{}},
 
 		// Act II
-		{d2enum.RegionAct2Town, 301, 301, []int{}},
-		{d2enum.RegionAct2Sewer, 302, 352, []int{}},
-		{d2enum.RegionAct2Harem, 353, 357, []int{}},
-		{d2enum.RegionAct2Basement, 358, 361, []int{}},
-		{d2enum.RegionAct2Desert, 362, 413, []int{}},
-		{d2enum.RegionAct2Tomb, 414, 481, []int{}},
-		{d2enum.RegionAct2Lair, 482, 509, []int{}},
-		{d2enum.RegionAct2Arcane, 510, 528, []int{}},
+		{enum.RegionAct2Town, 301, 301, []int{}},
+		{enum.RegionAct2Sewer, 302, 352, []int{}},
+		{enum.RegionAct2Harem, 353, 357, []int{}},
+		{enum.RegionAct2Basement, 358, 361, []int{}},
+		{enum.RegionAct2Desert, 362, 413, []int{}},
+		{enum.RegionAct2Tomb, 414, 481, []int{}},
+		{enum.RegionAct2Lair, 482, 509, []int{}},
+		{enum.RegionAct2Arcane, 510, 528, []int{}},
 
 		// Act III
-		{d2enum.RegionAct3Town, 529, 529, []int{}},
-		{d2enum.RegionAct3Jungle, 530, 604, []int{}},
-		{d2enum.RegionAct3Kurast, 605, 658, []int{
+		{enum.RegionAct3Town, 529, 529, []int{}},
+		{enum.RegionAct3Jungle, 530, 604, []int{}},
+		{enum.RegionAct3Kurast, 605, 658, []int{
 			748, 749, 750, 751, 752, 753, 754, 755, 756, 757, 758, 759, 760, 761, 762, 763, 764, 765, 766, 767, 768, 769,
 			770, 771, 772, 773, 774, 775, 776, 777, 778, 779, 780, 781, 782, 783, 784, 785, 786, 787, 788, 789, 790, 791,
 			792, 793, 794, 795, 796,
 		}},
-		{d2enum.RegionAct3Spider, 659, 664, []int{}},
-		{d2enum.RegionAct3Dungeon, 665, 704, []int{}},
-		{d2enum.RegionAct3Sewer, 705, 747, []int{}},
+		{enum.RegionAct3Spider, 659, 664, []int{}},
+		{enum.RegionAct3Dungeon, 665, 704, []int{}},
+		{enum.RegionAct3Sewer, 705, 747, []int{}},
 
 		// Act IV
-		{d2enum.RegionAct4Town, 797, 798, []int{}},
-		{d2enum.RegionAct4Mesa, 799, 835, []int{}},
-		{d2enum.RegionAct4Lava, 836, 862, []int{}},
+		{enum.RegionAct4Town, 797, 798, []int{}},
+		{enum.RegionAct4Mesa, 799, 835, []int{}},
+		{enum.RegionAct4Lava, 836, 862, []int{}},
 
 		// Act V -- broken or wrong order
-		{d2enum.RegonAct5Town, 863, 864, []int{}},
-		{d2enum.RegionAct5Siege, 865, 879, []int{}},
-		{d2enum.RegionAct5Barricade, 880, 1002, []int{}},
-		{d2enum.RegionAct5IceCaves, 1003, 1041, []int{}},
-		{d2enum.RegionAct5Temple, 1042, 1052, []int{}},
-		{d2enum.RegionAct5Baal, 1059, 1090, []int{}},
-		{d2enum.RegionAct5Lava, 1053, 1058, []int{}},
+		{enum.RegonAct5Town, 863, 864, []int{}},
+		{enum.RegionAct5Siege, 865, 879, []int{}},
+		{enum.RegionAct5Barricade, 880, 1002, []int{}},
+		{enum.RegionAct5IceCaves, 1003, 1041, []int{}},
+		{enum.RegionAct5Temple, 1042, 1052, []int{}},
+		{enum.RegionAct5Baal, 1059, 1090, []int{}},
+		{enum.RegionAct5Lava, 1053, 1058, []int{}},
 	}
 }
 
@@ -162,7 +162,7 @@ func (met *MapEngineTest) loadRegionByIndex(n, levelPreset, fileIndex int) {
 	met.mapRenderer.InvalidateImageCache()
 
 	for _, spec := range getRegions() {
-		if spec.regionType != d2enum.RegionIdType(n) {
+		if spec.regionType != enum.RegionIdType(n) {
 			continue
 		}
 
@@ -198,7 +198,7 @@ func (met *MapEngineTest) loadRegionByIndex(n, levelPreset, fileIndex int) {
 	} else {
 		met.mapEngine = d2mapengine.CreateMapEngine(met.logLevel, met.asset) // necessary for map name update
 		met.mapEngine.SetSeed(time.Now().UnixNano())
-		met.mapEngine.GenerateMap(d2enum.RegionIdType(n), levelPreset, fileIndex)
+		met.mapEngine.GenerateMap(enum.RegionIdType(n), levelPreset, fileIndex)
 	}
 
 	met.mapRenderer.SetMapEngine(met.mapEngine)
@@ -389,13 +389,13 @@ func (met *MapEngineTest) OnMouseMove(event d2interface.MouseMoveEvent) bool {
 
 // OnMouseButtonDown handles mouse button down events
 func (met *MapEngineTest) OnMouseButtonDown(event d2interface.MouseEvent) bool {
-	if event.Button() == d2enum.MouseButtonLeft {
+	if event.Button() == enum.MouseButtonLeft {
 		met.handleLeftClick()
 
 		return true
 	}
 
-	if event.Button() == d2enum.MouseButtonRight {
+	if event.Button() == enum.MouseButtonRight {
 		met.selectedTile = nil
 
 		return true
@@ -406,7 +406,7 @@ func (met *MapEngineTest) OnMouseButtonDown(event d2interface.MouseEvent) bool {
 
 // OnMouseButtonRepeat handles repeated mouse clicks
 func (met *MapEngineTest) OnMouseButtonRepeat(event d2interface.MouseEvent) bool {
-	if event.Button() == d2enum.MouseButtonLeft {
+	if event.Button() == enum.MouseButtonLeft {
 		met.handleLeftClick()
 
 		return true
@@ -445,32 +445,32 @@ func (met *MapEngineTest) Advance(tickTime float64) error {
 // OnKeyRepeat is called to handle repeated key presses
 func (met *MapEngineTest) OnKeyRepeat(event d2interface.KeyEvent) bool {
 	var moveSpeed float64 = 8
-	if event.KeyMod() == d2enum.KeyModShift {
+	if event.KeyMod() == enum.KeyModShift {
 		moveSpeed *= 2
 	}
 
-	if event.Key() == d2enum.KeyDown {
+	if event.Key() == enum.KeyDown {
 		v := d2vector.NewVector(0, moveSpeed)
 		met.mapRenderer.MoveCameraTargetBy(v)
 
 		return true
 	}
 
-	if event.Key() == d2enum.KeyUp {
+	if event.Key() == enum.KeyUp {
 		v := d2vector.NewVector(0, -moveSpeed)
 		met.mapRenderer.MoveCameraTargetBy(v)
 
 		return true
 	}
 
-	if event.Key() == d2enum.KeyRight {
+	if event.Key() == enum.KeyRight {
 		v := d2vector.NewVector(moveSpeed, 0)
 		met.mapRenderer.MoveCameraTargetBy(v)
 
 		return true
 	}
 
-	if event.Key() == d2enum.KeyLeft {
+	if event.Key() == enum.KeyLeft {
 		v := d2vector.NewVector(-moveSpeed, 0)
 		met.mapRenderer.MoveCameraTargetBy(v)
 
@@ -482,17 +482,17 @@ func (met *MapEngineTest) OnKeyRepeat(event d2interface.KeyEvent) bool {
 
 // OnKeyDown defines the actions of the Map Engine Test screen when a key is pressed
 func (met *MapEngineTest) OnKeyDown(event d2interface.KeyEvent) bool {
-	if event.Key() == d2enum.KeyEscape {
+	if event.Key() == enum.KeyEscape {
 		os.Exit(0)
 		return true
 	}
 
-	if event.Key() == d2enum.KeyN {
+	if event.Key() == enum.KeyN {
 		switch event.KeyMod() {
-		case d2enum.KeyModControl:
+		case enum.KeyModControl:
 			met.fileIndex++
 			met.screen.SetNextScreen(met)
-		case d2enum.KeyModShift:
+		case enum.KeyModShift:
 			met.levelPreset = increment(met.levelPreset, met.regionSpec.startPresetIndex, met.regionSpec.endPresetIndex)
 			met.screen.SetNextScreen(met)
 		default:
@@ -503,12 +503,12 @@ func (met *MapEngineTest) OnKeyDown(event d2interface.KeyEvent) bool {
 		return true
 	}
 
-	if event.Key() == d2enum.KeyP {
+	if event.Key() == enum.KeyP {
 		switch event.KeyMod() {
-		case d2enum.KeyModControl:
+		case enum.KeyModControl:
 			met.fileIndex--
 			met.screen.SetNextScreen(met)
-		case d2enum.KeyModShift:
+		case enum.KeyModShift:
 			met.levelPreset = decrement(met.levelPreset, met.regionSpec.startPresetIndex, met.regionSpec.endPresetIndex)
 			met.screen.SetNextScreen(met)
 		default:

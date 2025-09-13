@@ -5,7 +5,7 @@ import (
 
 	"nostos/core/d2records"
 
-	"nostos/common/d2enum"
+	"nostos/common/enum"
 	"nostos/common/d2interface"
 	"nostos/common/d2math/d2vector"
 	"nostos/common/d2path"
@@ -118,22 +118,22 @@ func (v *NPC) wait() bool {
 }
 
 func (v *NPC) next() {
-	var newAnimationMode d2enum.MonsterAnimationMode
+	var newAnimationMode enum.MonsterAnimationMode
 
 	v.isDone = true
 
 	// nolint:gosec // not concerned with crypto-strong randomness
 	v.repetitions = minAnimationRepetitions + rand.Intn(maxAnimationRepetitions)
 
-	switch d2enum.NPCActionType(v.action) {
-	case d2enum.NPCActionSkill1:
-		newAnimationMode = d2enum.MonsterAnimationModeSkill1
+	switch enum.NPCActionType(v.action) {
+	case enum.NPCActionSkill1:
+		newAnimationMode = enum.MonsterAnimationModeSkill1
 		v.repetitions = 0
-	case d2enum.NPCActionInvalid, d2enum.NPCAction1, d2enum.NPCAction2, d2enum.NPCAction3:
-		newAnimationMode = d2enum.MonsterAnimationModeNeutral
+	case enum.NPCActionInvalid, enum.NPCAction1, enum.NPCAction2, enum.NPCAction3:
+		newAnimationMode = enum.MonsterAnimationModeNeutral
 		v.repetitions = 0
 	default:
-		newAnimationMode = d2enum.MonsterAnimationModeNeutral
+		newAnimationMode = enum.MonsterAnimationModeNeutral
 		v.repetitions = 0
 	}
 
@@ -146,11 +146,11 @@ func (v *NPC) next() {
 
 // rotate sets direction and changes animation
 func (v *NPC) rotate(direction int) {
-	var newMode d2enum.MonsterAnimationMode
+	var newMode enum.MonsterAnimationMode
 	if !v.atTarget() {
-		newMode = d2enum.MonsterAnimationModeWalk
+		newMode = enum.MonsterAnimationModeWalk
 	} else {
-		newMode = d2enum.MonsterAnimationModeNeutral
+		newMode = enum.MonsterAnimationModeNeutral
 	}
 
 	if newMode.String() != v.composite.GetAnimationMode() {

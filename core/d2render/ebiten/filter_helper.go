@@ -3,27 +3,27 @@ package ebiten
 import (
 	"github.com/hajimehoshi/ebiten/v2"
 
-	"nostos/common/d2enum"
+	"nostos/common/enum"
 )
 
-func d2ToEbitenFilter(filter d2enum.Filter) ebiten.Filter {
+func d2ToEbitenFilter(filter enum.Filter) ebiten.Filter {
 	switch filter {
-	case d2enum.FilterNearest:
+	case enum.FilterNearest:
 		return ebiten.FilterNearest
 	default:
 		return ebiten.FilterLinear
 	}
 }
 
-// func ebitenToD2Filter(filter ebiten.Filter) d2enum.Filter {
+// func ebitenToD2Filter(filter ebiten.Filter) enum.Filter {
 // 	switch filter {
 // 	case ebiten.FilterDefault:
-// 		return d2enum.FilterDefault
+// 		return enum.FilterDefault
 // 	case ebiten.FilterLinear:
-// 		return d2enum.FilterLinear
+// 		return enum.FilterLinear
 // 	case ebiten.FilterNearest:
-// 		return d2enum.FilterNearest
+// 		return enum.FilterNearest
 // 	}
 //
-// 	return d2enum.FilterDefault
+// 	return enum.FilterDefault
 // }

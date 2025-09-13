@@ -1,7 +1,7 @@
 package d2records
 
 import (
-	"nostos/common/d2enum"
+	"nostos/common/enum"
 	"nostos/common/d2fileformats/d2txt"
 )
 
@@ -86,7 +86,7 @@ func monsterStatsLoader(r *RecordManager, d *d2txt.DataDictionary) error {
 			MissileS4:                      d.String("MissS4"),
 			MissileC:                       d.String("MissC"),
 			MissileSQ:                      d.String("MissSQ"),
-			Alignment:                      d2enum.MonsterAlignmentType(d.Number("Align")),
+			Alignment:                      enum.MonsterAlignmentType(d.Number("Align")),
 			IsLevelSpawnable:               d.Number("isSpawn") > 0,
 			IsMelee:                        d.Number("isMelee") > 0,
 			IsNpc:                          d.Number("npc") > 0,

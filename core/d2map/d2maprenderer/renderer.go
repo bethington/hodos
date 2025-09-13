@@ -7,7 +7,7 @@ import (
 	"math"
 	"strconv"
 
-	"nostos/common/d2enum"
+	"nostos/common/enum"
 	"nostos/common/d2fileformats/d2ds1"
 	"nostos/common/d2interface"
 	"nostos/common/d2math/d2vector"
@@ -387,7 +387,7 @@ func (mr *MapRenderer) renderTilePass2(tile *d2mapengine.MapTile, target d2inter
 
 func (mr *MapRenderer) renderTilePass3(tile *d2mapengine.MapTile, target d2interface.Surface) {
 	for _, wall := range tile.Components.Walls {
-		if wall.Type == d2enum.TileRoof {
+		if wall.Type == enum.TileRoof {
 			mr.renderWall(wall, mr.viewport, target)
 		}
 	}
@@ -624,25 +624,25 @@ func (mr *MapRenderer) Advance(elapsed float64) {
 	mr.Camera.Advance(elapsed)
 }
 
-func (mr *MapRenderer) loadPaletteForAct(levelType d2enum.RegionIdType) (d2interface.Palette,
+func (mr *MapRenderer) loadPaletteForAct(levelType enum.RegionIdType) (d2interface.Palette,
 	error) {
 	var palettePath string
 
 	switch levelType {
-	case d2enum.RegionAct1Town, d2enum.RegionAct1Wilderness, d2enum.RegionAct1Cave, d2enum.RegionAct1Crypt,
-		d2enum.RegionAct1Monestary, d2enum.RegionAct1Courtyard, d2enum.RegionAct1Barracks,
-		d2enum.RegionAct1Jail, d2enum.RegionAct1Cathedral, d2enum.RegionAct1Catacombs, d2enum.RegionAct1Tristram:
+	case enum.RegionAct1Town, enum.RegionAct1Wilderness, enum.RegionAct1Cave, enum.RegionAct1Crypt,
+		enum.RegionAct1Monestary, enum.RegionAct1Courtyard, enum.RegionAct1Barracks,
+		enum.RegionAct1Jail, enum.RegionAct1Cathedral, enum.RegionAct1Catacombs, enum.RegionAct1Tristram:
 		palettePath = d2resource.PaletteAct1
-	case d2enum.RegionAct2Town, d2enum.RegionAct2Sewer, d2enum.RegionAct2Harem, d2enum.RegionAct2Basement,
-		d2enum.RegionAct2Desert, d2enum.RegionAct2Tomb, d2enum.RegionAct2Lair, d2enum.RegionAct2Arcane:
+	case enum.RegionAct2Town, enum.RegionAct2Sewer, enum.RegionAct2Harem, enum.RegionAct2Basement,
+		enum.RegionAct2Desert, enum.RegionAct2Tomb, enum.RegionAct2Lair, enum.RegionAct2Arcane:
 		palettePath = d2resource.PaletteAct2
-	case d2enum.RegionAct3Town, d2enum.RegionAct3Jungle, d2enum.RegionAct3Kurast, d2enum.RegionAct3Spider,
-		d2enum.RegionAct3Dungeon, d2enum.RegionAct3Sewer:
+	case enum.RegionAct3Town, enum.RegionAct3Jungle, enum.RegionAct3Kurast, enum.RegionAct3Spider,
+		enum.RegionAct3Dungeon, enum.RegionAct3Sewer:
 		palettePath = d2resource.PaletteAct3
-	case d2enum.RegionAct4Town, d2enum.RegionAct4Mesa, d2enum.RegionAct4Lava, d2enum.RegionAct5Lava:
+	case enum.RegionAct4Town, enum.RegionAct4Mesa, enum.RegionAct4Lava, enum.RegionAct5Lava:
 		palettePath = d2resource.PaletteAct4
-	case d2enum.RegonAct5Town, d2enum.RegionAct5Siege, d2enum.RegionAct5Barricade, d2enum.RegionAct5Temple,
-		d2enum.RegionAct5IceCaves, d2enum.RegionAct5Baal:
+	case enum.RegonAct5Town, enum.RegionAct5Siege, enum.RegionAct5Barricade, enum.RegionAct5Temple,
+		enum.RegionAct5IceCaves, enum.RegionAct5Baal:
 		palettePath = d2resource.PaletteAct5
 	default:
 		return nil, errors.New("failed to find palette for region")
@@ -681,12 +681,12 @@ func (mr *MapRenderer) InvalidateImageCache() {
 	mr.imageCacheRecords = nil
 }
 
-func (mr *MapRenderer) getImageCacheRecord(style, sequence byte, tileType d2enum.TileType, randomIndex byte) d2interface.Surface {
+func (mr *MapRenderer) getImageCacheRecord(style, sequence byte, tileType enum.TileType, randomIndex byte) d2interface.Surface {
 	lookupIndex := uint32(style)<<24 | uint32(sequence)<<16 | uint32(tileType)<<8 | uint32(randomIndex)
 	return mr.imageCacheRecords[lookupIndex]
 }
 
-func (mr *MapRenderer) setImageCacheRecord(style, sequence byte, tileType d2enum.TileType, randomIndex byte, image d2interface.Surface) {
+func (mr *MapRenderer) setImageCacheRecord(style, sequence byte, tileType enum.TileType, randomIndex byte, image d2interface.Surface) {
 	lookupIndex := uint32(style)<<24 | uint32(sequence)<<16 | uint32(tileType)<<8 | uint32(randomIndex)
 
 	if mr.imageCacheRecords == nil {

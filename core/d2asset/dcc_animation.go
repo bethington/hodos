@@ -5,7 +5,7 @@ import (
 
 	"nostos/common/d2util"
 
-	"nostos/common/d2enum"
+	"nostos/common/enum"
 
 	"nostos/common/d2fileformats/d2dcc"
 	"nostos/common/d2interface"
@@ -17,7 +17,7 @@ var _ d2interface.Animation = &DCCAnimation{} // Static check to confirm struct 
 func newDCCAnimation(
 	dcc *d2dcc.DCC,
 	pal d2interface.Palette,
-	effect d2enum.DrawEffect,
+	effect enum.DrawEffect,
 ) (d2interface.Animation, error) {
 	DCC := &DCCAnimation{
 		dcc:     dcc,

@@ -3,7 +3,7 @@ package d2asset
 import (
 	"errors"
 
-	"nostos/common/d2enum"
+	"nostos/common/enum"
 	"nostos/common/d2util"
 
 	"nostos/common/d2fileformats/d2dc6"
@@ -17,7 +17,7 @@ var _ d2interface.Animation = &DC6Animation{} // Static check to confirm struct 
 func newDC6Animation(
 	dc6 *d2dc6.DC6,
 	pal d2interface.Palette,
-	effect d2enum.DrawEffect,
+	effect enum.DrawEffect,
 ) (d2interface.Animation, error) {
 	DC6 := &DC6Animation{
 		dc6:     dc6,

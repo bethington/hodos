@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"strings"
 
-	"nostos/common/d2enum"
+	"nostos/common/enum"
 	"nostos/common/d2interface"
 	"nostos/common/d2resource"
 	"nostos/common/d2util"
@@ -109,13 +109,13 @@ func NewQuestLog(asset *d2asset.AssetManager,
 		26: 0,
 	}
 
-	var quests [d2enum.ActsNumber]*questEntire
-	for i := 0; i < d2enum.ActsNumber; i++ {
+	var quests [enum.ActsNumber]*questEntire
+	for i := 0; i < enum.ActsNumber; i++ {
 		quests[i] = &questEntire{WidgetGroup: ui.NewWidgetGroup(d2ui.RenderPriorityQuestLog)}
 	}
 
-	var tabs [d2enum.ActsNumber]questLogTab
-	for i := 0; i < d2enum.ActsNumber; i++ {
+	var tabs [enum.ActsNumber]questLogTab
+	for i := 0; i < enum.ActsNumber; i++ {
 		tabs[i] = questLogTab{}
 	}
 
@@ -152,13 +152,13 @@ type QuestLog struct {
 	selectedTab   int
 	selectedQuest int
 	act           int
-	tab           [d2enum.ActsNumber]questLogTab
+	tab           [enum.ActsNumber]questLogTab
 	audioProvider d2interface.AudioProvider
 	completeSound d2interface.SoundEffect
 
 	questName     *d2ui.Label
 	questDescr    *d2ui.Label
-	quests        [d2enum.ActsNumber]*questEntire
+	quests        [enum.ActsNumber]*questEntire
 	questStatus   map[int]int
 	maxPlayersAct int
 
@@ -252,7 +252,7 @@ func (s *QuestLog) Load() {
 	s.loadTabs()
 
 	// creates quest boards for each act
-	for i := 0; i < d2enum.ActsNumber; i++ {
+	for i := 0; i < enum.ActsNumber; i++ {
 		item, icons, buttons, sockets := s.loadQuestBoard(i + 1)
 		s.quests[i] = &questEntire{item, icons, buttons, sockets}
 	}
@@ -304,10 +304,10 @@ func (s *QuestLog) loadQuestBoard(act int) (wg *d2ui.WidgetGroup, icons []*d2ui.
 
 	// sets number of quests in act (for act 4 it's only 3, else 6)
 	var questsInAct int
-	if act == d2enum.Act4 {
-		questsInAct = d2enum.HalfQuestsNumber
+	if act == enum.Act4 {
+		questsInAct = enum.HalfQuestsNumber
 	} else {
-		questsInAct = d2enum.NormalActQuestsNumber
+		questsInAct = enum.NormalActQuestsNumber
 	}
 
 	for n := 0; n < questsInAct; n++ {
@@ -331,7 +331,7 @@ func (s *QuestLog) loadQuestBoard(act int) (wg *d2ui.WidgetGroup, icons []*d2ui.
 
 		button := s.uiManager.NewButton(d2ui.ButtonTypeBlankQuestBtn, "")
 		button.SetPosition(x+questOffsetX, y+questOffsetY)
-		button.SetEnabled(s.questStatus[s.cordsToQuestID(act, cw)] != d2enum.QuestStatusNotStarted)
+		button.SetEnabled(s.questStatus[s.cordsToQuestID(act, cw)] != enum.QuestStatusNotStarted)
 		buttons = append(buttons, button)
 	}
 
@@ -390,12 +390,12 @@ func (s *QuestLog) makeQuestIconForAct(act, n, x, y int) (*d2ui.Sprite, error) {
 	}
 
 	switch s.questStatus[s.cordsToQuestID(act, n)] {
-	case d2enum.QuestStatusCompleted:
+	case enum.QuestStatusCompleted:
 		err = icon.SetCurrentFrame(completedFrame)
-	case d2enum.QuestStatusCompleting:
+	case enum.QuestStatusCompleting:
 		// animation will be played after quest-log panel is opened (see s.playQuestAnimation)
 		err = icon.SetCurrentFrame(0)
-	case d2enum.QuestStatusNotStarted:
+	case enum.QuestStatusNotStarted:
 		err = icon.SetCurrentFrame(notStartedFrame)
 	default:
 		err = icon.SetCurrentFrame(inProgresFrame)
@@ -410,7 +410,7 @@ func (s *QuestLog) makeQuestIconForAct(act, n, x, y int) (*d2ui.Sprite, error) {
 func (s *QuestLog) playQuestAnimations() {
 	for j, i := range s.quests[s.selectedTab].icons {
 		questID := s.cordsToQuestID(s.selectedTab+1, j)
-		if s.questStatus[questID] == d2enum.QuestStatusCompleting {
+		if s.questStatus[questID] == enum.QuestStatusCompleting {
 			s.completeSound.Play()
 
 			// quest should be highlighted and it's label should be displayed
@@ -429,8 +429,8 @@ func (s *QuestLog) stopPlayedAnimations() {
 	// stops all played animations
 	for j, i := range s.quests[s.selectedTab].icons {
 		questID := s.cordsToQuestID(s.selectedTab+1, j)
-		if s.questStatus[questID] == d2enum.QuestStatusCompleting {
-			s.questStatus[questID] = d2enum.QuestStatusCompleted
+		if s.questStatus[questID] == enum.QuestStatusCompleting {
+			s.questStatus[questID] = enum.QuestStatusCompleted
 
 			err := i.SetCurrentFrame(completedFrame)
 			if err != nil {
@@ -442,7 +442,7 @@ func (s *QuestLog) stopPlayedAnimations() {
 
 // setQuestLabel loads quest labels text (title and description)
 func (s *QuestLog) setQuestLabel() {
-	if s.selectedQuest == d2enum.QuestNone {
+	if s.selectedQuest == enum.QuestNone {
 		s.questName.SetText("")
 		s.questDescr.SetText("")
 
@@ -453,7 +453,7 @@ func (s *QuestLog) setQuestLabel() {
 
 	status := s.questStatus[s.cordsToQuestID(s.selectedTab+1, s.selectedQuest)-1]
 	switch status {
-	case d2enum.QuestStatusCompleted, d2enum.QuestStatusCompleting:
+	case enum.QuestStatusCompleted, enum.QuestStatusCompleting:
 		s.questDescr.SetText(
 			strings.Join(
 				d2util.SplitIntoLinesWithMaxWidth(
@@ -461,7 +461,7 @@ func (s *QuestLog) setQuestLabel() {
 					questDescriptionLenght),
 				"\n"),
 		)
-	case d2enum.QuestStatusNotStarted:
+	case enum.QuestStatusNotStarted:
 		s.questDescr.SetText("")
 	default:
 		str := fmt.Sprintf("qstsa%dq%d%d", s.selectedTab+1, s.selectedQuest, status)
@@ -498,7 +498,7 @@ func (s *QuestLog) setTab(tab int) {
 	s.clearHighlightment()
 
 	s.selectedTab = tab
-	s.selectedQuest = d2enum.QuestNone
+	s.selectedQuest = enum.QuestNone
 	s.setQuestLabel()
 	s.playQuestAnimations()
 
@@ -586,13 +586,13 @@ func (s *QuestLog) Advance(elapsed float64) {
 
 	for j, i := range s.quests[s.selectedTab].icons {
 		questID := s.cordsToQuestID(s.selectedTab+1, j)
-		if s.questStatus[questID] == d2enum.QuestStatusCompleting {
+		if s.questStatus[questID] == enum.QuestStatusCompleting {
 			if err := i.Advance(elapsed); err != nil {
 				s.Error(err.Error())
 			}
 
 			if i.GetCurrentFrame() == completedFrame {
-				s.questStatus[questID] = d2enum.QuestStatusCompleted
+				s.questStatus[questID] = enum.QuestStatusCompleted
 			}
 		}
 	}
@@ -635,9 +635,9 @@ func (s *QuestLog) renderStaticPanelFrames(target d2interface.Surface) {
 }
 
 func (s *QuestLog) cordsToQuestID(act, number int) int {
-	key := (act-1)*d2enum.NormalActQuestsNumber + number
-	if act > d2enum.Act4 {
-		key -= d2enum.HalfQuestsNumber
+	key := (act-1)*enum.NormalActQuestsNumber + number
+	if act > enum.Act4 {
+		key -= enum.HalfQuestsNumber
 	}
 
 	return key

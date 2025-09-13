@@ -3,15 +3,15 @@ package d2records
 import (
 	"fmt"
 
-	"nostos/common/d2enum"
+	"nostos/common/enum"
 	"nostos/common/d2fileformats/d2txt"
 )
 
 // LoadMagicPrefix loads MagicPrefix.txt
 func magicPrefixLoader(r *RecordManager, d *d2txt.DataDictionary) error {
-	superType := d2enum.ItemAffixPrefix
+	superType := enum.ItemAffixPrefix
 
-	subType := d2enum.ItemAffixMagic
+	subType := enum.ItemAffixMagic
 
 	affixes, groups, err := loadAffixDictionary(r, d, superType, subType)
 	if err != nil {
@@ -26,9 +26,9 @@ func magicPrefixLoader(r *RecordManager, d *d2txt.DataDictionary) error {
 
 // LoadMagicSuffix loads MagicSuffix.txt
 func magicSuffixLoader(r *RecordManager, d *d2txt.DataDictionary) error {
-	superType := d2enum.ItemAffixSuffix
+	superType := enum.ItemAffixSuffix
 
-	subType := d2enum.ItemAffixMagic
+	subType := enum.ItemAffixMagic
 
 	affixes, groups, err := loadAffixDictionary(r, d, superType, subType)
 	if err != nil {
@@ -41,17 +41,17 @@ func magicSuffixLoader(r *RecordManager, d *d2txt.DataDictionary) error {
 	return nil
 }
 
-func getAffixString(t1 d2enum.ItemAffixSuperType, t2 d2enum.ItemAffixSubType) string {
+func getAffixString(t1 enum.ItemAffixSuperType, t2 enum.ItemAffixSubType) string {
 	var name = ""
 
-	if t2 == d2enum.ItemAffixMagic {
+	if t2 == enum.ItemAffixMagic {
 		name = "Magic"
 	}
 
 	switch t1 {
-	case d2enum.ItemAffixPrefix:
+	case enum.ItemAffixPrefix:
 		name += "Prefix"
-	case d2enum.ItemAffixSuffix:
+	case enum.ItemAffixSuffix:
 		name += "Suffix"
 	}
 
@@ -61,8 +61,8 @@ func getAffixString(t1 d2enum.ItemAffixSuperType, t2 d2enum.ItemAffixSubType) st
 func loadAffixDictionary(
 	r *RecordManager,
 	d *d2txt.DataDictionary,
-	superType d2enum.ItemAffixSuperType,
-	subType d2enum.ItemAffixSubType,
+	superType enum.ItemAffixSuperType,
+	subType enum.ItemAffixSubType,
 ) (map[string]*ItemAffixCommonRecord, ItemAffixGroups, error) {
 	records, groups, err := createItemAffixRecords(d, superType, subType)
 	if err != nil {
@@ -77,8 +77,8 @@ func loadAffixDictionary(
 
 func createItemAffixRecords(
 	d *d2txt.DataDictionary,
-	superType d2enum.ItemAffixSuperType,
-	subType d2enum.ItemAffixSubType,
+	superType enum.ItemAffixSuperType,
+	subType enum.ItemAffixSubType,
 ) (map[string]*ItemAffixCommonRecord, ItemAffixGroups, error) {
 	records := make(map[string]*ItemAffixCommonRecord)
 	groups := make(ItemAffixGroups)
@@ -88,8 +88,8 @@ func createItemAffixRecords(
 			Name:           d.String("Name"),
 			Version:        d.Number("version"),
 			Type:           subType,
-			IsPrefix:       superType == d2enum.ItemAffixPrefix,
-			IsSuffix:       superType == d2enum.ItemAffixSuffix,
+			IsPrefix:       superType == enum.ItemAffixPrefix,
+			IsSuffix:       superType == enum.ItemAffixSuffix,
 			Spawnable:      d.Bool("spawnable"),
 			Rare:           d.Bool("rare"),
 			Level:          d.Number("level"),

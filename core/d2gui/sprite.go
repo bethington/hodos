@@ -3,7 +3,7 @@ package d2gui
 import (
 	"log"
 
-	"nostos/common/d2enum"
+	"nostos/common/enum"
 	"nostos/common/d2interface"
 	"nostos/core/d2asset"
 )
@@ -104,6 +104,6 @@ func (s *Sprite) getSize() (width, height int) {
 }
 
 // SetEffect sets the draw effect for the sprite
-func (s *Sprite) SetEffect(e d2enum.DrawEffect) {
+func (s *Sprite) SetEffect(e enum.DrawEffect) {
 	s.animation.SetEffect(e)
 }

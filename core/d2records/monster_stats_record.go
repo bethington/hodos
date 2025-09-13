@@ -1,6 +1,6 @@
 package d2records
 
-import "nostos/common/d2enum"
+import "nostos/common/enum"
 
 // https://d2mods.info/forum/kb/viewarticle?a=360
 
@@ -312,7 +312,7 @@ type (
 		// one of the settings you will need to modify. Setting it to 2
 		// without adjusting other settings (related to AI and also some
 		// in MonStats2) it will simply attack everything.
-		Alignment d2enum.MonsterAlignmentType // called `Align` in monstats.txt
+		Alignment enum.MonsterAlignmentType // called `Align` in monstats.txt
 
 		// SkillLevel1 -- SkillLevel8
 		// the skill level of the skill in question. This gets a bonus on nightmare

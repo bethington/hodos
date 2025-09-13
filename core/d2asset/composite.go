@@ -6,7 +6,7 @@ import (
 	"strings"
 	"sync"
 
-	"nostos/common/d2enum"
+	"nostos/common/enum"
 	"nostos/common/d2fileformats/d2cof"
 	"nostos/common/d2interface"
 )
@@ -20,12 +20,12 @@ const (
 // Composite is a composite entity animation
 type Composite struct {
 	*AssetManager
-	baseType    d2enum.ObjectType
+	baseType    enum.ObjectType
 	basePath    string
 	token       string
 	palettePath string
 	direction   int
-	equipment   [d2enum.CompositeTypeMax]string
+	equipment   [enum.CompositeTypeMax]string
 	mode        *compositeMode
 	size        *size
 }
@@ -86,8 +86,8 @@ func (c *Composite) Render(target d2interface.Surface) error {
 }
 
 // ObjectAnimationMode returns the object animation mode
-func (c *Composite) ObjectAnimationMode() d2enum.ObjectAnimationMode {
-	return c.mode.animationMode.(d2enum.ObjectAnimationMode)
+func (c *Composite) ObjectAnimationMode() enum.ObjectAnimationMode {
+	return c.mode.animationMode.(enum.ObjectAnimationMode)
 }
 
 // GetAnimationMode returns the animation mode the Composite should render with.
@@ -128,7 +128,7 @@ func (c *Composite) SetMode(animationMode animationMode, weaponClass string) err
 }
 
 // Equip changes the current layer configuration
-func (c *Composite) Equip(equipment *[d2enum.CompositeTypeMax]string) error {
+func (c *Composite) Equip(equipment *[enum.CompositeTypeMax]string) error {
 	c.equipment = *equipment
 	if c.mode == nil {
 		return nil
@@ -276,7 +276,7 @@ func (c *Composite) createMode(animationMode animationMode, weaponClass string) 
 		cof:            cof,
 		animationMode:  animationMode,
 		weaponClass:    weaponClass,
-		layers:         make([]d2interface.Animation, d2enum.CompositeTypeMax),
+		layers:         make([]d2interface.Animation, enum.CompositeTypeMax),
 		frameCount:     animationData[0].FramesPerDirection(),
 		animationSpeed: 1.0 / (float64(animationData[0].Speed()) * speedUnit), //nolint:gomnd // taking inverse
 	}
@@ -287,7 +287,7 @@ func (c *Composite) createMode(animationMode animationMode, weaponClass string) 
 			layerValue = "lit"
 		}
 
-		drawEffect := d2enum.DrawEffectNone
+		drawEffect := enum.DrawEffectNone
 
 		if cofLayer.Transparent {
 			drawEffect = cofLayer.DrawEffect
@@ -312,7 +312,7 @@ func (c *Composite) createMode(animationMode animationMode, weaponClass string) 
 }
 
 func (c *Composite) loadCompositeLayer(layerKey, layerValue, animationMode, weaponClass,
-	palettePath string, drawEffect d2enum.DrawEffect) (d2interface.Animation, error) {
+	palettePath string, drawEffect enum.DrawEffect) (d2interface.Animation, error) {
 	animationPaths := []string{
 		fmt.Sprintf("%s/%s/%s/%s%s%s%s%s.dcc", c.basePath, c.token, layerKey, c.token, layerKey, layerValue, animationMode, weaponClass),
 		fmt.Sprintf("%s/%s/%s/%s%s%s%s%s.dc6", c.basePath, c.token, layerKey, c.token, layerKey, layerValue, animationMode, weaponClass),
@@ -371,13 +371,13 @@ func (c *Composite) updateSize() {
 	c.size.Height = biggestH
 }
 
-func baseString(baseType d2enum.ObjectType) string {
+func baseString(baseType enum.ObjectType) string {
 	switch baseType {
-	case d2enum.ObjectTypePlayer:
+	case enum.ObjectTypePlayer:
 		return "/data/global/chars"
-	case d2enum.ObjectTypeCharacter:
+	case enum.ObjectTypeCharacter:
 		return "/data/global/monsters"
-	case d2enum.ObjectTypeItem:
+	case enum.ObjectTypeItem:
 		return "/data/global/objects"
 	default:
 		return ""

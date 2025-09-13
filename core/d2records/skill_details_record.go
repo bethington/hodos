@@ -2,7 +2,7 @@ package d2records
 
 import (
 	"nostos/common/calculation"
-	"nostos/common/d2enum"
+	"nostos/common/enum"
 )
 
 // [https://d2mods.info/forum/viewtopic.php?t=41556, https://d2mods.info/forum/kb/viewarticle?a=246]
@@ -104,7 +104,7 @@ type SkillRecord struct {
 	Itypeb3           string
 	Etypeb1           string
 	Etypeb2           string
-	Anim              d2enum.PlayerAnimationMode
+	Anim              enum.PlayerAnimationMode
 	Seqtrans          string
 	Monanim           string
 	ItemCastSound     string

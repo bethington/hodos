@@ -3,7 +3,7 @@ package d2records
 import (
 	"nostos/common/d2fileformats/d2txt"
 
-	"nostos/common/d2enum"
+	"nostos/common/enum"
 )
 
 func armorLoader(r *RecordManager, d *d2txt.DataDictionary) error {
@@ -11,7 +11,7 @@ func armorLoader(r *RecordManager, d *d2txt.DataDictionary) error {
 		return nil // already loaded
 	}
 
-	records, err := loadCommonItems(d, d2enum.InventoryItemTypeArmor)
+	records, err := loadCommonItems(d, enum.InventoryItemTypeArmor)
 	if err != nil {
 		return err
 	}

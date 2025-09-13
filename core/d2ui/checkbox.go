@@ -1,7 +1,7 @@
 package d2ui
 
 import (
-	"nostos/common/d2enum"
+	"nostos/common/enum"
 	"nostos/common/d2interface"
 	"nostos/common/d2resource"
 )
@@ -63,7 +63,7 @@ func (v *Checkbox) Render(target d2interface.Surface) {
 	target.PushTranslation(v.x, v.y)
 	defer target.Pop()
 
-	target.PushFilter(d2enum.FilterNearest)
+	target.PushFilter(enum.FilterNearest)
 	defer target.Pop()
 
 	if v.checkState {

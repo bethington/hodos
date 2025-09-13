@@ -3,7 +3,7 @@ package d2records
 import (
 	"fmt"
 
-	"nostos/common/d2enum"
+	"nostos/common/enum"
 	"nostos/common/d2fileformats/d2txt"
 )
 
@@ -169,16 +169,16 @@ func monsterStats2Loader(r *RecordManager, d *d2txt.DataDictionary) error {
 }
 
 //nolint:gochecknoglobals // better for lookup
-var monsterAnimationModeLookup = map[string]d2enum.MonsterAnimationMode{
-	d2enum.MonsterAnimationModeNeutral.String():  d2enum.MonsterAnimationModeNeutral,
-	d2enum.MonsterAnimationModeSkill1.String():   d2enum.MonsterAnimationModeSkill1,
-	d2enum.MonsterAnimationModeSequence.String(): d2enum.MonsterAnimationModeSequence,
+var monsterAnimationModeLookup = map[string]enum.MonsterAnimationMode{
+	enum.MonsterAnimationModeNeutral.String():  enum.MonsterAnimationModeNeutral,
+	enum.MonsterAnimationModeSkill1.String():   enum.MonsterAnimationModeSkill1,
+	enum.MonsterAnimationModeSequence.String(): enum.MonsterAnimationModeSequence,
 }
 
-func monsterAnimationModeFromString(s string) (d2enum.MonsterAnimationMode, error) {
+func monsterAnimationModeFromString(s string) (enum.MonsterAnimationMode, error) {
 	v, ok := monsterAnimationModeLookup[s]
 	if !ok {
-		return d2enum.MonsterAnimationModeNeutral, fmt.Errorf("unhandled MonsterAnimationMode %q", s)
+		return enum.MonsterAnimationModeNeutral, fmt.Errorf("unhandled MonsterAnimationMode %q", s)
 	}
 
 	return v, nil

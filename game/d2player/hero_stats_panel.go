@@ -4,7 +4,7 @@ import (
 	"strconv"
 	"strings"
 
-	"nostos/common/d2enum"
+	"nostos/common/enum"
 	"nostos/common/d2interface"
 	"nostos/common/d2resource"
 	"nostos/common/d2util"
@@ -97,7 +97,7 @@ type StatsPanelLabels struct {
 func NewHeroStatsPanel(asset *d2asset.AssetManager,
 	ui *d2ui.UIManager,
 	heroName string,
-	heroClass d2enum.Hero,
+	heroClass enum.Hero,
 	l d2util.LogLevel,
 	heroState *d2hero.HeroStatsState) *HeroStatsPanel {
 	originX := 0
@@ -128,7 +128,7 @@ type HeroStatsPanel struct {
 	panel           *d2ui.Sprite
 	heroState       *d2hero.HeroStatsState
 	heroName        string
-	heroClass       d2enum.Hero
+	heroClass       enum.Hero
 	labels          *StatsPanelLabels
 	onCloseCb       func()
 	panelGroup      *d2ui.WidgetGroup

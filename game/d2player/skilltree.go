@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"strconv"
 
-	"nostos/common/d2enum"
+	"nostos/common/enum"
 	"nostos/common/d2interface"
 	"nostos/common/d2resource"
 	"nostos/common/d2util"
@@ -91,7 +91,7 @@ type skillTreeHeroTypeResources struct {
 
 func newSkillTree(
 	skills map[int]*d2hero.HeroSkill,
-	heroClass d2enum.Hero,
+	heroClass enum.Hero,
 	hero *d2hero.HeroStatsState,
 	asset *d2asset.AssetManager,
 	l d2util.LogLevel,
@@ -126,7 +126,7 @@ type skillTree struct {
 	uiManager       *d2ui.UIManager
 	skills          map[int]*d2hero.HeroSkill
 	skillIcons      []*skillIcon
-	heroClass       d2enum.Hero
+	heroClass       enum.Hero
 	availSPLabel    *d2ui.Label
 	closeButton     *d2ui.Button
 	tab             [numTabs]*skillTreeTab
@@ -244,9 +244,9 @@ func makeCloseButtonPos(close1, close2, close3 int) [numTabs]int {
 	return [numTabs]int{close1, close2, close3}
 }
 
-func (s *skillTree) getTab(class d2enum.Hero) *heroTabData {
-	tabMap := map[d2enum.Hero]*heroTabData{
-		d2enum.HeroBarbarian: {
+func (s *skillTree) getTab(class enum.Hero) *heroTabData {
+	tabMap := map[enum.Hero]*heroTabData{
+		enum.HeroBarbarian: {
 			&skillTreeHeroTypeResources{
 				skillPanelPath: d2resource.SkillsPanelBarbarian,
 				skillIconPath:  d2resource.BarbarianSkills,
@@ -259,7 +259,7 @@ func (s *skillTree) getTab(class d2enum.Hero) *heroTabData {
 				skillCloseButtonXLeft,
 				skillCloseButtonXRight),
 		},
-		d2enum.HeroNecromancer: {
+		enum.HeroNecromancer: {
 			&skillTreeHeroTypeResources{
 				skillPanelPath: d2resource.SkillsPanelNecromancer,
 				skillIconPath:  d2resource.NecromancerSkills,
@@ -272,7 +272,7 @@ func (s *skillTree) getTab(class d2enum.Hero) *heroTabData {
 				skillCloseButtonXRight,
 				skillCloseButtonXLeft),
 		},
-		d2enum.HeroPaladin: {
+		enum.HeroPaladin: {
 			&skillTreeHeroTypeResources{
 				skillPanelPath: d2resource.SkillsPanelPaladin,
 				skillIconPath:  d2resource.PaladinSkills,
@@ -285,7 +285,7 @@ func (s *skillTree) getTab(class d2enum.Hero) *heroTabData {
 				skillCloseButtonXMiddle,
 				skillCloseButtonXLeft),
 		},
-		d2enum.HeroAssassin: {
+		enum.HeroAssassin: {
 			&skillTreeHeroTypeResources{
 				skillPanelPath: d2resource.SkillsPanelAssassin,
 				skillIconPath:  d2resource.AssassinSkills,
@@ -298,7 +298,7 @@ func (s *skillTree) getTab(class d2enum.Hero) *heroTabData {
 				skillCloseButtonXRight,
 				skillCloseButtonXLeft),
 		},
-		d2enum.HeroSorceress: {
+		enum.HeroSorceress: {
 			&skillTreeHeroTypeResources{
 				skillPanelPath: d2resource.SkillsPanelSorcerer,
 				skillIconPath:  d2resource.SorcererSkills,
@@ -311,7 +311,7 @@ func (s *skillTree) getTab(class d2enum.Hero) *heroTabData {
 				skillCloseButtonXLeft,
 				skillCloseButtonXRight),
 		},
-		d2enum.HeroAmazon: {
+		enum.HeroAmazon: {
 			&skillTreeHeroTypeResources{
 				skillPanelPath: d2resource.SkillsPanelAmazon,
 				skillIconPath:  d2resource.AmazonSkills,
@@ -324,7 +324,7 @@ func (s *skillTree) getTab(class d2enum.Hero) *heroTabData {
 				skillCloseButtonXMiddle,
 				skillCloseButtonXLeft),
 		},
-		d2enum.HeroDruid: {
+		enum.HeroDruid: {
 			&skillTreeHeroTypeResources{
 				skillPanelPath: d2resource.SkillsPanelDruid,
 				skillIconPath:  d2resource.DruidSkills,

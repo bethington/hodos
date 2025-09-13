@@ -8,7 +8,7 @@ import (
 	"math"
 	"strings"
 
-	"nostos/common/d2enum"
+	"nostos/common/enum"
 	"nostos/common/d2interface"
 	"nostos/common/d2math"
 	"nostos/common/d2util"
@@ -48,7 +48,7 @@ const (
 
 type historyEntry struct {
 	text     string
-	category d2enum.TermCategory
+	category enum.TermCategory
 }
 
 type commandEntry struct {
@@ -153,7 +153,7 @@ func (t *Terminal) Advance(elapsed float64) error {
 
 // OnKeyDown handles key down in the terminal
 func (t *Terminal) OnKeyDown(event d2interface.KeyEvent) bool {
-	if event.Key() == d2enum.KeyGraveAccent {
+	if event.Key() == enum.KeyGraveAccent {
 		t.toggle()
 	}
 
@@ -162,26 +162,26 @@ func (t *Terminal) OnKeyDown(event d2interface.KeyEvent) bool {
 	}
 
 	switch event.Key() {
-	case d2enum.KeyEscape:
+	case enum.KeyEscape:
 		t.command = ""
-	case d2enum.KeyEnd:
+	case enum.KeyEnd:
 		t.outputIndex = 0
-	case d2enum.KeyHome:
+	case enum.KeyHome:
 		t.outputIndex = d2math.MaxInt(0, len(t.outputHistory)-t.lineCount)
-	case d2enum.KeyPageUp:
+	case enum.KeyPageUp:
 		maxOutputIndex := d2math.MaxInt(0, len(t.outputHistory)-t.lineCount)
 		if t.outputIndex += t.lineCount; t.outputIndex >= maxOutputIndex {
 			t.outputIndex = maxOutputIndex
 		}
-	case d2enum.KeyPageDown:
+	case enum.KeyPageDown:
 		if t.outputIndex -= t.lineCount; t.outputIndex < 0 {
 			t.outputIndex = 0
 		}
-	case d2enum.KeyUp, d2enum.KeyDown:
+	case enum.KeyUp, enum.KeyDown:
 		t.handleControlKey(event.Key(), event.KeyMod())
-	case d2enum.KeyEnter:
+	case enum.KeyEnter:
 		t.processCommand()
-	case d2enum.KeyBackspace:
+	case enum.KeyBackspace:
 		if len(t.command) > 0 {
 			t.command = t.command[:len(t.command)-1]
 		}
@@ -217,10 +217,10 @@ func (t *Terminal) processCommand() {
 	t.command = ""
 }
 
-func (t *Terminal) handleControlKey(eventKey d2enum.Key, keyMod d2enum.KeyMod) {
+func (t *Terminal) handleControlKey(eventKey enum.Key, keyMod enum.KeyMod) {
 	switch eventKey {
-	case d2enum.KeyUp:
-		if keyMod == d2enum.KeyModControl {
+	case enum.KeyUp:
+		if keyMod == enum.KeyModControl {
 			t.lineCount = d2math.MaxInt(0, t.lineCount-1)
 		} else if len(t.commandHistory) > 0 {
 			t.command = t.commandHistory[t.commandIndex]
@@ -230,8 +230,8 @@ func (t *Terminal) handleControlKey(eventKey d2enum.Key, keyMod d2enum.KeyMod) {
 				t.commandIndex--
 			}
 		}
-	case d2enum.KeyDown:
-		if keyMod == d2enum.KeyModControl {
+	case enum.KeyDown:
+		if keyMod == enum.KeyModControl {
 			t.lineCount = d2math.MinInt(t.lineCount+1, rowCountMax)
 		}
 	}
@@ -283,11 +283,11 @@ func (t *Terminal) Render(surface d2interface.Surface) error {
 		surface.PushTranslation(-charDoubleWidth, 0)
 
 		switch entry.category {
-		case d2enum.TermCategoryInfo:
+		case enum.TermCategoryInfo:
 			surface.DrawRect(charWidth, charHeight, t.infoColor)
-		case d2enum.TermCategoryWarning:
+		case enum.TermCategoryWarning:
 			surface.DrawRect(charWidth, charHeight, t.warningColor)
-		case d2enum.TermCategoryError:
+		case enum.TermCategoryError:
 			surface.DrawRect(charWidth, charHeight, t.errorColor)
 		}
 
@@ -332,7 +332,7 @@ func (t *Terminal) Execute(command string) error {
 }
 
 // Rawf writes a raw message to the terminal
-func (t *Terminal) Rawf(category d2enum.TermCategory, format string, params ...interface{}) {
+func (t *Terminal) Rawf(category enum.TermCategory, format string, params ...interface{}) {
 	text := fmt.Sprintf(format, params...)
 	lines := d2util.SplitIntoLinesWithMaxWidth(text, colCountMax)
 
@@ -347,22 +347,22 @@ func (t *Terminal) Rawf(category d2enum.TermCategory, format string, params ...i
 
 // Printf writes a message to the terminal
 func (t *Terminal) Printf(format string, params ...interface{}) {
-	t.Rawf(d2enum.TermCategoryNone, format, params...)
+	t.Rawf(enum.TermCategoryNone, format, params...)
 }
 
 // Infof writes a warning message to the terminal
 func (t *Terminal) Infof(format string, params ...interface{}) {
-	t.Rawf(d2enum.TermCategoryInfo, format, params...)
+	t.Rawf(enum.TermCategoryInfo, format, params...)
 }
 
 // Warningf writes a warning message to the terminal
 func (t *Terminal) Warningf(format string, params ...interface{}) {
-	t.Rawf(d2enum.TermCategoryWarning, format, params...)
+	t.Rawf(enum.TermCategoryWarning, format, params...)
 }
 
 // Errorf writes a error message to the terminal
 func (t *Terminal) Errorf(format string, params ...interface{}) {
-	t.Rawf(d2enum.TermCategoryError, format, params...)
+	t.Rawf(enum.TermCategoryError, format, params...)
 }
 
 // Clear clears the terminal

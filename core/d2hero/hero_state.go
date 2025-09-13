@@ -1,14 +1,14 @@
 package d2hero
 
 import (
-	"nostos/common/d2enum"
+	"nostos/common/enum"
 	"nostos/core/d2inventory"
 )
 
 // HeroState stores the state of the player
 type HeroState struct {
 	HeroName   string                         `json:"heroName"`
-	HeroType   d2enum.Hero                    `json:"heroType"`
+	HeroType   enum.Hero                    `json:"heroType"`
 	Act        int                            `json:"act"`
 	FilePath   string                         `json:"-"`
 	Equipment  d2inventory.CharacterEquipment `json:"equipment"`
@@ -19,5 +19,5 @@ type HeroState struct {
 	LeftSkill  int                            `json:"leftSkill"`
 	RightSkill int                            `json:"rightSkill"`
 	Gold       int                            `json:"Gold"`
-	Difficulty d2enum.DifficultyType          `json:"difficulty"`
+	Difficulty enum.DifficultyType          `json:"difficulty"`
 }

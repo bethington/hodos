@@ -7,7 +7,7 @@ import (
 	"log"
 	"math"
 
-	"nostos/common/d2enum"
+	"nostos/common/enum"
 	"nostos/common/d2fileformats/d2dcc"
 	"nostos/common/d2interface"
 	"nostos/common/d2math"
@@ -47,7 +47,7 @@ type Animation struct {
 	renderer         d2interface.Renderer
 	onBindRenderer   func(renderer d2interface.Renderer) error
 	directions       []animationDirection
-	effect           d2enum.DrawEffect
+	effect           enum.DrawEffect
 	colorMod         color.Color
 	frameIndex       int
 	directionIndex   int
@@ -130,7 +130,7 @@ func (a *Animation) renderShadow(target d2interface.Surface) {
 	direction := a.directions[a.directionIndex]
 	frame := direction.frames[a.frameIndex]
 
-	target.PushFilter(d2enum.FilterLinear)
+	target.PushFilter(enum.FilterLinear)
 	defer target.Pop()
 
 	target.PushTranslation(frame.offsetX, int(float64(frame.offsetY)*half))
@@ -142,7 +142,7 @@ func (a *Animation) renderShadow(target d2interface.Surface) {
 	target.PushSkew(half, zero)
 	defer target.Pop()
 
-	target.PushEffect(d2enum.DrawEffectPctTransparency25)
+	target.PushEffect(enum.DrawEffectPctTransparency25)
 	defer target.Pop()
 
 	target.PushBrightness(zero)
@@ -392,7 +392,7 @@ func (a *Animation) ResetPlayedCount() {
 }
 
 // SetEffect sets the draw effect for the animation
-func (a *Animation) SetEffect(e d2enum.DrawEffect) {
+func (a *Animation) SetEffect(e enum.DrawEffect) {
 	a.effect = e
 }
 

@@ -1,11 +1,11 @@
 package d2interface
 
-import "nostos/common/d2enum"
+import "nostos/common/enum"
 
 // InputManager manages an InputService
 type InputManager interface {
 	Advance(elapsedTime, currentTime float64) error
-	BindHandlerWithPriority(InputEventHandler, d2enum.Priority) error
+	BindHandlerWithPriority(InputEventHandler, enum.Priority) error
 	BindHandler(h InputEventHandler) error
 	UnbindHandler(handler InputEventHandler) error
 }

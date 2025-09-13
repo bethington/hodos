@@ -1,7 +1,7 @@
 package d2records
 
 import (
-	"nostos/common/d2enum"
+	"nostos/common/enum"
 	"nostos/common/d2fileformats/d2txt"
 )
 
@@ -9,32 +9,32 @@ import (
 func charStatsLoader(r *RecordManager, d *d2txt.DataDictionary) error {
 	records := make(CharStats)
 
-	stringMap := map[string]d2enum.Hero{
-		"Amazon":      d2enum.HeroAmazon,
-		"Barbarian":   d2enum.HeroBarbarian,
-		"Druid":       d2enum.HeroDruid,
-		"Assassin":    d2enum.HeroAssassin,
-		"Necromancer": d2enum.HeroNecromancer,
-		"Paladin":     d2enum.HeroPaladin,
-		"Sorceress":   d2enum.HeroSorceress,
+	stringMap := map[string]enum.Hero{
+		"Amazon":      enum.HeroAmazon,
+		"Barbarian":   enum.HeroBarbarian,
+		"Druid":       enum.HeroDruid,
+		"Assassin":    enum.HeroAssassin,
+		"Necromancer": enum.HeroNecromancer,
+		"Paladin":     enum.HeroPaladin,
+		"Sorceress":   enum.HeroSorceress,
 	}
 
-	tokenMap := map[string]d2enum.WeaponClass{
-		"":    d2enum.WeaponClassNone,
-		"hth": d2enum.WeaponClassHandToHand,
-		"bow": d2enum.WeaponClassBow,
-		"1hs": d2enum.WeaponClassOneHandSwing,
-		"1ht": d2enum.WeaponClassOneHandThrust,
-		"stf": d2enum.WeaponClassStaff,
-		"2hs": d2enum.WeaponClassTwoHandSwing,
-		"2ht": d2enum.WeaponClassTwoHandThrust,
-		"xbw": d2enum.WeaponClassCrossbow,
-		"1js": d2enum.WeaponClassLeftJabRightSwing,
-		"1jt": d2enum.WeaponClassLeftJabRightThrust,
-		"1ss": d2enum.WeaponClassLeftSwingRightSwing,
-		"1st": d2enum.WeaponClassLeftSwingRightThrust,
-		"ht1": d2enum.WeaponClassOneHandToHand,
-		"ht2": d2enum.WeaponClassTwoHandToHand,
+	tokenMap := map[string]enum.WeaponClass{
+		"":    enum.WeaponClassNone,
+		"hth": enum.WeaponClassHandToHand,
+		"bow": enum.WeaponClassBow,
+		"1hs": enum.WeaponClassOneHandSwing,
+		"1ht": enum.WeaponClassOneHandThrust,
+		"stf": enum.WeaponClassStaff,
+		"2hs": enum.WeaponClassTwoHandSwing,
+		"2ht": enum.WeaponClassTwoHandThrust,
+		"xbw": enum.WeaponClassCrossbow,
+		"1js": enum.WeaponClassLeftJabRightSwing,
+		"1jt": enum.WeaponClassLeftJabRightThrust,
+		"1ss": enum.WeaponClassLeftSwingRightSwing,
+		"1st": enum.WeaponClassLeftSwingRightThrust,
+		"ht1": enum.WeaponClassOneHandToHand,
+		"ht2": enum.WeaponClassTwoHandToHand,
 	}
 
 	for d.Next() {

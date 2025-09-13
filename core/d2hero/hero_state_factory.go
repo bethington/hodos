@@ -12,7 +12,7 @@ import (
 	"nostos/core/d2inventory"
 	"nostos/core/d2records"
 
-	"nostos/common/d2enum"
+	"nostos/common/enum"
 	"nostos/core/d2asset"
 )
 
@@ -45,7 +45,7 @@ type HeroStateFactory struct {
 // CreateHeroState creates a HeroState instance and returns a pointer to it
 func (f *HeroStateFactory) CreateHeroState(
 	heroName string,
-	hero d2enum.Hero,
+	hero enum.Hero,
 	statsState *HeroStatsState,
 ) (*HeroState, error) {
 	result := &HeroState{
@@ -82,7 +82,7 @@ func (f *HeroStateFactory) GetAllHeroStates() ([]*HeroState, error) {
 		}
 
 		gameState := f.LoadHeroState(filepath.Join(basePath, file.Name()))
-		if gameState == nil || gameState.HeroType == d2enum.HeroNone {
+		if gameState == nil || gameState.HeroType == enum.HeroNone {
 
 		} else if gameState.Stats == nil || gameState.Skills == nil {
 			// temporarily loading default class stats if the character was created before saving stats/skills was introduced
@@ -109,7 +109,7 @@ func (f *HeroStateFactory) GetAllHeroStates() ([]*HeroState, error) {
 }
 
 // CreateHeroSkillsState will assemble the hero skills from the class stats record.
-func (f *HeroStateFactory) CreateHeroSkillsState(classStats *d2records.CharStatRecord, heroType d2enum.Hero) (map[int]*HeroSkill, error) {
+func (f *HeroStateFactory) CreateHeroSkillsState(classStats *d2records.CharStatRecord, heroType enum.Hero) (map[int]*HeroSkill, error) {
 	baseSkills := map[int]*HeroSkill{}
 
 	for idx := range classStats.BaseSkill {

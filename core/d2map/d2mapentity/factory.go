@@ -5,7 +5,7 @@ import (
 
 	"github.com/google/uuid"
 
-	"nostos/common/d2enum"
+	"nostos/common/enum"
 	"nostos/common/d2interface"
 	"nostos/common/d2math/d2vector"
 	"nostos/common/d2resource"
@@ -62,21 +62,21 @@ func NewAnimatedEntity(x, y int, animation d2interface.Animation) *AnimatedEntit
 }
 
 // NewPlayer creates a new player entity and returns a pointer to it.
-func (f *MapEntityFactory) NewPlayer(id, name string, x, y, direction int, heroType d2enum.Hero,
+func (f *MapEntityFactory) NewPlayer(id, name string, x, y, direction int, heroType enum.Hero,
 	stats *d2hero.HeroStatsState, skills map[int]*d2hero.HeroSkill, equipment *d2inventory.CharacterEquipment,
 	leftSkill, rightSkill, gold int) *Player {
-	layerEquipment := &[d2enum.CompositeTypeMax]string{
-		d2enum.CompositeTypeHead:      equipment.Head.GetArmorClass(),
-		d2enum.CompositeTypeTorso:     equipment.Torso.GetArmorClass(),
-		d2enum.CompositeTypeLegs:      equipment.Legs.GetArmorClass(),
-		d2enum.CompositeTypeRightArm:  equipment.RightArm.GetArmorClass(),
-		d2enum.CompositeTypeLeftArm:   equipment.LeftArm.GetArmorClass(),
-		d2enum.CompositeTypeRightHand: equipment.RightHand.GetItemCode(),
-		d2enum.CompositeTypeLeftHand:  equipment.LeftHand.GetItemCode(),
-		d2enum.CompositeTypeShield:    equipment.Shield.GetItemCode(),
+	layerEquipment := &[enum.CompositeTypeMax]string{
+		enum.CompositeTypeHead:      equipment.Head.GetArmorClass(),
+		enum.CompositeTypeTorso:     equipment.Torso.GetArmorClass(),
+		enum.CompositeTypeLegs:      equipment.Legs.GetArmorClass(),
+		enum.CompositeTypeRightArm:  equipment.RightArm.GetArmorClass(),
+		enum.CompositeTypeLeftArm:   equipment.LeftArm.GetArmorClass(),
+		enum.CompositeTypeRightHand: equipment.RightHand.GetItemCode(),
+		enum.CompositeTypeLeftHand:  equipment.LeftHand.GetItemCode(),
+		enum.CompositeTypeShield:    equipment.Shield.GetItemCode(),
 	}
 
-	composite, err := f.asset.LoadComposite(d2enum.ObjectTypePlayer, heroType.GetToken(),
+	composite, err := f.asset.LoadComposite(enum.ObjectTypePlayer, heroType.GetToken(),
 		d2resource.PaletteUnits)
 	if err != nil {
 		panic(err)
@@ -109,7 +109,7 @@ func (f *MapEntityFactory) NewPlayer(id, name string, x, y, direction int, heroT
 	result.SetSpeed(baseWalkSpeed)
 	result.mapEntity.directioner = result.rotate
 
-	err = composite.SetMode(d2enum.PlayerAnimationModeTownNeutral, equipment.RightHand.GetWeaponClass())
+	err = composite.SetMode(enum.PlayerAnimationModeTownNeutral, equipment.RightHand.GetWeaponClass())
 	if err != nil {
 		panic(err)
 	}
@@ -137,7 +137,7 @@ func (f *MapEntityFactory) NewMissile(x, y int, record *d2records.MissileRecord)
 		animation.SetSubLoop(record.Animation.SubStartingFrame, record.Animation.SubEndingFrame)
 	}
 
-	animation.SetEffect(d2enum.DrawEffectModulate)
+	animation.SetEffect(enum.DrawEffectModulate)
 	animation.SetPlayLoop(record.Animation.LoopAnimation)
 	animation.PlayForward()
 	entity := NewAnimatedEntity(x, y, animation)
@@ -195,7 +195,7 @@ func (f *MapEntityFactory) NewNPC(x, y int, monstat *d2records.MonStatRecord, di
 		equipment[compType] = selectEquip(opts)
 	}
 
-	composite, err := f.asset.LoadComposite(d2enum.ObjectTypeCharacter, monstat.AnimationDirectoryToken,
+	composite, err := f.asset.LoadComposite(enum.ObjectTypeCharacter, monstat.AnimationDirectoryToken,
 		d2resource.PaletteUnits)
 
 	if err != nil {
@@ -204,7 +204,7 @@ func (f *MapEntityFactory) NewNPC(x, y int, monstat *d2records.MonStatRecord, di
 
 	result.composite = composite
 
-	if err := composite.SetMode(d2enum.MonsterAnimationModeNeutral,
+	if err := composite.SetMode(enum.MonsterAnimationModeNeutral,
 		result.monstatEx.BaseWeaponClass); err != nil {
 		return nil, err
 	}
@@ -230,7 +230,7 @@ func (f *MapEntityFactory) NewCastOverlay(x, y int, overlayRecord *d2records.Ove
 	animation, err := f.asset.LoadAnimationWithEffect(
 		fmt.Sprintf("/data/Global/Overlays/%s.dcc", overlayRecord.Filename),
 		d2resource.PaletteUnits,
-		d2enum.DrawEffectModulate,
+		enum.DrawEffectModulate,
 	)
 
 	if err != nil {
@@ -273,7 +273,7 @@ func (f *MapEntityFactory) NewObject(x, y int, objectRec *d2records.ObjectDetail
 	}
 	objectType := f.asset.Records.Object.Types[objectRec.Index]
 
-	composite, err := f.asset.LoadComposite(d2enum.ObjectTypeItem, objectType.Token,
+	composite, err := f.asset.LoadComposite(enum.ObjectTypeItem, objectType.Token,
 		palettePath)
 	if err != nil {
 		return nil, err
@@ -281,7 +281,7 @@ func (f *MapEntityFactory) NewObject(x, y int, objectRec *d2records.ObjectDetail
 
 	entity.composite = composite
 
-	err = entity.setMode(d2enum.ObjectAnimationModeNeutral, 0, false)
+	err = entity.setMode(enum.ObjectAnimationModeNeutral, 0, false)
 	if err != nil {
 		return nil, err
 	}

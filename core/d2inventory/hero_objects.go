@@ -1,8 +1,8 @@
 package d2inventory
 
 import (
-	"nostos/common/d2enum"
+	"nostos/common/enum"
 )
 
 // HeroObjects map contains the hero type to CharacterEquipments
-type HeroObjects map[d2enum.Hero]CharacterEquipment
+type HeroObjects map[enum.Hero]CharacterEquipment

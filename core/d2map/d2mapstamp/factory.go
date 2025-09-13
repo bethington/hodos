@@ -6,7 +6,7 @@ import (
 
 	"nostos/core/d2map/d2mapentity"
 
-	"nostos/common/d2enum"
+	"nostos/common/enum"
 	"nostos/common/d2fileformats/d2ds1"
 	"nostos/common/d2util"
 	"nostos/core/d2asset"
@@ -39,7 +39,7 @@ type StampFactory struct {
 
 // LoadStamp loads the Stamp data from file, using the given level type, level preset index, and
 // level file index.
-func (f *StampFactory) LoadStamp(levelType d2enum.RegionIdType, levelPreset, fileIndex int) *Stamp {
+func (f *StampFactory) LoadStamp(levelType enum.RegionIdType, levelPreset, fileIndex int) *Stamp {
 	stamp := &Stamp{
 		factory:     f,
 		entity:      f.entity,

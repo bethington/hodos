@@ -3,7 +3,7 @@ package diablo2stats
 import (
 	"fmt"
 
-	"nostos/common/d2enum"
+	"nostos/common/enum"
 	"nostos/core/d2asset"
 	"nostos/core/d2stats"
 )
@@ -66,15 +66,15 @@ const (
 	monsterNotFound = "{Monster not found!}"
 )
 
-func (f *StatFactory) getHeroMap() []d2enum.Hero {
-	return []d2enum.Hero{
-		d2enum.HeroAmazon,
-		d2enum.HeroSorceress,
-		d2enum.HeroNecromancer,
-		d2enum.HeroPaladin,
-		d2enum.HeroBarbarian,
-		d2enum.HeroDruid,
-		d2enum.HeroAssassin,
+func (f *StatFactory) getHeroMap() []enum.Hero {
+	return []enum.Hero{
+		enum.HeroAmazon,
+		enum.HeroSorceress,
+		enum.HeroNecromancer,
+		enum.HeroPaladin,
+		enum.HeroBarbarian,
+		enum.HeroDruid,
+		enum.HeroAssassin,
 	}
 }
 

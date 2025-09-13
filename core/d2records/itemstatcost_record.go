@@ -1,6 +1,6 @@
 package d2records
 
-import "nostos/common/d2enum"
+import "nostos/common/enum"
 
 // ItemStatCostRecord represents a row from itemstatcost.txt
 // these records describe the stat values and costs (in shops) of items
@@ -45,7 +45,7 @@ type ItemStatCostRecord struct {
 	SaveAdd       int // how large the negative range is (lowers max, as well)
 	SaveParamBits int // #param bits are saved (safe value is 17)
 
-	Encode d2enum.EncodingType // how the stat is encoded in .d2s files
+	Encode enum.EncodingType // how the stat is encoded in .d2s files
 
 	// these two fields control additional cost on items
 	// cost * (1 + value * multiply / 1024)) + add (...)
@@ -58,13 +58,13 @@ type ItemStatCostRecord struct {
 	ValShift int // controls how stat is stored in .d2s
 	// so that you can save `+1` instead of `+256`
 
-	OperatorType d2enum.OperatorType
+	OperatorType enum.OperatorType
 	OpParam      int
 
-	EventID1     d2enum.ItemEventType
-	EventID2     d2enum.ItemEventType
-	EventFuncID1 d2enum.ItemEventFuncID
-	EventFuncID2 d2enum.ItemEventFuncID
+	EventID1     enum.ItemEventType
+	EventID2     enum.ItemEventType
+	EventFuncID1 enum.ItemEventFuncID
+	EventFuncID2 enum.ItemEventFuncID
 
 	DescPriority int // determines order when displayed
 	DescFnID     int

@@ -5,7 +5,7 @@ import (
 	"strings"
 	"time"
 
-	"nostos/common/d2enum"
+	"nostos/common/enum"
 	"nostos/common/d2interface"
 	"nostos/common/d2resource"
 	"nostos/common/d2util"
@@ -115,7 +115,7 @@ func (v *TextBox) OnKeyChars(event d2interface.KeyCharsEvent) bool {
 
 // OnKeyRepeat handles key repeat events
 func (v *TextBox) OnKeyRepeat(event d2interface.KeyEvent) bool {
-	if event.Key() == d2enum.KeyBackspace && debounceEvents(event.Duration()) {
+	if event.Key() == enum.KeyBackspace && debounceEvents(event.Duration()) {
 		if len(v.text) >= 1 {
 			v.text = v.text[:len(v.text)-1]
 		}
