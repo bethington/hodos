@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"sort"
 
-	"nostos/common/d2geom"
+	d2geom "nostos/common/geom"
 	"nostos/common/d2interface"
 	"nostos/common/d2resource"
 	"nostos/common/d2util"

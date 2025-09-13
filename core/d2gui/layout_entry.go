@@ -1,7 +1,7 @@
 package d2gui
 
 import (
-	"nostos/common/d2geom"
+	d2geom "nostos/common/geom"
 	"nostos/common/d2interface"
 )
 

@@ -7,7 +7,7 @@ import (
 
 	"nostos/core/d2map/d2mapentity"
 
-	"nostos/common/d2geom"
+	d2geom "nostos/common/geom"
 	"nostos/common/d2interface"
 	"nostos/common/d2util"
 	"nostos/common/enum"

@@ -1,7 +1,7 @@
 package d2player
 
 import (
-	"nostos/common/d2geom"
+	d2geom "nostos/common/geom"
 	"nostos/common/d2interface"
 	"nostos/core/d2hero"
 )
