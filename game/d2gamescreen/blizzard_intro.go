@@ -1,7 +1,7 @@
 package d2gamescreen
 
 import (
-	"nostos/common/d2data/d2video"
+	"nostos/common/data/video"
 	"nostos/core/d2asset"
 	"nostos/core/d2screen"
 )
@@ -9,7 +9,7 @@ import (
 // BlizzardIntro represents the Blizzard Intro screen
 type BlizzardIntro struct {
 	asset        *d2asset.AssetManager
-	videoDecoder *d2video.BinkDecoder
+	videoDecoder *video.BinkDecoder
 }
 
 // CreateBlizzardIntro creates a Blizzard Intro screen
@@ -29,7 +29,7 @@ func (v *BlizzardIntro) OnLoad(loading d2screen.LoadingState) {
 
 	loading.Progress(fiftyPercent)
 
-	v.videoDecoder, err = d2video.CreateBinkDecoder(videoBytes)
+	v.videoDecoder, err = video.CreateBinkDecoder(videoBytes)
 	if err != nil {
 		loading.Error(err)
 	}

@@ -10,7 +10,7 @@ import (
 
 	"github.com/JoshVarga/blast"
 
-	"nostos/common/d2data/d2compression"
+	"nostos/common/data/compression"
 	"nostos/common/d2math"
 )
 
@@ -237,9 +237,9 @@ func decompressMulti(data []byte /*expectedLength*/, _ uint32) ([]byte, error) {
 	case 0x10: // BZip2
 		return []byte{}, errors.New("bzip2 decompression not supported")
 	case 0x80: // IMA ADPCM Stereo
-		return d2compression.WavDecompress(data[1:], 2)
+		return compression.WavDecompress(data[1:], 2)
 	case 0x40: // IMA ADPCM Mono
-		return d2compression.WavDecompress(data[1:], 1)
+		return compression.WavDecompress(data[1:], 1)
 	case 0x12:
 		return []byte{}, errors.New("lzma decompression not supported")
 	// Combos
@@ -250,7 +250,7 @@ func decompressMulti(data []byte /*expectedLength*/, _ uint32) ([]byte, error) {
 		// sparse then bzip2
 		return []byte{}, errors.New("sparse decompression + bzip2 decompression not supported")
 	case 0x41:
-		sinput, err := d2compression.WavDecompress(d2compression.HuffmanDecompress(data[1:]), 1)
+		sinput, err := compression.WavDecompress(compression.HuffmanDecompress(data[1:]), 1)
 		if err != nil {
 			return nil, err
 		}
@@ -265,7 +265,7 @@ func decompressMulti(data []byte /*expectedLength*/, _ uint32) ([]byte, error) {
 		// return MpqWavCompression.Decompress(new MemoryStream(result), 1);
 		return []byte{}, errors.New("pk + mpqwav decompression not supported")
 	case 0x81:
-		sinput, err := d2compression.WavDecompress(d2compression.HuffmanDecompress(data[1:]), 2)
+		sinput, err := compression.WavDecompress(compression.HuffmanDecompress(data[1:]), 2)
 		if err != nil {
 			return nil, err
 		}

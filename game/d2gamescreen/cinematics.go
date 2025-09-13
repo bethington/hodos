@@ -1,7 +1,7 @@
 package d2gamescreen
 
 import (
-	"nostos/common/d2data/d2video"
+	"nostos/common/data/video"
 	"nostos/common/d2enum"
 	"nostos/common/d2interface"
 	"nostos/common/d2resource"
@@ -65,7 +65,7 @@ type Cinematics struct {
 	renderer      d2interface.Renderer
 	navigator     d2interface.Navigator
 	uiManager     *d2ui.UIManager
-	videoDecoder  *d2video.BinkDecoder
+	videoDecoder  *video.BinkDecoder
 	audioProvider d2interface.AudioProvider
 
 	*d2util.Logger
@@ -176,7 +176,7 @@ func (v *Cinematics) playVideo(path string) {
 		return
 	}
 
-	v.videoDecoder, err = d2video.CreateBinkDecoder(videoBytes)
+	v.videoDecoder, err = video.CreateBinkDecoder(videoBytes)
 	if err != nil {
 		v.Error(err.Error())
 		return
