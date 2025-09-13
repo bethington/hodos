@@ -7,7 +7,7 @@ import (
 	"math"
 	"strconv"
 
-	"nostos/common/d2resource"
+	d2resource "nostos/common/assets"
 	"nostos/common/d2util"
 	"nostos/common/enum"
 	d2ds1 "nostos/common/fileformats/ds1"

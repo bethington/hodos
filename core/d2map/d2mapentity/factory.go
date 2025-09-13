@@ -5,7 +5,7 @@ import (
 
 	"github.com/google/uuid"
 
-	"nostos/common/d2resource"
+	d2resource "nostos/common/assets"
 	"nostos/common/enum"
 	d2interface "nostos/common/interfaces"
 	d2vector "nostos/common/math/vector"
