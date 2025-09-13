@@ -1,7 +1,7 @@
 package d2gui
 
 import (
-	"nostos/common/d2interface"
+	d2interface "nostos/common/interfaces"
 )
 
 type buttonState int

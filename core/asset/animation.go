@@ -7,7 +7,7 @@ import (
 	"log"
 	"math"
 
-	"nostos/common/d2interface"
+	d2interface "nostos/common/interfaces"
 	"nostos/common/d2math"
 	"nostos/common/enum"
 	d2dcc "nostos/common/fileformats/dcc"

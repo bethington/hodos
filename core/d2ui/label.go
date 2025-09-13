@@ -7,7 +7,7 @@ import (
 
 	d2font "nostos/common/fileformats/font"
 
-	"nostos/common/d2interface"
+	d2interface "nostos/common/interfaces"
 	"nostos/common/d2util"
 )
 

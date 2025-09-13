@@ -1,7 +1,7 @@
 package d2ui
 
 import (
-	"nostos/common/d2interface"
+	d2interface "nostos/common/interfaces"
 	"nostos/common/d2resource"
 	"nostos/common/d2util"
 )

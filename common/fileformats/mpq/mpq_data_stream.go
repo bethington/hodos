@@ -1,6 +1,6 @@
 package mpq
 
-import "nostos/common/d2interface"
+import d2interface "nostos/common/interfaces"
 
 var _ d2interface.DataStream = &MpqDataStream{} // Static check to confirm struct conforms to interface
 

@@ -4,7 +4,7 @@ import (
 	"log"
 	"math"
 
-	"nostos/common/d2interface"
+	d2interface "nostos/common/interfaces"
 	"nostos/common/d2resource"
 	"nostos/core/d2ui"
 )

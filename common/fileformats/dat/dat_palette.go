@@ -3,7 +3,7 @@ package dat
 import (
 	"fmt"
 
-	"nostos/common/d2interface"
+	d2interface "nostos/common/interfaces"
 )
 
 const (

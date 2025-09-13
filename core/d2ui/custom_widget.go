@@ -1,6 +1,6 @@
 package d2ui
 
-import "nostos/common/d2interface"
+import d2interface "nostos/common/interfaces"
 
 // static check that CustomWidget implements widget
 var _ Widget = &CustomWidget{}

@@ -5,7 +5,7 @@ import (
 	"image/color"
 	"strings"
 
-	"nostos/common/d2interface"
+	d2interface "nostos/common/interfaces"
 	"nostos/common/d2math"
 	"nostos/common/datautils"
 	"nostos/common/fileformats/font/fontglyph"

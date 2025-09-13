@@ -1,7 +1,7 @@
 package d2gui
 
 import (
-	"nostos/common/d2interface"
+	d2interface "nostos/common/interfaces"
 	"nostos/common/d2math"
 )
 

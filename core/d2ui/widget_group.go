@@ -4,7 +4,7 @@ import (
 	"image/color"
 	"sort"
 
-	"nostos/common/d2interface"
+	d2interface "nostos/common/interfaces"
 )
 
 const widgetGroupDebug = false // turns on debug rendering stuff for groups

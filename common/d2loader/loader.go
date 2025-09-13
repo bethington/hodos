@@ -11,7 +11,7 @@ import (
 	"nostos/common/d2loader/filesystem"
 
 	"nostos/common/cache"
-	"nostos/common/d2interface"
+	d2interface "nostos/common/interfaces"
 	"nostos/common/d2loader/asset"
 	"nostos/common/d2loader/asset/types"
 	"nostos/common/d2resource"

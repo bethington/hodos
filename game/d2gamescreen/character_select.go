@@ -9,7 +9,7 @@ import (
 	"nostos/core/d2hero"
 
 	"nostos/common/enum"
-	"nostos/common/d2interface"
+	d2interface "nostos/common/interfaces"
 	"nostos/common/d2resource"
 	"nostos/common/d2util"
 	d2asset "nostos/core/asset"

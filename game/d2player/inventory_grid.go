@@ -7,7 +7,7 @@ import (
 	"nostos/core/d2records"
 
 	"nostos/common/enum"
-	"nostos/common/d2interface"
+	d2interface "nostos/common/interfaces"
 
 	d2asset "nostos/core/asset"
 	"nostos/core/d2ui"

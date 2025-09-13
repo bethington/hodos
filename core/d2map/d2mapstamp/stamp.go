@@ -2,7 +2,7 @@ package d2mapstamp
 
 import (
 	d2geom "nostos/common/geom"
-	"nostos/common/d2interface"
+	d2interface "nostos/common/interfaces"
 	"nostos/common/d2math/d2vector"
 	"nostos/common/d2path"
 	"nostos/common/d2resource"

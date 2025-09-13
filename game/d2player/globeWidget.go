@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"image"
 
-	"nostos/common/d2interface"
+	d2interface "nostos/common/interfaces"
 	"nostos/common/d2resource"
 	"nostos/common/d2util"
 	d2asset "nostos/core/asset"

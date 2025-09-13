@@ -2,7 +2,7 @@ package d2gui
 
 import (
 	d2geom "nostos/common/geom"
-	"nostos/common/d2interface"
+	d2interface "nostos/common/interfaces"
 )
 
 type layoutEntry struct {

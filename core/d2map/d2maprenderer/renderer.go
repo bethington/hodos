@@ -7,7 +7,7 @@ import (
 	"math"
 	"strconv"
 
-	"nostos/common/d2interface"
+	d2interface "nostos/common/interfaces"
 	"nostos/common/d2math/d2vector"
 	"nostos/common/d2resource"
 	"nostos/common/d2util"

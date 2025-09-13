@@ -4,7 +4,7 @@ import (
 	"log"
 
 	"nostos/common/enum"
-	"nostos/common/d2interface"
+	d2interface "nostos/common/interfaces"
 	d2asset "nostos/core/asset"
 )
 

@@ -3,7 +3,7 @@ package d2util
 import (
 	"log"
 
-	"nostos/common/d2interface"
+	d2interface "nostos/common/interfaces"
 )
 
 // ImgIndexToRGBA converts the given indices byte slice and palette into

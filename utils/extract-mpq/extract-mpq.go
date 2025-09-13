@@ -8,7 +8,7 @@ import (
 	"path/filepath"
 	"strings"
 
-	"nostos/common/d2interface"
+	d2interface "nostos/common/interfaces"
 
 	d2mpq "nostos/common/fileformats/mpq"
 )

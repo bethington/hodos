@@ -4,7 +4,7 @@ import (
 	"image/color"
 	"time"
 
-	"nostos/common/d2interface"
+	d2interface "nostos/common/interfaces"
 	d2font "nostos/common/fileformats/font"
 )
 

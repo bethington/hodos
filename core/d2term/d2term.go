@@ -2,7 +2,7 @@ package d2term
 
 import (
 	"nostos/common/enum"
-	"nostos/common/d2interface"
+	d2interface "nostos/common/interfaces"
 )
 
 // New creates and initializes the terminal

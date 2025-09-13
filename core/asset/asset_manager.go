@@ -7,7 +7,7 @@ import (
 	"path/filepath"
 	"strconv"
 
-	"nostos/common/d2interface"
+	d2interface "nostos/common/interfaces"
 	"nostos/common/d2loader"
 	"nostos/common/d2loader/asset/types"
 	"nostos/common/d2resource"

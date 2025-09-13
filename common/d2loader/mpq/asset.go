@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"path/filepath"
 
-	"nostos/common/d2interface"
+	d2interface "nostos/common/interfaces"
 	"nostos/common/d2loader/asset"
 	"nostos/common/d2loader/asset/types"
 )

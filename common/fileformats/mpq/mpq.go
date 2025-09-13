@@ -11,7 +11,7 @@ import (
 	"runtime"
 	"strings"
 
-	"nostos/common/d2interface"
+	d2interface "nostos/common/interfaces"
 )
 
 var _ d2interface.Archive = &MPQ{} // Static check to confirm struct conforms to interface

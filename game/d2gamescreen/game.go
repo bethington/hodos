@@ -14,7 +14,7 @@ import (
 	"nostos/core/d2ui"
 
 	"nostos/common/enum"
-	"nostos/common/d2interface"
+	d2interface "nostos/common/interfaces"
 	"nostos/core/d2audio"
 	"nostos/core/d2map/d2mapentity"
 	"nostos/core/d2map/d2maprenderer"

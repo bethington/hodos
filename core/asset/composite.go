@@ -6,7 +6,7 @@ import (
 	"strings"
 	"sync"
 
-	"nostos/common/d2interface"
+	d2interface "nostos/common/interfaces"
 	"nostos/common/enum"
 	d2cof "nostos/common/fileformats/cof"
 )

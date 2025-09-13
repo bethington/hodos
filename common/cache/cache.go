@@ -5,7 +5,7 @@ import (
 	"log"
 	"sync"
 
-	"nostos/common/d2interface"
+	d2interface "nostos/common/interfaces"
 )
 
 var _ d2interface.Cache = &Cache{} // Static check to confirm struct conforms to interface

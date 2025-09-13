@@ -4,7 +4,7 @@ import (
 	"sort"
 
 	"nostos/common/enum"
-	"nostos/common/d2interface"
+	d2interface "nostos/common/interfaces"
 	ebiten_input "nostos/core/d2input/ebiten"
 )
 

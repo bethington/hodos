@@ -1,7 +1,7 @@
 package d2ui
 
 import (
-	"nostos/common/d2interface"
+	d2interface "nostos/common/interfaces"
 )
 
 // Drawable represents an instance that can be drawn

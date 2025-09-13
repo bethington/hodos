@@ -1,7 +1,7 @@
 package d2player
 
 import (
-	"nostos/common/d2interface"
+	d2interface "nostos/common/interfaces"
 	"nostos/common/d2util"
 	d2asset "nostos/core/asset"
 	"nostos/core/d2map/d2mapentity"

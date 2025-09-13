@@ -3,7 +3,7 @@ package d2input
 import (
 	"errors"
 
-	"nostos/common/d2interface"
+	d2interface "nostos/common/interfaces"
 )
 
 var (

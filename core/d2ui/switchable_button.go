@@ -1,7 +1,7 @@
 package d2ui
 
 import (
-	"nostos/common/d2interface"
+	d2interface "nostos/common/interfaces"
 )
 
 // static check if SwitchableButton implemented widget

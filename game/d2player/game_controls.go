@@ -13,7 +13,7 @@ import (
 	"nostos/common/d2math/d2vector"
 	"nostos/core/d2hero"
 
-	"nostos/common/d2interface"
+	d2interface "nostos/common/interfaces"
 	d2asset "nostos/core/asset"
 	"nostos/core/d2map/d2mapengine"
 	"nostos/core/d2map/d2mapentity"

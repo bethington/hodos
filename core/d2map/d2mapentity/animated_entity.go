@@ -3,7 +3,7 @@ package d2mapentity
 import (
 	"fmt"
 
-	"nostos/common/d2interface"
+	d2interface "nostos/common/interfaces"
 )
 
 // AnimatedEntity represents an animation that can be projected onto the map.
