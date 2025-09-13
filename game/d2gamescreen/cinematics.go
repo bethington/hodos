@@ -6,7 +6,7 @@ import (
 	"nostos/common/d2resource"
 	"nostos/common/d2util"
 	"nostos/common/data/video"
-	"nostos/core/d2asset"
+	d2asset "nostos/core/asset"
 	"nostos/core/d2screen"
 	"nostos/core/d2ui"
 )

@@ -9,7 +9,7 @@ import (
 
 	"nostos/common/d2interface"
 	"nostos/common/d2util"
-	"nostos/core/d2asset"
+	d2asset "nostos/core/asset"
 	"nostos/core/d2ui"
 )
 

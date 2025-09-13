@@ -28,7 +28,7 @@ import (
 	"nostos/common/d2interface"
 	"nostos/common/d2math"
 	"nostos/common/d2util"
-	"nostos/core/d2asset"
+	d2asset "nostos/core/asset"
 	ebiten2 "nostos/core/d2audio/ebiten"
 	"nostos/core/d2config"
 	"nostos/core/d2gui"

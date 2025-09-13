@@ -9,7 +9,7 @@ import (
 	"nostos/common/d2interface"
 	"nostos/common/d2math/d2vector"
 	"nostos/common/d2path"
-	"nostos/core/d2asset"
+	d2asset "nostos/core/asset"
 )
 
 // NPC is a passive complex entity with which the player can interact.

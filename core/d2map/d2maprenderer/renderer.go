@@ -7,13 +7,13 @@ import (
 	"math"
 	"strconv"
 
-	"nostos/common/enum"
-	d2ds1 "nostos/common/fileformats/ds1"
 	"nostos/common/d2interface"
 	"nostos/common/d2math/d2vector"
 	"nostos/common/d2resource"
 	"nostos/common/d2util"
-	"nostos/core/d2asset"
+	"nostos/common/enum"
+	d2ds1 "nostos/common/fileformats/ds1"
+	d2asset "nostos/core/asset"
 	"nostos/core/d2map/d2mapengine"
 )
 

@@ -8,7 +8,7 @@ import (
 
 	"nostos/core/d2map/d2mapgen"
 
-	"nostos/core/d2asset"
+	d2asset "nostos/core/asset"
 
 	"nostos/common/d2math"
 

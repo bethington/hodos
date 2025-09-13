@@ -3,7 +3,7 @@ package d2ui
 import (
 	"sort"
 
-	"nostos/core/d2asset"
+	d2asset "nostos/core/asset"
 
 	"nostos/common/enum"
 	"nostos/common/d2interface"

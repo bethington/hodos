@@ -4,11 +4,11 @@ import (
 	"errors"
 	"image/color"
 
-	d2font "nostos/common/fileformats/font"
 	"nostos/common/d2interface"
 	"nostos/common/d2math"
 	"nostos/common/d2util"
-	"nostos/core/d2asset"
+	d2font "nostos/common/fileformats/font"
+	d2asset "nostos/core/asset"
 )
 
 const layoutDebug = false // turns on debug rendering stuff for layouts

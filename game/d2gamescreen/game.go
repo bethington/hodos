@@ -6,7 +6,7 @@ import (
 	"image/color"
 	"strconv"
 
-	"nostos/core/d2asset"
+	d2asset "nostos/core/asset"
 	"nostos/core/d2gui"
 
 	"nostos/common/d2math/d2vector"

@@ -4,7 +4,7 @@ import (
 	"fmt"
 
 	"nostos/common/enum"
-	"nostos/core/d2asset"
+	d2asset "nostos/core/asset"
 )
 
 // NewInventoryItemFactory creates a new InventoryItemFactory and initializes it

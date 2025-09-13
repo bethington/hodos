@@ -5,7 +5,7 @@ import (
 
 	"nostos/common/enum"
 	"nostos/common/d2interface"
-	"nostos/core/d2asset"
+	d2asset "nostos/core/asset"
 )
 
 // AnimationDirection is a the animation play direction

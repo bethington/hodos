@@ -1,6 +1,6 @@
 package d2hero
 
-import "nostos/core/d2asset"
+import d2asset "nostos/core/asset"
 
 // HydrateSkills will load the SkillRecord & SkillDescriptionRecord from the asset manager, using the skill ID.
 // This is done to avoid serializing the whole record data of HeroSkill to a game save or network packets.

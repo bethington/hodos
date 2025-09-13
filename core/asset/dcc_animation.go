@@ -1,4 +1,4 @@
-package d2asset
+package asset
 
 import (
 	"errors"
@@ -7,8 +7,8 @@ import (
 
 	"nostos/common/enum"
 
-	d2dcc "nostos/common/fileformats/dcc"
 	"nostos/common/d2interface"
+	d2dcc "nostos/common/fileformats/dcc"
 )
 
 var _ d2interface.Animation = &DCCAnimation{} // Static check to confirm struct conforms to

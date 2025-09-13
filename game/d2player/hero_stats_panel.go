@@ -8,7 +8,7 @@ import (
 	"nostos/common/d2interface"
 	"nostos/common/d2resource"
 	"nostos/common/d2util"
-	"nostos/core/d2asset"
+	d2asset "nostos/core/asset"
 	"nostos/core/d2gui"
 	"nostos/core/d2hero"
 	"nostos/core/d2ui"

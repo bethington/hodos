@@ -6,10 +6,10 @@ import (
 
 	"nostos/core/d2map/d2mapentity"
 
+	"nostos/common/d2util"
 	"nostos/common/enum"
 	d2ds1 "nostos/common/fileformats/ds1"
-	"nostos/common/d2util"
-	"nostos/core/d2asset"
+	d2asset "nostos/core/asset"
 )
 
 const logPrefix = "Map Stamp"

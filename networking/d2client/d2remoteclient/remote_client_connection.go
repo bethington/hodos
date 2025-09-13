@@ -10,7 +10,7 @@ import (
 	"github.com/google/uuid"
 
 	"nostos/common/d2util"
-	"nostos/core/d2asset"
+	d2asset "nostos/core/asset"
 	"nostos/core/d2hero"
 	"nostos/networking"
 	"nostos/networking/d2client/d2clientconnectiontype"

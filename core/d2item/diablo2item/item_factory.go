@@ -10,7 +10,7 @@ import (
 
 	"nostos/core/d2records"
 
-	"nostos/core/d2asset"
+	d2asset "nostos/core/asset"
 )
 
 const (

@@ -6,7 +6,7 @@ import (
 	"nostos/common/enum"
 	"nostos/common/d2interface"
 	"nostos/common/d2math/d2vector"
-	"nostos/core/d2asset"
+	d2asset "nostos/core/asset"
 	"nostos/core/d2hero"
 	"nostos/core/d2inventory"
 )

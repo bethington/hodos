@@ -1,14 +1,14 @@
-package d2asset
+package asset
 
 import (
 	"errors"
 
-	"nostos/common/enum"
 	"nostos/common/d2util"
+	"nostos/common/enum"
 
+	"nostos/common/d2interface"
 	d2dc6 "nostos/common/fileformats/dc6"
 	d2dcc "nostos/common/fileformats/dcc"
-	"nostos/common/d2interface"
 )
 
 var _ d2interface.Animation = &DC6Animation{} // Static check to confirm struct conforms to

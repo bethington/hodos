@@ -5,7 +5,7 @@ import (
 
 	"nostos/common/d2interface"
 	"nostos/common/d2util"
-	"nostos/core/d2asset"
+	d2asset "nostos/core/asset"
 )
 
 // LabelButton is a label that can change when hovered and has

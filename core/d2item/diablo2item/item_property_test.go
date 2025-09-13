@@ -7,7 +7,7 @@ import (
 	"testing"
 	"time"
 
-	"nostos/core/d2asset"
+	d2asset "nostos/core/asset"
 
 	"nostos/common/enum"
 	"nostos/core/d2records"

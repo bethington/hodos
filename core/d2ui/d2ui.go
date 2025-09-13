@@ -3,7 +3,7 @@ package d2ui
 import (
 	"nostos/common/d2interface"
 	"nostos/common/d2util"
-	"nostos/core/d2asset"
+	d2asset "nostos/core/asset"
 )
 
 // CursorButton represents a mouse button

@@ -7,12 +7,12 @@ import (
 
 	"nostos/core/d2map/d2mapentity"
 
-	"nostos/common/enum"
-	d2dt1 "nostos/common/fileformats/dt1"
 	"nostos/common/d2geom"
 	"nostos/common/d2interface"
 	"nostos/common/d2util"
-	"nostos/core/d2asset"
+	"nostos/common/enum"
+	d2dt1 "nostos/common/fileformats/dt1"
+	d2asset "nostos/core/asset"
 	"nostos/core/d2map/d2mapstamp"
 )
 

@@ -1,4 +1,4 @@
-package d2asset
+package asset
 
 import (
 	"fmt"
@@ -7,23 +7,23 @@ import (
 	"path/filepath"
 	"strconv"
 
-	d2cof "nostos/common/fileformats/cof"
-	d2ds1 "nostos/common/fileformats/ds1"
-	d2dt1 "nostos/common/fileformats/dt1"
-	"nostos/common/d2resource"
-	"nostos/common/d2util"
-	"nostos/core/d2records"
-	d2font "nostos/common/fileformats/font"
-	d2txt "nostos/common/fileformats/txt"
-	"nostos/common/enum"
-	d2dat "nostos/common/fileformats/dat"
-	d2dc6 "nostos/common/fileformats/dc6"
-	d2dcc "nostos/common/fileformats/dcc"
-	d2pl2 "nostos/common/fileformats/pl2"
-	d2tbl "nostos/common/fileformats/tbl"
 	"nostos/common/d2interface"
 	"nostos/common/d2loader"
 	"nostos/common/d2loader/asset/types"
+	"nostos/common/d2resource"
+	"nostos/common/d2util"
+	"nostos/common/enum"
+	d2cof "nostos/common/fileformats/cof"
+	d2dat "nostos/common/fileformats/dat"
+	d2dc6 "nostos/common/fileformats/dc6"
+	d2dcc "nostos/common/fileformats/dcc"
+	d2ds1 "nostos/common/fileformats/ds1"
+	d2dt1 "nostos/common/fileformats/dt1"
+	d2font "nostos/common/fileformats/font"
+	d2pl2 "nostos/common/fileformats/pl2"
+	d2tbl "nostos/common/fileformats/tbl"
+	d2txt "nostos/common/fileformats/txt"
+	"nostos/core/d2records"
 )
 
 const (

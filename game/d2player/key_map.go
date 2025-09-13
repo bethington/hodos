@@ -4,7 +4,7 @@ import (
 	"sync"
 
 	"nostos/common/enum"
-	"nostos/core/d2asset"
+	d2asset "nostos/core/asset"
 )
 
 // KeyMap represents the key mappings of the game. Each game event

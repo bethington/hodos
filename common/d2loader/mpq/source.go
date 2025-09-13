@@ -4,9 +4,9 @@ import (
 	"io"
 	"strings"
 
-	d2mpq "nostos/common/fileformats/mpq"
 	"nostos/common/d2interface"
 	"nostos/common/d2loader/asset"
+	d2mpq "nostos/common/fileformats/mpq"
 )
 
 // static check that Source implements AssetSource

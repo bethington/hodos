@@ -14,7 +14,7 @@ import (
 	"nostos/core/d2hero"
 
 	"nostos/common/d2interface"
-	"nostos/core/d2asset"
+	d2asset "nostos/core/asset"
 	"nostos/core/d2map/d2mapengine"
 	"nostos/core/d2map/d2mapentity"
 	"nostos/core/d2map/d2maprenderer"

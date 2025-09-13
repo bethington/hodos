@@ -5,10 +5,10 @@ import (
 
 	"nostos/common/d2util"
 
+	"nostos/common/d2resource"
 	"nostos/common/enum"
 	d2animdata "nostos/common/fileformats/animdata"
 	d2txt "nostos/common/fileformats/txt"
-	"nostos/common/d2resource"
 )
 
 const (

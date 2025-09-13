@@ -2,7 +2,7 @@ package d2gamescreen
 
 import (
 	"nostos/common/data/video"
-	"nostos/core/d2asset"
+	d2asset "nostos/core/asset"
 	"nostos/core/d2screen"
 )
 

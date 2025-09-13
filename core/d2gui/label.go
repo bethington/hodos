@@ -4,8 +4,8 @@ import (
 	"image/color"
 	"time"
 
-	d2font "nostos/common/fileformats/font"
 	"nostos/common/d2interface"
+	d2font "nostos/common/fileformats/font"
 )
 
 // Constants defining the main shades of basic colors

@@ -1,4 +1,4 @@
-package d2asset
+package asset
 
 import (
 	"errors"
@@ -6,9 +6,9 @@ import (
 	"strings"
 	"sync"
 
+	"nostos/common/d2interface"
 	"nostos/common/enum"
 	d2cof "nostos/common/fileformats/cof"
-	"nostos/common/d2interface"
 )
 
 const (
