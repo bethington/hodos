@@ -8,8 +8,8 @@ import (
 	"strconv"
 
 	d2interface "nostos/common/interfaces"
-	"nostos/common/d2loader"
-	"nostos/common/d2loader/asset/types"
+	d2loader "nostos/common/loader"
+	"nostos/common/loader/asset/types"
 	"nostos/common/d2resource"
 	"nostos/common/d2util"
 	"nostos/common/enum"

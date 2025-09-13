@@ -20,7 +20,7 @@ import (
 	"sync"
 	"syscall"
 
-	"nostos/common/d2loader/asset/types"
+	"nostos/common/loader/asset/types"
 
 	"github.com/pkg/profile"
 	"golang.org/x/image/colornames"
