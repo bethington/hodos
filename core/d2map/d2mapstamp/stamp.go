@@ -5,7 +5,7 @@ import (
 	"nostos/common/enum"
 	d2ds1 "nostos/common/fileformats/ds1"
 	d2dt1 "nostos/common/fileformats/dt1"
-	d2geom "nostos/common/geom"
+	d2geom "nostos/common/geometry"
 	d2interface "nostos/common/interfaces"
 	d2vector "nostos/common/math/vector"
 	d2path "nostos/common/path"

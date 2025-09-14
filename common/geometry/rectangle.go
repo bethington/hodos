@@ -1,4 +1,4 @@
-package geom
+package geometry
 
 // Rectangle represents a rectangle
 type Rectangle struct {

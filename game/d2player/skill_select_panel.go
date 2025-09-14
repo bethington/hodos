@@ -6,7 +6,7 @@ import (
 
 	d2resource "nostos/common/assets"
 	d2util "nostos/common/util"
-	d2geom "nostos/common/geom"
+	d2geom "nostos/common/geometry"
 	d2interface "nostos/common/interfaces"
 	d2asset "nostos/core/asset"
 	"nostos/core/d2hero"

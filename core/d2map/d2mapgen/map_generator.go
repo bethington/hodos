@@ -4,7 +4,7 @@ import (
 	d2asset "nostos/core/asset"
 
 	"nostos/common/enum"
-	d2geom "nostos/common/geom"
+	d2geom "nostos/common/geometry"
 	d2util "nostos/common/util"
 	"nostos/core/d2map/d2mapengine"
 	"nostos/core/d2map/d2mapstamp"

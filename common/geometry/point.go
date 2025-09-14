@@ -1,4 +1,4 @@
-package geom
+package geometry
 
 // Point represents a point
 type Point struct {

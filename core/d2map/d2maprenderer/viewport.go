@@ -3,7 +3,7 @@ package d2maprenderer
 import (
 	"math"
 
-	d2geom "nostos/common/geom"
+	d2geom "nostos/common/geometry"
 )
 
 type worldTrans struct {

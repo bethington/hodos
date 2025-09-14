@@ -4,7 +4,7 @@ import (
 	"log"
 
 	"nostos/common/datautils"
-	d2geom "nostos/common/geom"
+	d2geom "nostos/common/geometry"
 
 	d2math "nostos/common/math"
 )

@@ -4,7 +4,7 @@ import (
 	"log"
 
 	"nostos/common/datautils"
-	d2geom "nostos/common/geom"
+	d2geom "nostos/common/geometry"
 )
 
 // DCCDirectionFrame represents a direction frame for a DCC.
