@@ -1,7 +1,7 @@
 package d2maprenderer
 
 import (
-	"nostos/common/d2util"
+	d2util "nostos/common/util"
 	"nostos/common/enum"
 	d2ds1 "nostos/common/fileformats/ds1"
 	d2dt1 "nostos/common/fileformats/dt1"

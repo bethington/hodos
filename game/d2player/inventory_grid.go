@@ -13,7 +13,7 @@ import (
 	"nostos/core/d2ui"
 
 	d2resource "nostos/common/assets"
-	"nostos/common/d2util"
+	d2util "nostos/common/util"
 )
 
 // images for 1x1 grid tile items (rings and stuff) are 28x28 pixel

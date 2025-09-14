@@ -12,7 +12,7 @@ import (
 	"github.com/robertkrimen/otto"
 
 	"nostos/common/enum"
-	"nostos/common/d2util"
+	d2util "nostos/common/util"
 	d2asset "nostos/core/asset"
 	"nostos/core/d2hero"
 	"nostos/core/d2map/d2mapengine"

@@ -11,7 +11,7 @@ import (
 	d2loader "nostos/common/loader"
 	"nostos/common/loader/asset/types"
 	d2resource "nostos/common/assets"
-	"nostos/common/d2util"
+	d2util "nostos/common/util"
 	"nostos/common/enum"
 	d2cof "nostos/common/fileformats/cof"
 	d2dat "nostos/common/fileformats/dat"

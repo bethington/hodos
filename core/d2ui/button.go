@@ -6,7 +6,7 @@ import (
 	"nostos/common/enum"
 	d2interface "nostos/common/interfaces"
 	d2resource "nostos/common/assets"
-	"nostos/common/d2util"
+	d2util "nostos/common/util"
 )
 
 // ButtonType defines the type of button

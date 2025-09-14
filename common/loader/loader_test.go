@@ -8,7 +8,7 @@ import (
 
 	"nostos/common/loader/asset/types"
 
-	"nostos/common/d2util"
+	d2util "nostos/common/util"
 )
 
 const (

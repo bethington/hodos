@@ -6,7 +6,7 @@ import (
 	"strings"
 	"time"
 
-	"nostos/common/d2util"
+	d2util "nostos/common/util"
 	d2geom "nostos/common/geom"
 
 	"nostos/common/enum"

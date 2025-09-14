@@ -4,7 +4,7 @@ import (
 	"strings"
 
 	d2interface "nostos/common/interfaces"
-	"nostos/common/d2util"
+	d2util "nostos/common/util"
 )
 
 const (

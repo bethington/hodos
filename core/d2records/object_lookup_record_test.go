@@ -3,7 +3,7 @@ package d2records
 import (
 	"testing"
 
-	"nostos/common/d2util"
+	d2util "nostos/common/util"
 
 	"nostos/common/enum"
 

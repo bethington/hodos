@@ -3,7 +3,7 @@ package d2localclient
 import (
 	"github.com/google/uuid"
 
-	"nostos/common/d2util"
+	d2util "nostos/common/util"
 	d2asset "nostos/core/asset"
 	"nostos/core/d2hero"
 

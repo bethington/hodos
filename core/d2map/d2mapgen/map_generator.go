@@ -5,7 +5,7 @@ import (
 
 	"nostos/common/enum"
 	d2geom "nostos/common/geom"
-	"nostos/common/d2util"
+	d2util "nostos/common/util"
 	"nostos/core/d2map/d2mapengine"
 	"nostos/core/d2map/d2mapstamp"
 )

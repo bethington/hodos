@@ -14,7 +14,7 @@ import (
 
 	"nostos/networking/d2netpacket"
 
-	"nostos/common/d2util"
+	d2util "nostos/common/util"
 )
 
 const logPrefix = "UDP Connection"

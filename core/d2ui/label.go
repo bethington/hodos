@@ -8,7 +8,7 @@ import (
 	d2font "nostos/common/fileformats/font"
 
 	d2interface "nostos/common/interfaces"
-	"nostos/common/d2util"
+	d2util "nostos/common/util"
 )
 
 // static check if Label implemented Widget

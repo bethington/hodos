@@ -3,7 +3,7 @@ package d2networking
 import (
 	"os"
 
-	"nostos/common/d2util"
+	d2util "nostos/common/util"
 	d2asset "nostos/core/asset"
 	"nostos/networking/d2server"
 )

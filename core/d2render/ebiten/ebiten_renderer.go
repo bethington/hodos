@@ -4,7 +4,7 @@ import (
 	"errors"
 	"image"
 
-	"nostos/common/d2util"
+	d2util "nostos/common/util"
 
 	"github.com/hajimehoshi/ebiten/v2"
 	"github.com/hajimehoshi/ebiten/v2/ebitenutil"

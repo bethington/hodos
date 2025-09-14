@@ -2,7 +2,7 @@ package d2screen
 
 import (
 	d2interface "nostos/common/interfaces"
-	"nostos/common/d2util"
+	d2util "nostos/common/util"
 	"nostos/core/d2gui"
 	"nostos/core/d2ui"
 )

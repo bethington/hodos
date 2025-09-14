@@ -3,7 +3,7 @@ package d2records
 import (
 	"fmt"
 
-	"nostos/common/d2util"
+	d2util "nostos/common/util"
 
 	d2resource "nostos/common/assets"
 	"nostos/common/enum"

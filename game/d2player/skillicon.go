@@ -5,7 +5,7 @@ import (
 
 	d2interface "nostos/common/interfaces"
 	d2resource "nostos/common/assets"
-	"nostos/common/d2util"
+	d2util "nostos/common/util"
 	"nostos/core/d2hero"
 	"nostos/core/d2ui"
 )

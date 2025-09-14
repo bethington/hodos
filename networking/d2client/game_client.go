@@ -12,7 +12,7 @@ import (
 
 	d2math "nostos/common/math"
 
-	"nostos/common/d2util"
+	d2util "nostos/common/util"
 	"nostos/common/enum"
 	d2vector "nostos/common/math/vector"
 	"nostos/core/d2map/d2mapengine"

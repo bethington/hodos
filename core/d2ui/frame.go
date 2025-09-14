@@ -3,7 +3,7 @@ package d2ui
 import (
 	d2interface "nostos/common/interfaces"
 	d2resource "nostos/common/assets"
-	"nostos/common/d2util"
+	d2util "nostos/common/util"
 )
 
 // static check that UIFrame implements Widget

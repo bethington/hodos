@@ -15,7 +15,7 @@ import (
 	"nostos/common/loader/asset"
 	"nostos/common/loader/asset/types"
 	d2resource "nostos/common/assets"
-	"nostos/common/d2util"
+	d2util "nostos/common/util"
 )
 
 const (

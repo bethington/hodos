@@ -9,7 +9,7 @@ import (
 
 	d2geom "nostos/common/geom"
 	d2interface "nostos/common/interfaces"
-	"nostos/common/d2util"
+	d2util "nostos/common/util"
 	"nostos/common/enum"
 	d2dt1 "nostos/common/fileformats/dt1"
 	d2asset "nostos/core/asset"

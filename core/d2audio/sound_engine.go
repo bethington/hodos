@@ -10,7 +10,7 @@ import (
 	"nostos/core/d2records"
 
 	d2interface "nostos/common/interfaces"
-	"nostos/common/d2util"
+	d2util "nostos/common/util"
 )
 
 type envState int
