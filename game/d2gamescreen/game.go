@@ -9,8 +9,8 @@ import (
 	d2asset "nostos/core/asset"
 	"nostos/core/d2gui"
 
-	d2util "nostos/common/util"
 	d2vector "nostos/common/math/vector"
+	d2util "nostos/common/util"
 	"nostos/core/d2ui"
 
 	"nostos/common/enum"
