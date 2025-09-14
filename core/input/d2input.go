@@ -1,4 +1,4 @@
-package d2input
+package input
 
 import (
 	"errors"

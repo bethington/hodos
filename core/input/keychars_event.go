@@ -1,4 +1,4 @@
-package d2input
+package input
 
 // KeyCharsEvent represents a key character event
 type KeyCharsEvent struct {

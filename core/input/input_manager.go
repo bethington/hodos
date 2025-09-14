@@ -1,11 +1,11 @@
-package d2input
+package input
 
 import (
 	"sort"
 
 	"nostos/common/enum"
 	d2interface "nostos/common/interfaces"
-	ebiten_input "nostos/core/d2input/ebiten"
+	ebiten_input "nostos/core/input/ebiten"
 )
 
 type inputManager struct {

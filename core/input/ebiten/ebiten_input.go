@@ -1,5 +1,5 @@
 // Package ebiten provides graphics and input API to develop a 2D game.
-package ebiten
+package input
 
 import (
 	"github.com/hajimehoshi/ebiten/v2"
