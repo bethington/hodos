@@ -1,7 +1,7 @@
 package diablo2stats
 
 import (
-	"nostos/core/d2stats"
+	d2stats "nostos/core/stats"
 )
 
 // static check that Diablo2StatValue implements StatValue

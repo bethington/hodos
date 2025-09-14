@@ -1,6 +1,6 @@
 package items
 
-import "nostos/core/d2stats"
+import d2stats "nostos/core/stats"
 
 // StatContext is anything which has a `StatList` method which yields a StatList.
 // This is used for resolving stat dependencies for showing actual values, like

@@ -1,4 +1,4 @@
-package d2stats
+package stats
 
 // Stat a generic interface for a stat. It is something which can be
 // combined with other stats, holds one or more values, and handles the

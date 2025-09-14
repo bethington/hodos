@@ -6,7 +6,7 @@ import (
 	d2asset "nostos/core/asset"
 	d2records "nostos/core/gamedata"
 
-	"nostos/core/d2stats"
+	d2stats "nostos/core/stats"
 )
 
 // nolint:gochecknoglobals // just a test

@@ -1,4 +1,4 @@
-package d2stats
+package stats
 
 // StatNumberType is a value type for a stat value
 type StatNumberType int

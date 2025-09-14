@@ -6,7 +6,7 @@ import (
 	"regexp"
 	"strconv"
 
-	"nostos/core/d2stats/diablo2stats"
+	"nostos/core/stats/diablo2stats"
 
 	d2records "nostos/core/gamedata"
 

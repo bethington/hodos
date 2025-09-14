@@ -10,7 +10,7 @@ import (
 	d2records "nostos/core/gamedata"
 
 	"nostos/common/enum"
-	"nostos/core/d2stats"
+	d2stats "nostos/core/stats"
 	"nostos/core/d2ui"
 	d2item "nostos/core/items"
 )

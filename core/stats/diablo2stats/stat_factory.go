@@ -5,7 +5,7 @@ import (
 
 	"nostos/common/enum"
 	d2asset "nostos/core/asset"
-	"nostos/core/d2stats"
+	d2stats "nostos/core/stats"
 )
 
 // NewStatFactory creates a new stat factory instance

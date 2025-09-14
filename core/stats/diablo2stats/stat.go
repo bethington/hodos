@@ -6,7 +6,7 @@ import (
 
 	d2records "nostos/core/gamedata"
 
-	"nostos/core/d2stats"
+	d2stats "nostos/core/stats"
 )
 
 // static check that diablo2Stat implements Stat
