@@ -1,4 +1,4 @@
-package d2player
+package hud
 
 import (
 	"time"

@@ -1,4 +1,4 @@
-package d2player
+package hud
 
 type inputCallbackListener interface {
 	OnPlayerMove(x, y float64)

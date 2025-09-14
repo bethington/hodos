@@ -19,7 +19,7 @@ import (
 	d2mapentity "nostos/core/world/entity"
 	d2maprenderer "nostos/core/world/renderer"
 	d2screen "nostos/core/screens"
-	"nostos/game/d2player"
+	d2player "nostos/game/hud"
 	"nostos/networking/d2client"
 	"nostos/networking/d2netpacket"
 )
