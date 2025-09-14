@@ -1,4 +1,4 @@
-package d2item
+package items
 
 import "nostos/core/d2stats"
 

@@ -3,7 +3,7 @@ package d2mapentity
 import (
 	d2interface "nostos/common/interfaces"
 	d2vector "nostos/common/math/vector"
-	"nostos/core/d2item/diablo2item"
+	"nostos/core/items/diablo2item"
 )
 
 // static check that item implements map entity interface

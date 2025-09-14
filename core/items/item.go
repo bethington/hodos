@@ -1,4 +1,4 @@
-package d2item
+package items
 
 // Item describes all types of item that can be placed in the
 // player inventory grid (not just things that can be equipped!)

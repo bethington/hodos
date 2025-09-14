@@ -10,7 +10,7 @@ import (
 	"nostos/core/d2records"
 
 	"nostos/common/enum"
-	"nostos/core/d2item"
+	d2item "nostos/core/items"
 	"nostos/core/d2stats"
 	"nostos/core/d2ui"
 )

@@ -11,7 +11,7 @@ import (
 	d2vector "nostos/common/math/vector"
 	d2asset "nostos/core/asset"
 	d2hero "nostos/core/character"
-	"nostos/core/d2item/diablo2item"
+	"nostos/core/items/diablo2item"
 	"nostos/core/d2records"
 	d2inventory "nostos/core/equipment"
 )
