@@ -1,4 +1,4 @@
-package d2term
+package console
 
 import (
 	"bufio"

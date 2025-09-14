@@ -32,7 +32,7 @@ import (
 	ebiten2 "nostos/core/audio/ebiten"
 	d2config "nostos/core/config"
 	d2screen "nostos/core/screens"
-	"nostos/core/d2term"
+	d2term "nostos/core/console"
 	"nostos/core/d2ui"
 	d2gui "nostos/core/gui"
 	d2input "nostos/core/input"
