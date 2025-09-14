@@ -1,4 +1,4 @@
-package d2inventory
+package equipment
 
 import (
 	"fmt"

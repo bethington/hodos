@@ -1,4 +1,4 @@
-package d2inventory
+package equipment
 
 // CharacterEquipment stores equipments of a character
 type CharacterEquipment struct {

@@ -2,7 +2,7 @@ package character
 
 import (
 	"nostos/common/enum"
-	"nostos/core/d2inventory"
+	d2inventory "nostos/core/equipment"
 )
 
 // HeroState stores the state of the player

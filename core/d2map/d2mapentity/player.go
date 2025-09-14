@@ -8,7 +8,7 @@ import (
 	d2vector "nostos/common/math/vector"
 	d2asset "nostos/core/asset"
 	d2hero "nostos/core/character"
-	"nostos/core/d2inventory"
+	d2inventory "nostos/core/equipment"
 )
 
 // Player is the player character entity.

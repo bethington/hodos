@@ -5,7 +5,7 @@ import (
 
 	"nostos/common/enum"
 	d2hero "nostos/core/character"
-	"nostos/core/d2inventory"
+	d2inventory "nostos/core/equipment"
 	"nostos/networking/d2netpacket/d2netpackettype"
 )
 
