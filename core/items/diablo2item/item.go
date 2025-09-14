@@ -10,9 +10,9 @@ import (
 	"nostos/core/d2records"
 
 	"nostos/common/enum"
-	d2item "nostos/core/items"
 	"nostos/core/d2stats"
 	"nostos/core/d2ui"
+	d2item "nostos/core/items"
 )
 
 // PropertyPool is used for separating properties by their source
