@@ -7,9 +7,9 @@ import (
 
 	d2inventory "nostos/core/equipment"
 
+	d2resource "nostos/common/assets"
 	"nostos/common/enum"
 	d2interface "nostos/common/interfaces"
-	d2resource "nostos/common/assets"
 	d2util "nostos/common/util"
 	d2asset "nostos/core/asset"
 	"nostos/core/d2screen"
