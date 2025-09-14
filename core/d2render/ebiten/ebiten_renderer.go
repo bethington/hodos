@@ -11,7 +11,7 @@ import (
 
 	"nostos/common/enum"
 	d2interface "nostos/common/interfaces"
-	"nostos/core/d2config"
+	d2config "nostos/core/config"
 )
 
 const (

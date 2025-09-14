@@ -1,4 +1,4 @@
-package d2config
+package config
 
 import (
 	"os/user"

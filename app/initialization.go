@@ -9,7 +9,7 @@ import (
 	d2resource "nostos/common/assets"
 	d2util "nostos/common/util"
 	d2animdata "nostos/common/fileformats/animdata"
-	"nostos/core/d2config"
+	d2config "nostos/core/config"
 	"nostos/core/d2gui"
 	"nostos/core/d2screen"
 )
