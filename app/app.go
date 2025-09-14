@@ -31,7 +31,7 @@ import (
 	d2asset "nostos/core/asset"
 	ebiten2 "nostos/core/audio/ebiten"
 	d2config "nostos/core/config"
-	"nostos/core/d2render/ebiten"
+	d2render "nostos/core/render/ebiten"
 	"nostos/core/d2screen"
 	"nostos/core/d2term"
 	"nostos/core/d2ui"
@@ -158,7 +158,7 @@ func (a *App) startDedicatedServer() error {
 
 func (a *App) loadEngine() error {
 	// Create our renderer
-	renderer, err := ebiten.CreateRenderer(a.config)
+	renderer, err := d2render.CreateRenderer(a.config)
 	if err != nil {
 		return err
 	}
