@@ -5,7 +5,7 @@ import (
 
 	"nostos/common/enum"
 
-	"nostos/core/d2map/d2mapentity"
+	d2mapentity "nostos/core/world/entity"
 	"nostos/networking/d2netpacket/d2netpackettype"
 )
 

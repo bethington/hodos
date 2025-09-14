@@ -13,7 +13,7 @@ import (
 	d2resource "nostos/common/assets"
 	d2util "nostos/common/util"
 	d2asset "nostos/core/asset"
-	"nostos/core/d2map/d2mapentity"
+	d2mapentity "nostos/core/world/entity"
 	"nostos/core/d2screen"
 	"nostos/core/d2ui"
 	"nostos/networking/d2client/d2clientconnectiontype"

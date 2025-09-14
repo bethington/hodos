@@ -10,9 +10,9 @@ import (
 	d2resource "nostos/common/assets"
 	d2util "nostos/common/util"
 	d2asset "nostos/core/asset"
-	"nostos/core/d2map/d2mapengine"
-	"nostos/core/d2map/d2mapentity"
-	"nostos/core/d2map/d2maprenderer"
+	d2mapengine "nostos/core/world/engine"
+	d2mapentity "nostos/core/world/entity"
+	d2maprenderer "nostos/core/world/renderer"
 	"nostos/core/d2ui"
 )
 

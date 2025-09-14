@@ -6,7 +6,7 @@ import (
 
 	d2hero "nostos/core/character"
 
-	"nostos/core/d2map/d2mapgen"
+	d2mapgen "nostos/core/world/generation"
 
 	d2asset "nostos/core/asset"
 
@@ -15,8 +15,8 @@ import (
 	d2util "nostos/common/util"
 	"nostos/common/enum"
 	d2vector "nostos/common/math/vector"
-	"nostos/core/d2map/d2mapengine"
-	"nostos/core/d2map/d2mapentity"
+	d2mapengine "nostos/core/world/engine"
+	d2mapentity "nostos/core/world/entity"
 	"nostos/core/d2records"
 	"nostos/networking/d2client/d2clientconnectiontype"
 	"nostos/networking/d2client/d2localclient"

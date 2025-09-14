@@ -14,9 +14,9 @@ import (
 	d2interface "nostos/common/interfaces"
 	d2vector "nostos/common/math/vector"
 	d2asset "nostos/core/asset"
-	"nostos/core/d2map/d2mapengine"
-	"nostos/core/d2map/d2mapgen"
-	"nostos/core/d2map/d2maprenderer"
+	d2mapengine "nostos/core/world/engine"
+	d2mapgen "nostos/core/world/generation"
+	d2maprenderer "nostos/core/world/renderer"
 	"nostos/core/d2screen"
 )
 

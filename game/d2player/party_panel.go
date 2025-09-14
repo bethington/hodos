@@ -11,7 +11,7 @@ import (
 	d2util "nostos/common/util"
 	d2asset "nostos/core/asset"
 	d2hero "nostos/core/character"
-	"nostos/core/d2map/d2mapentity"
+	d2mapentity "nostos/core/world/entity"
 	"nostos/core/d2ui"
 )
 
