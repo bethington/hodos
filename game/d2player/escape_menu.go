@@ -3,13 +3,13 @@ package d2player
 import (
 	"time"
 
+	d2resource "nostos/common/assets"
 	"nostos/common/enum"
 	d2interface "nostos/common/interfaces"
-	d2resource "nostos/common/assets"
 	d2util "nostos/common/util"
 	d2asset "nostos/core/asset"
-	d2gui "nostos/core/gui"
 	"nostos/core/d2ui"
+	d2gui "nostos/core/gui"
 )
 
 type (

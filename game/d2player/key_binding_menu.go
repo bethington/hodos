@@ -7,8 +7,8 @@ import (
 	d2interface "nostos/common/interfaces"
 	d2util "nostos/common/util"
 	d2asset "nostos/core/asset"
-	d2gui "nostos/core/gui"
 	"nostos/core/d2ui"
+	d2gui "nostos/core/gui"
 )
 
 const (

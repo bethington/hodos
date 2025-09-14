@@ -10,8 +10,8 @@ import (
 	d2animdata "nostos/common/fileformats/animdata"
 	d2util "nostos/common/util"
 	d2config "nostos/core/config"
-	d2gui "nostos/core/gui"
 	"nostos/core/d2screen"
+	d2gui "nostos/core/gui"
 )
 
 func (a *App) initialize() error {

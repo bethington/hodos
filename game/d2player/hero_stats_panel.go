@@ -4,14 +4,14 @@ import (
 	"strconv"
 	"strings"
 
+	d2resource "nostos/common/assets"
 	"nostos/common/enum"
 	d2interface "nostos/common/interfaces"
-	d2resource "nostos/common/assets"
 	d2util "nostos/common/util"
 	d2asset "nostos/core/asset"
-	d2gui "nostos/core/gui"
 	d2hero "nostos/core/character"
 	"nostos/core/d2ui"
+	d2gui "nostos/core/gui"
 )
 
 const ( // for the dc6 frames
