@@ -14,7 +14,7 @@ import (
 	"nostos/common/enum"
 	d2util "nostos/common/util"
 	d2asset "nostos/core/asset"
-	"nostos/core/d2hero"
+	d2hero "nostos/core/character"
 	"nostos/core/d2map/d2mapengine"
 	"nostos/core/d2map/d2mapgen"
 	"nostos/networking/d2client/d2clientconnectiontype"

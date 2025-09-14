@@ -5,7 +5,7 @@ import (
 
 	d2util "nostos/common/util"
 	d2asset "nostos/core/asset"
-	"nostos/core/d2hero"
+	d2hero "nostos/core/character"
 
 	"nostos/networking"
 	"nostos/networking/d2client/d2clientconnectiontype"

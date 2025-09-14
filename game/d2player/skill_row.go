@@ -3,7 +3,7 @@ package d2player
 import (
 	d2geom "nostos/common/geometry"
 	d2interface "nostos/common/interfaces"
-	"nostos/core/d2hero"
+	d2hero "nostos/core/character"
 )
 
 // SkillListRow represents a row of skills that is shown when the skill select menu is rendered.

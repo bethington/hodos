@@ -1,4 +1,4 @@
-package d2hero
+package character
 
 import (
 	"nostos/common/enum"

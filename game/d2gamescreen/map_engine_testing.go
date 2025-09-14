@@ -6,7 +6,7 @@ import (
 	"strings"
 	"time"
 
-	"nostos/core/d2hero"
+	d2hero "nostos/core/character"
 
 	d2resource "nostos/common/assets"
 	d2util "nostos/common/util"

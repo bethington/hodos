@@ -11,7 +11,7 @@ import (
 
 	"nostos/common/enum"
 	d2vector "nostos/common/math/vector"
-	"nostos/core/d2hero"
+	d2hero "nostos/core/character"
 
 	d2interface "nostos/common/interfaces"
 	d2asset "nostos/core/asset"

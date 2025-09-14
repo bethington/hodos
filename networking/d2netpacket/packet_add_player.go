@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 
 	"nostos/common/enum"
-	"nostos/core/d2hero"
+	d2hero "nostos/core/character"
 	"nostos/core/d2inventory"
 	"nostos/networking/d2netpacket/d2netpackettype"
 )

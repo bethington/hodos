@@ -3,7 +3,7 @@ package d2netpacket
 import (
 	"encoding/json"
 
-	"nostos/core/d2hero"
+	d2hero "nostos/core/character"
 
 	"nostos/networking/d2netpacket/d2netpackettype"
 )

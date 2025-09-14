@@ -9,7 +9,7 @@ import (
 	d2geom "nostos/common/geometry"
 	d2interface "nostos/common/interfaces"
 	d2asset "nostos/core/asset"
-	"nostos/core/d2hero"
+	d2hero "nostos/core/character"
 	"nostos/core/d2map/d2mapentity"
 	"nostos/core/d2ui"
 )

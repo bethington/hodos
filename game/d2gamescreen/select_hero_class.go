@@ -3,7 +3,7 @@ package d2gamescreen
 import (
 	"image"
 
-	"nostos/core/d2hero"
+	d2hero "nostos/core/character"
 
 	"nostos/core/d2inventory"
 

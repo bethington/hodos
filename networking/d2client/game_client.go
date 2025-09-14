@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"os"
 
-	"nostos/core/d2hero"
+	d2hero "nostos/core/character"
 
 	"nostos/core/d2map/d2mapgen"
 

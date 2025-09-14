@@ -6,7 +6,7 @@ import (
 	"strconv"
 	"strings"
 
-	"nostos/core/d2hero"
+	d2hero "nostos/core/character"
 
 	"nostos/common/enum"
 	d2interface "nostos/common/interfaces"

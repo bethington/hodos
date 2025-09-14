@@ -8,7 +8,7 @@ import (
 	"fmt"
 	"net"
 
-	"nostos/core/d2hero"
+	d2hero "nostos/core/character"
 
 	"nostos/networking/d2client/d2clientconnectiontype"
 

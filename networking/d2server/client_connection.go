@@ -1,7 +1,7 @@
 package d2server
 
 import (
-	"nostos/core/d2hero"
+	d2hero "nostos/core/character"
 	"nostos/networking/d2client/d2clientconnectiontype"
 	"nostos/networking/d2netpacket"
 )

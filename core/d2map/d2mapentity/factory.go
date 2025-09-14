@@ -10,7 +10,7 @@ import (
 	d2interface "nostos/common/interfaces"
 	d2vector "nostos/common/math/vector"
 	d2asset "nostos/core/asset"
-	"nostos/core/d2hero"
+	d2hero "nostos/core/character"
 	"nostos/core/d2inventory"
 	"nostos/core/d2item/diablo2item"
 	"nostos/core/d2records"
