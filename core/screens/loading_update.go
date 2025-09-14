@@ -1,4 +1,4 @@
-package d2screen
+package screens
 
 const progressCompleted = 1.0
 

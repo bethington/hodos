@@ -10,7 +10,7 @@ import (
 	d2animdata "nostos/common/fileformats/animdata"
 	d2util "nostos/common/util"
 	d2config "nostos/core/config"
-	"nostos/core/d2screen"
+	d2screen "nostos/core/screens"
 	d2gui "nostos/core/gui"
 )
 

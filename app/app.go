@@ -31,7 +31,7 @@ import (
 	d2asset "nostos/core/asset"
 	ebiten2 "nostos/core/audio/ebiten"
 	d2config "nostos/core/config"
-	"nostos/core/d2screen"
+	d2screen "nostos/core/screens"
 	"nostos/core/d2term"
 	"nostos/core/d2ui"
 	d2gui "nostos/core/gui"

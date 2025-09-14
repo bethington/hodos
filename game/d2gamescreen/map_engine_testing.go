@@ -17,7 +17,7 @@ import (
 	d2mapengine "nostos/core/world/engine"
 	d2mapgen "nostos/core/world/generation"
 	d2maprenderer "nostos/core/world/renderer"
-	"nostos/core/d2screen"
+	d2screen "nostos/core/screens"
 )
 
 const (

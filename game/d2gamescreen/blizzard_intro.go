@@ -3,7 +3,7 @@ package d2gamescreen
 import (
 	"nostos/common/data/video"
 	d2asset "nostos/core/asset"
-	"nostos/core/d2screen"
+	d2screen "nostos/core/screens"
 )
 
 // BlizzardIntro represents the Blizzard Intro screen

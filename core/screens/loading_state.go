@@ -1,4 +1,4 @@
-package d2screen
+package screens
 
 // LoadingState represents the loading state
 type LoadingState struct {

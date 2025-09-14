@@ -18,7 +18,7 @@ import (
 	d2audio "nostos/core/audio"
 	d2mapentity "nostos/core/world/entity"
 	d2maprenderer "nostos/core/world/renderer"
-	"nostos/core/d2screen"
+	d2screen "nostos/core/screens"
 	"nostos/game/d2player"
 	"nostos/networking/d2client"
 	"nostos/networking/d2netpacket"
