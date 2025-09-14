@@ -9,7 +9,7 @@ import (
 	d2interface "nostos/common/interfaces"
 	d2vector "nostos/common/math/vector"
 	d2path "nostos/common/path"
-	"nostos/core/d2records"
+	d2records "nostos/core/gamedata"
 	d2mapentity "nostos/core/world/entity"
 )
 

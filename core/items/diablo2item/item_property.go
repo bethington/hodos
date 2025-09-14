@@ -3,7 +3,7 @@ package diablo2item
 import (
 	"math/rand"
 
-	"nostos/core/d2records"
+	d2records "nostos/core/gamedata"
 	"nostos/core/d2stats"
 )
 

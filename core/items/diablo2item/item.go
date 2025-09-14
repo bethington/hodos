@@ -7,7 +7,7 @@ import (
 	"strconv"
 	"strings"
 
-	"nostos/core/d2records"
+	d2records "nostos/core/gamedata"
 
 	"nostos/common/enum"
 	"nostos/core/d2stats"

@@ -8,7 +8,7 @@ import (
 
 	"nostos/core/d2stats/diablo2stats"
 
-	"nostos/core/d2records"
+	d2records "nostos/core/gamedata"
 
 	d2asset "nostos/core/asset"
 )

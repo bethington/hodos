@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"math/rand"
 
-	"nostos/core/d2records"
+	d2records "nostos/core/gamedata"
 
 	"nostos/common/enum"
 	d2interface "nostos/common/interfaces"

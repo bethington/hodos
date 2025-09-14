@@ -17,7 +17,7 @@ import (
 	d2vector "nostos/common/math/vector"
 	d2mapengine "nostos/core/world/engine"
 	d2mapentity "nostos/core/world/entity"
-	"nostos/core/d2records"
+	d2records "nostos/core/gamedata"
 	"nostos/networking/d2client/d2clientconnectiontype"
 	"nostos/networking/d2client/d2localclient"
 	"nostos/networking/d2client/d2remoteclient"

@@ -2,7 +2,7 @@ package d2player
 
 import (
 	"nostos/common/enum"
-	"nostos/core/d2records"
+	d2records "nostos/core/gamedata"
 )
 
 // EquipmentSlot represents an equipment slot for a player

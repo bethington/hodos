@@ -23,7 +23,7 @@ import (
 	d2pl2 "nostos/common/fileformats/pl2"
 	d2tbl "nostos/common/fileformats/tbl"
 	d2txt "nostos/common/fileformats/txt"
-	"nostos/core/d2records"
+	d2records "nostos/core/gamedata"
 )
 
 const (

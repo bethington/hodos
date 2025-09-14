@@ -2,7 +2,7 @@ package character
 
 import (
 	"nostos/common/enum"
-	"nostos/core/d2records"
+	d2records "nostos/core/gamedata"
 )
 
 // HeroStatsState is a serializable state of hero stats.

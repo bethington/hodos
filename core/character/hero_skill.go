@@ -3,7 +3,7 @@ package character
 import (
 	"encoding/json"
 
-	"nostos/core/d2records"
+	d2records "nostos/core/gamedata"
 )
 
 // HeroSkill stores additional payload for a skill of a hero.

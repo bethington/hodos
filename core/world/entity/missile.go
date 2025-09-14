@@ -4,7 +4,7 @@ import (
 	"math"
 
 	d2vector "nostos/common/math/vector"
-	"nostos/core/d2records"
+	d2records "nostos/core/gamedata"
 )
 
 // Missile is a simple animated entity representing a projectile,

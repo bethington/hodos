@@ -3,7 +3,7 @@ package audio
 import (
 	"math/rand"
 
-	"nostos/core/d2records"
+	d2records "nostos/core/gamedata"
 )
 
 const assumedFPS = 25

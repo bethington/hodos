@@ -4,7 +4,7 @@ import (
 	"math"
 
 	d2vector "nostos/common/math/vector"
-	"nostos/core/d2records"
+	d2records "nostos/core/gamedata"
 )
 
 // CastOverlay is an animated entity representing a projectile that is a result of a skill cast.

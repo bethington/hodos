@@ -3,7 +3,7 @@ package d2player
 import (
 	"fmt"
 
-	"nostos/core/d2records"
+	d2records "nostos/core/gamedata"
 
 	d2resource "nostos/common/assets"
 	"nostos/common/enum"

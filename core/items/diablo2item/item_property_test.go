@@ -10,7 +10,7 @@ import (
 	d2asset "nostos/core/asset"
 
 	"nostos/common/enum"
-	"nostos/core/d2records"
+	d2records "nostos/core/gamedata"
 )
 
 // nolint:gochecknoglobals // just a test

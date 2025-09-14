@@ -6,7 +6,7 @@ import (
 
 	"nostos/common/enum"
 	d2asset "nostos/core/asset"
-	"nostos/core/d2records"
+	d2records "nostos/core/gamedata"
 )
 
 const (

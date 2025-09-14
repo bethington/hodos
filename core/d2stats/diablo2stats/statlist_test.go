@@ -4,7 +4,7 @@ import (
 	"testing"
 
 	d2asset "nostos/core/asset"
-	"nostos/core/d2records"
+	d2records "nostos/core/gamedata"
 
 	"nostos/core/d2stats"
 )

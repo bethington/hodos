@@ -3,7 +3,7 @@ package engine
 import (
 	"strings"
 
-	"nostos/core/d2records"
+	d2records "nostos/core/gamedata"
 
 	d2mapentity "nostos/core/world/entity"
 

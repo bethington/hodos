@@ -5,7 +5,7 @@ import (
 	d2loader "nostos/common/loader"
 	d2util "nostos/common/util"
 	d2tbl "nostos/common/fileformats/tbl"
-	"nostos/core/d2records"
+	d2records "nostos/core/gamedata"
 )
 
 // NewAssetManager creates and assigns all necessary dependencies for the AssetManager top-level functions to work correctly
