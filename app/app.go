@@ -29,7 +29,7 @@ import (
 	d2interface "nostos/common/interfaces"
 	d2math "nostos/common/math"
 	d2asset "nostos/core/asset"
-	ebiten2 "nostos/core/d2audio/ebiten"
+	ebiten2 "nostos/core/audio/ebiten"
 	"nostos/core/d2config"
 	"nostos/core/d2gui"
 	"nostos/core/d2input"

@@ -1,4 +1,4 @@
-package d2audio
+package audio
 
 import (
 	"fmt"
