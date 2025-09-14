@@ -37,7 +37,7 @@ import (
 	d2gui "nostos/core/gui"
 	d2input "nostos/core/input"
 	d2render "nostos/core/render/ebiten"
-	"nostos/game/d2gamescreen"
+	d2gamescreen "nostos/game/screens"
 	d2networking "nostos/networking"
 	"nostos/networking/d2client"
 	"nostos/networking/d2client/d2clientconnectiontype"

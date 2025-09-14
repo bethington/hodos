@@ -5,7 +5,7 @@ import (
 	"runtime/pprof"
 	"strconv"
 
-	"nostos/game/d2gamescreen"
+	d2gamescreen "nostos/game/screens"
 )
 
 func (a *App) initTerminalCommands() {

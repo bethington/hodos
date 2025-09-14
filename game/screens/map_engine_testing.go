@@ -1,4 +1,4 @@
-package d2gamescreen
+package screens
 
 import (
 	"fmt"

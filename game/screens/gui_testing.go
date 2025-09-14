@@ -1,4 +1,4 @@
-package d2gamescreen
+package screens
 
 import (
 	d2interface "nostos/common/interfaces"

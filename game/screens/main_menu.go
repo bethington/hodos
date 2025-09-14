@@ -1,5 +1,5 @@
-// Package d2gamescreen contains the screens
-package d2gamescreen
+// Package screens contains the screens
+package screens
 
 import (
 	"fmt"
