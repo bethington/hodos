@@ -7,7 +7,7 @@ import (
 	"strconv"
 
 	d2asset "nostos/core/asset"
-	"nostos/core/d2gui"
+	d2gui "nostos/core/gui"
 
 	d2vector "nostos/common/math/vector"
 	d2util "nostos/common/util"

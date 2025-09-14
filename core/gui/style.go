@@ -1,4 +1,4 @@
-package d2gui
+package gui
 
 import (
 	d2resource "nostos/common/assets"

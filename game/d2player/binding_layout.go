@@ -4,7 +4,7 @@ import (
 	"image/color"
 
 	"nostos/common/enum"
-	"nostos/core/d2gui"
+	d2gui "nostos/core/gui"
 )
 
 type bindingLayout struct {

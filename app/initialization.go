@@ -7,10 +7,10 @@ import (
 	"nostos/common/loader/asset/types"
 
 	d2resource "nostos/common/assets"
-	d2util "nostos/common/util"
 	d2animdata "nostos/common/fileformats/animdata"
+	d2util "nostos/common/util"
 	d2config "nostos/core/config"
-	"nostos/core/d2gui"
+	d2gui "nostos/core/gui"
 	"nostos/core/d2screen"
 )
 

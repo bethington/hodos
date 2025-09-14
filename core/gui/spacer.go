@@ -1,4 +1,4 @@
-package d2gui
+package gui
 
 // SpacerStatic is a spacer with explicit width and height, meaning
 // that it wont dynamically expand within a layout
