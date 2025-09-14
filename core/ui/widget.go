@@ -1,4 +1,4 @@
-package d2ui
+package ui
 
 // RenderPriority determines in which order ui elements are drawn.
 // The higher the number the later an element is drawn.

@@ -6,7 +6,7 @@ import (
 
 	d2interface "nostos/common/interfaces"
 	d2resource "nostos/common/assets"
-	"nostos/core/d2ui"
+	d2ui "nostos/core/ui"
 )
 
 // LayoutScrollbar is a scrollbar that can be used with any layout

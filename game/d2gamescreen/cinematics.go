@@ -8,7 +8,7 @@ import (
 	"nostos/common/data/video"
 	d2asset "nostos/core/asset"
 	d2screen "nostos/core/screens"
-	"nostos/core/d2ui"
+	d2ui "nostos/core/ui"
 )
 
 const (

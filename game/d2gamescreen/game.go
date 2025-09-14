@@ -11,7 +11,7 @@ import (
 
 	d2vector "nostos/common/math/vector"
 	d2util "nostos/common/util"
-	"nostos/core/d2ui"
+	d2ui "nostos/core/ui"
 
 	"nostos/common/enum"
 	d2interface "nostos/common/interfaces"

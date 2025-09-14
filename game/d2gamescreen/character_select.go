@@ -15,7 +15,7 @@ import (
 	d2asset "nostos/core/asset"
 	d2mapentity "nostos/core/world/entity"
 	d2screen "nostos/core/screens"
-	"nostos/core/d2ui"
+	d2ui "nostos/core/ui"
 	"nostos/networking/d2client/d2clientconnectiontype"
 )
 

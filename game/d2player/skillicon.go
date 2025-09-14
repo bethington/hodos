@@ -7,7 +7,7 @@ import (
 	d2resource "nostos/common/assets"
 	d2util "nostos/common/util"
 	d2hero "nostos/core/character"
-	"nostos/core/d2ui"
+	d2ui "nostos/core/ui"
 )
 
 const (

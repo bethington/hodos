@@ -10,7 +10,7 @@ import (
 	d2interface "nostos/common/interfaces"
 
 	d2asset "nostos/core/asset"
-	"nostos/core/d2ui"
+	d2ui "nostos/core/ui"
 
 	d2resource "nostos/common/assets"
 	d2util "nostos/common/util"

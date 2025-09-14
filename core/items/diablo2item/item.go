@@ -11,7 +11,7 @@ import (
 
 	"nostos/common/enum"
 	d2stats "nostos/core/stats"
-	"nostos/core/d2ui"
+	d2ui "nostos/core/ui"
 	d2item "nostos/core/items"
 )
 

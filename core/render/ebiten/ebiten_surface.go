@@ -11,7 +11,7 @@ import (
 
 	"nostos/common/enum"
 	d2interface "nostos/common/interfaces"
-	"nostos/core/d2ui"
+	d2ui "nostos/core/ui"
 )
 
 // static check that we implement our interface

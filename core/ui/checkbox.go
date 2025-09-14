@@ -1,4 +1,4 @@
-package d2ui
+package ui
 
 import (
 	"nostos/common/enum"

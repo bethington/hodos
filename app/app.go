@@ -33,7 +33,7 @@ import (
 	d2config "nostos/core/config"
 	d2screen "nostos/core/screens"
 	d2term "nostos/core/console"
-	"nostos/core/d2ui"
+	d2ui "nostos/core/ui"
 	d2gui "nostos/core/gui"
 	d2input "nostos/core/input"
 	d2render "nostos/core/render/ebiten"

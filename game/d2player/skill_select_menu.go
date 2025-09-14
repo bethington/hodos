@@ -5,7 +5,7 @@ import (
 	d2util "nostos/common/util"
 	d2asset "nostos/core/asset"
 	d2mapentity "nostos/core/world/entity"
-	"nostos/core/d2ui"
+	d2ui "nostos/core/ui"
 )
 
 // SkillSelectMenu is a wrapper for the left + right menu that pop up when a player clicks the left/right skill select.

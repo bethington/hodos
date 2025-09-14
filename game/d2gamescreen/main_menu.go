@@ -17,7 +17,7 @@ import (
 	d2util "nostos/common/util"
 	d2asset "nostos/core/asset"
 	d2screen "nostos/core/screens"
-	"nostos/core/d2ui"
+	d2ui "nostos/core/ui"
 	"nostos/networking/d2client/d2clientconnectiontype"
 	d2script "nostos/script"
 )

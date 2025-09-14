@@ -1,4 +1,4 @@
-package d2ui
+package ui
 
 import (
 	d2interface "nostos/common/interfaces"

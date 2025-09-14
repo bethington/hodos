@@ -11,7 +11,7 @@ import (
 	d2interface "nostos/common/interfaces"
 	d2asset "nostos/core/asset"
 	d2hero "nostos/core/character"
-	"nostos/core/d2ui"
+	d2ui "nostos/core/ui"
 )
 
 const (

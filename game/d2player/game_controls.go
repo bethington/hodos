@@ -18,7 +18,7 @@ import (
 	d2mapengine "nostos/core/world/engine"
 	d2mapentity "nostos/core/world/entity"
 	d2maprenderer "nostos/core/world/renderer"
-	"nostos/core/d2ui"
+	d2ui "nostos/core/ui"
 )
 
 const (

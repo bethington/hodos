@@ -1,4 +1,4 @@
-package d2ui
+package ui
 
 import (
 	"image/color"
