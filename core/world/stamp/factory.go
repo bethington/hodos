@@ -6,9 +6,9 @@ import (
 
 	d2mapentity "nostos/core/world/entity"
 
-	d2util "nostos/common/util"
 	"nostos/common/enum"
 	d2ds1 "nostos/common/fileformats/ds1"
+	d2util "nostos/common/util"
 	d2asset "nostos/core/asset"
 )
 

@@ -7,9 +7,9 @@ import (
 	"math/rand"
 	"strings"
 
-	d2geom "nostos/common/geometry"
 	"nostos/common/enum"
 	d2ds1 "nostos/common/fileformats/ds1"
+	d2geom "nostos/common/geometry"
 	"nostos/core/world/generation/d2wilderness"
 	d2mapstamp "nostos/core/world/stamp"
 )

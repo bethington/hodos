@@ -8,11 +8,11 @@ import (
 	"strconv"
 
 	d2resource "nostos/common/assets"
-	d2util "nostos/common/util"
 	"nostos/common/enum"
 	d2ds1 "nostos/common/fileformats/ds1"
 	d2interface "nostos/common/interfaces"
 	d2vector "nostos/common/math/vector"
+	d2util "nostos/common/util"
 	d2asset "nostos/core/asset"
 	d2mapengine "nostos/core/world/engine"
 )

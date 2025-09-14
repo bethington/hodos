@@ -9,8 +9,8 @@ import (
 	d2interface "nostos/common/interfaces"
 	d2vector "nostos/common/math/vector"
 	d2path "nostos/common/path"
-	d2mapentity "nostos/core/world/entity"
 	"nostos/core/d2records"
+	d2mapentity "nostos/core/world/entity"
 )
 
 const (
